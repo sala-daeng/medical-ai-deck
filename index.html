@@ -3,56 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NIT × Sala Daeng — World-Class Brain Hospital</title>
+<title>NIT × Sala Daeng — Brain Hospital of Asia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-0: #fafbfc;
+    --bg: #faf9f5;
     --bg-card: #ffffff;
-    --ink-0: #0a1226;
-    --ink-1: #2d3548;
-    --ink-2: #6b7390;
-    --ink-3: #a3acc4;
-    --cyan: #0080ff;
-    --teal: #00a574;
-    --violet: #7c3aed;
-    --pink: #ec4899;
-    --amber: #d97706;
-    --red: #dc2626;
-    --line: rgba(10, 18, 38, 0.08);
-    --line-strong: rgba(10, 18, 38, 0.16);
-    --shadow-sm: 0 1px 3px rgba(10, 18, 38, 0.06), 0 0 0 1px rgba(10, 18, 38, 0.04);
-    --shadow-md: 0 8px 24px rgba(10, 18, 38, 0.08), 0 0 0 1px rgba(10, 18, 38, 0.05);
-    --shadow-lg: 0 20px 50px rgba(10, 18, 38, 0.10), 0 0 0 1px rgba(10, 18, 38, 0.04);
+    --ink: #0a0e1a;
+    --ink-1: #2a3144;
+    --ink-2: #6b7286;
+    --ink-3: #a8aebc;
+    --line: rgba(10, 14, 26, 0.07);
+    --line-strong: rgba(10, 14, 26, 0.14);
+    --cyan: #0070e8;
+    --teal: #007a5e;
+    --violet: #6d3aa8;
+    --coral: #c43d2d;
+    --amber: #b8881a;
+    --pink: #db4276;
+    --shadow-sm: 0 1px 2px rgba(10, 14, 26, 0.04), 0 0 0 1px rgba(10, 14, 26, 0.05);
+    --shadow-md: 0 6px 24px rgba(10, 14, 26, 0.06), 0 0 0 1px rgba(10, 14, 26, 0.05);
+    --shadow-lg: 0 24px 56px rgba(10, 14, 26, 0.10), 0 0 0 1px rgba(10, 14, 26, 0.05);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
     width: 100%; height: 100%; overflow: hidden;
-    background: var(--bg-0); color: var(--ink-0);
-    font-family: 'IBM Plex Sans Thai', 'Space Grotesk', system-ui, sans-serif;
+    background: var(--bg); color: var(--ink);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
     line-height: 1.5;
   }
   body::before {
     content: ''; position: fixed; inset: 0;
-    background-image: radial-gradient(circle, rgba(10, 18, 38, 0.05) 1px, transparent 1px);
-    background-size: 28px 28px;
+    background-image: radial-gradient(circle, rgba(10, 14, 26, 0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
     pointer-events: none; z-index: 1;
-    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.4), transparent 80%);
+    mask-image: radial-gradient(ellipse at center, rgba(0,0,0,0.5), transparent 75%);
   }
   body::after {
     content: ''; position: fixed; inset: 0;
     background:
-      radial-gradient(circle at 8% 5%, rgba(0, 128, 255, 0.06), transparent 30%),
-      radial-gradient(circle at 92% 95%, rgba(124, 58, 237, 0.05), transparent 35%);
+      radial-gradient(circle at 5% 0%, rgba(0, 122, 94, 0.05), transparent 30%),
+      radial-gradient(circle at 95% 100%, rgba(196, 61, 45, 0.04), transparent 35%);
     pointer-events: none; z-index: 0;
   }
+
+  /* Serif display - for English moments only */
+  .serif {
+    font-family: 'Fraunces', 'IBM Plex Sans Thai', serif;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+  }
+  .serif-italic {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+  }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
   .deck { position: relative; width: 100vw; height: 100vh; z-index: 2; }
   .slide {
     position: absolute; inset: 0;
-    padding: 6vh 8vw;
+    padding: 7vh 8vw;
     flex-direction: column;
     justify-content: center;
     animation: fadeIn 0.5s cubic-bezier(.2,.7,.3,1);
@@ -65,57 +80,58 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .num {
+  /* Editorial section marker */
+  .marker {
+    display: flex; align-items: center; gap: 1rem;
     font-family: 'JetBrains Mono', monospace;
-    color: var(--ink-3); font-size: 0.9rem;
-    letter-spacing: 0.18em; margin-bottom: 1.6rem;
-    display: flex; align-items: center; gap: 0.6rem; font-weight: 500;
+    color: var(--ink-2); font-size: 0.85rem;
+    letter-spacing: 0.2em; margin-bottom: 1.8rem;
+    font-weight: 500; text-transform: uppercase;
   }
-  .num::before { content: ''; width: 28px; height: 1px; background: var(--ink-3); }
+  .marker::before {
+    content: ''; width: 36px; height: 1px;
+    background: var(--ink-2);
+  }
+  .marker .num { color: var(--ink); font-weight: 700; }
+  .marker .em-dash { color: var(--ink-3); }
 
   h1 {
-    font-size: clamp(2.4rem, 5vw, 4.2rem);
-    line-height: 1.1; font-weight: 700;
-    letter-spacing: -0.025em; margin-bottom: 1.4rem;
-    color: var(--ink-0);
+    font-size: clamp(2.2rem, 4.4vw, 3.6rem);
+    line-height: 1.12; font-weight: 700;
+    letter-spacing: -0.02em; margin-bottom: 1.4rem;
+    color: var(--ink);
   }
   h2 {
-    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
-    line-height: 1.2; font-weight: 600;
-    letter-spacing: -0.02em; margin-bottom: 1.2rem;
-    color: var(--ink-0);
+    font-size: clamp(1.7rem, 3vw, 2.4rem);
+    line-height: 1.18; font-weight: 600;
+    letter-spacing: -0.015em; margin-bottom: 1rem;
+    color: var(--ink);
   }
   h3 {
-    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
-    font-weight: 700; color: var(--ink-0);
-    letter-spacing: -0.01em;
+    font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+    font-weight: 700; color: var(--ink);
+    letter-spacing: -0.005em;
   }
-  p { font-size: clamp(1.2rem, 1.4vw, 1.4rem); line-height: 1.55; color: var(--ink-1); }
-  li { font-size: clamp(1.2rem, 1.4vw, 1.4rem); line-height: 1.55; color: var(--ink-1); }
+  p, li {
+    font-size: clamp(1.2rem, 1.4vw, 1.35rem);
+    line-height: 1.55; color: var(--ink-1);
+  }
   .lead {
-    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+    font-size: clamp(1.3rem, 1.65vw, 1.55rem);
     line-height: 1.5; color: var(--ink-1); max-width: 64ch;
-    font-weight: 400;
+    font-weight: 400; margin-bottom: 0;
   }
 
   .cyan { color: var(--cyan); }
   .teal { color: var(--teal); }
   .violet { color: var(--violet); }
+  .coral { color: var(--coral); }
   .amber { color: var(--amber); }
-  .red { color: var(--red); }
   .ink-2 { color: var(--ink-2); }
-  .grad {
-    background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
-  .grad-teal {
-    background: linear-gradient(135deg, var(--teal) 0%, var(--cyan) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-  }
 
   .pulse {
-    width: 10px; height: 10px; border-radius: 50%;
-    background: var(--teal); box-shadow: 0 0 12px rgba(0, 165, 116, 0.4);
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--teal); box-shadow: 0 0 10px rgba(0, 122, 94, 0.5);
     animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
@@ -130,24 +146,38 @@
     display: flex; justify-content: space-between; align-items: center;
     color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase;
     font-weight: 500;
   }
-  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
+  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 2.2rem; }
   .cover-tag {
-    display: flex; align-items: center; gap: 1rem;
+    display: flex; align-items: center; gap: 0.9rem;
     color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 1rem; letter-spacing: 0.18em; font-weight: 500;
+    font-size: 0.95rem; letter-spacing: 0.2em; font-weight: 500;
+    text-transform: uppercase;
   }
   .cover-title {
-    font-size: clamp(3rem, 6vw, 5.6rem);
-    line-height: 1.1; font-weight: 700;
-    letter-spacing: -0.035em; color: var(--ink-0);
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    line-height: 1.05; font-weight: 700;
+    letter-spacing: -0.03em; color: var(--ink);
+  }
+  .cover-title-serif {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(3rem, 6.5vw, 6rem);
+    line-height: 1.02;
+    color: var(--coral);
+    letter-spacing: -0.02em;
+    margin-top: 0.3em;
   }
   .cover-sub {
     font-size: clamp(1.25rem, 1.6vw, 1.5rem);
-    color: var(--ink-1); max-width: 72ch; line-height: 1.55;
+    color: var(--ink-1); max-width: 70ch; line-height: 1.55;
   }
   .cover-footer {
     display: flex; justify-content: space-between; align-items: end;
@@ -155,237 +185,266 @@
     font-weight: 500;
   }
 
-  /* ===== CARDS (3-up grid) ===== */
+  /* ===== 3 CARDS ROW ===== */
   .cards-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.8rem;
-    margin-top: 2rem;
+    gap: 1.6rem;
+    margin-top: 1.8rem;
   }
   @media (max-width: 1000px) { .cards-3 { grid-template-columns: 1fr; } }
 
   .card {
-    padding: 2rem 1.8rem;
-    border-radius: 16px;
+    padding: 1.8rem;
+    border-radius: 14px;
     background: var(--bg-card);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .card .ic { font-size: 2.6rem; margin-bottom: 1rem; line-height: 1; }
+  .card .ic { font-size: 2.2rem; margin-bottom: 0.9rem; line-height: 1; }
   .card .name {
-    font-size: 1.4rem; font-weight: 700; margin-bottom: 0.6rem;
-    color: var(--ink-0); letter-spacing: -0.01em; line-height: 1.25;
+    font-size: 1.35rem; font-weight: 700; margin-bottom: 0.55rem;
+    color: var(--ink); letter-spacing: -0.005em; line-height: 1.25;
   }
-  .card .desc { font-size: 1.2rem; color: var(--ink-2); line-height: 1.5; }
+  .card .desc { font-size: 1.15rem; color: var(--ink-2); line-height: 1.5; }
   .card .since {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--teal);
-    letter-spacing: 0.1em; margin-top: 1rem; font-weight: 700;
+    font-size: 0.78rem; color: var(--teal);
+    letter-spacing: 0.12em; margin-top: 0.9rem; font-weight: 700;
   }
-  .card.have { border-left: 4px solid var(--teal); }
+  .card.have { border-left: 3px solid var(--teal); }
 
   /* ===== WORLD CARDS ===== */
   .world-card {
     padding: 1.8rem;
-    border-radius: 16px;
+    border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
   }
   .world-card .tech {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem; color: var(--cyan);
-    letter-spacing: 0.13em; margin-bottom: 0.8rem;
+    letter-spacing: 0.12em; margin-bottom: 0.8rem;
     text-transform: uppercase; font-weight: 700;
   }
   .world-card .what {
-    font-size: 1.4rem; font-weight: 700;
-    color: var(--ink-0); margin-bottom: 0.7rem; line-height: 1.3;
-    letter-spacing: -0.01em;
+    font-size: 1.35rem; font-weight: 700;
+    color: var(--ink); margin-bottom: 0.7rem; line-height: 1.25;
+    letter-spacing: -0.005em;
   }
   .world-card .who {
     font-size: 1.05rem; color: var(--ink-2);
     margin-bottom: 1rem; line-height: 1.5;
   }
   .world-card .impact {
-    font-size: 1.2rem; color: var(--teal);
+    font-size: 1.15rem; color: var(--teal);
     font-weight: 700; line-height: 1.4;
   }
 
+  /* ===== GAP HERO ===== */
+  .gap-hero {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 4vw;
+    align-items: center;
+    margin-top: 2rem;
+  }
+  @media (max-width: 900px) { .gap-hero { grid-template-columns: 1fr; gap: 1.5rem; } }
+  .gap-number {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+    font-weight: 500;
+    font-size: clamp(7rem, 14vw, 11rem);
+    line-height: 0.9;
+    color: var(--coral);
+    letter-spacing: -0.05em;
+  }
+  .gap-text {
+    font-size: clamp(1.3rem, 1.7vw, 1.6rem);
+    color: var(--ink-1); line-height: 1.45;
+    max-width: 42ch;
+  }
+  .gap-text b { color: var(--ink); font-weight: 700; }
+
+  /* ===== 5 LAYERS PREVIEW CARDS ===== */
+  .preview-cards {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.1rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 1200px) { .preview-cards { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .preview-cards { grid-template-columns: 1fr; } }
+
+  .preview-card {
+    padding: 1.6rem 1.4rem;
+    border-radius: 14px;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column;
+    border-top: 3px solid transparent;
+  }
+  .preview-card.l1 { border-top-color: var(--cyan); }
+  .preview-card.l2 { border-top-color: var(--violet); }
+  .preview-card.l3 { border-top-color: var(--amber); }
+  .preview-card.l4 { border-top-color: var(--coral); }
+  .preview-card.l5 { border-top-color: var(--teal); }
+  .preview-card .layer-num-small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--ink-3);
+    letter-spacing: 0.13em; margin-bottom: 0.6rem; font-weight: 600;
+  }
+  .preview-card .ic { font-size: 2rem; margin-bottom: 0.7rem; line-height: 1; }
+  .preview-card .name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); line-height: 1.2; letter-spacing: -0.005em; }
+  .preview-card .desc { font-size: 1.02rem; color: var(--ink-2); line-height: 1.45; }
+
   /* ===== LAYER ===== */
   .layer-header {
-    display: flex; align-items: center; gap: 1.6rem;
-    margin-bottom: 1.6rem;
+    display: flex; align-items: center; gap: 1.4rem;
+    margin-bottom: 1.4rem;
   }
   .layer-num {
-    width: 88px; height: 88px;
-    border-radius: 20px;
+    width: 80px; height: 80px;
+    border-radius: 16px;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     display: inline-flex; align-items: center; justify-content: center;
     color: white; font-weight: 700;
-    font-family: 'Space Grotesk', system-ui;
-    font-size: 2.6rem;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-size: 2.4rem;
     flex-shrink: 0;
-    box-shadow: 0 16px 40px rgba(0, 128, 255, 0.3);
+    box-shadow: 0 14px 32px rgba(0, 112, 232, 0.22);
+    font-style: italic;
   }
   .layer-title-block { flex: 1; }
   .layer-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem; color: var(--cyan);
-    letter-spacing: 0.15em; margin-bottom: 0.4rem; font-weight: 700;
+    font-size: 0.88rem; color: var(--cyan);
+    letter-spacing: 0.15em; margin-bottom: 0.35rem; font-weight: 700;
+    text-transform: uppercase;
   }
   .layer-title {
-    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-    font-weight: 700; line-height: 1.1;
-    letter-spacing: -0.025em; color: var(--ink-0);
+    font-size: clamp(1.7rem, 2.9vw, 2.4rem);
+    font-weight: 700; line-height: 1.12;
+    letter-spacing: -0.02em; color: var(--ink);
   }
 
   .layer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.8rem;
-    margin-top: 1.5rem;
+    gap: 1.6rem;
+    margin-top: 1.4rem;
   }
   @media (max-width: 900px) { .layer-grid { grid-template-columns: 1fr; } }
 
   .layer-side {
-    padding: 1.8rem 2rem;
-    border-radius: 16px;
+    padding: 1.7rem 1.8rem;
+    border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
   }
   .layer-side .ls-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em; margin-bottom: 0.8rem; font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em; margin-bottom: 0.7rem; font-weight: 700;
+    text-transform: uppercase;
   }
-  .layer-side.problem { border-left: 4px solid var(--red); }
-  .layer-side.problem .ls-label { color: var(--red); }
+  .layer-side.problem { border-left: 3px solid var(--coral); }
+  .layer-side.problem .ls-label { color: var(--coral); }
   .layer-side.solution {
-    border-left: 4px solid var(--teal);
-    background: linear-gradient(135deg, rgba(0, 165, 116, 0.04), rgba(255,255,255,1));
+    border-left: 3px solid var(--teal);
+    background: linear-gradient(135deg, rgba(0, 122, 94, 0.04), rgba(255,255,255,1));
   }
   .layer-side.solution .ls-label { color: var(--teal); }
   .layer-side p { font-size: 1.2rem; line-height: 1.55; color: var(--ink-1); }
-  .layer-side p b { color: var(--ink-0); font-weight: 700; }
+  .layer-side p b { color: var(--ink); font-weight: 700; }
 
-  /* ===== IMPACT PANEL (its own slide) ===== */
+  /* ===== IMPACT HERO PANEL ===== */
   .impact-hero {
     margin-top: 2rem;
-    padding: 3rem 2.5rem;
-    border-radius: 22px;
+    padding: 2.8rem 2.5rem;
+    border-radius: 20px;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     color: white;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.6rem;
-    box-shadow: 0 24px 60px rgba(0, 128, 255, 0.25);
+    gap: 1.5rem;
+    box-shadow: 0 24px 60px rgba(0, 112, 232, 0.22);
   }
-  .impact-hero.violet-pink { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 24px 60px rgba(124, 58, 237, 0.25); }
-  .impact-hero.amber-red { background: linear-gradient(135deg, var(--amber), var(--red)); box-shadow: 0 24px 60px rgba(217, 119, 6, 0.25); }
-  .impact-hero.red-amber { background: linear-gradient(135deg, var(--red), var(--amber)); box-shadow: 0 24px 60px rgba(220, 38, 38, 0.25); }
-  .impact-hero.cyan-teal { background: linear-gradient(135deg, var(--cyan), var(--teal)); box-shadow: 0 24px 60px rgba(0, 128, 255, 0.25); }
-  .impact-hero .ih-stat {
-    color: white;
-  }
+  .impact-hero.violet-pink { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 24px 60px rgba(109, 58, 168, 0.22); }
+  .impact-hero.amber-coral { background: linear-gradient(135deg, var(--amber), var(--coral)); box-shadow: 0 24px 60px rgba(184, 136, 26, 0.22); }
+  .impact-hero.coral-amber { background: linear-gradient(135deg, var(--coral), var(--amber)); box-shadow: 0 24px 60px rgba(196, 61, 45, 0.22); }
+  .impact-hero.teal-cyan { background: linear-gradient(135deg, var(--teal), var(--cyan)); box-shadow: 0 24px 60px rgba(0, 122, 94, 0.22); }
+  .impact-hero .ih-stat { color: white; }
   .impact-hero .ih-stat .v {
-    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-    font-weight: 700; color: white;
-    line-height: 1; font-family: 'Space Grotesk', system-ui;
-    letter-spacing: -0.025em; margin-bottom: 0.6rem;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+    color: white;
+    line-height: 1;
+    letter-spacing: -0.025em; margin-bottom: 0.55rem;
   }
-  .impact-hero .ih-stat .k { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.35; font-weight: 500; }
+  .impact-hero .ih-stat .k { font-size: 1.1rem; color: rgba(255,255,255,0.92); line-height: 1.35; font-weight: 500; }
 
   .layer-ref-card {
-    margin-top: 1.8rem;
-    padding: 1.6rem 2rem;
+    margin-top: 1.6rem;
+    padding: 1.4rem 1.8rem;
     background: var(--bg-card);
-    border-left: 4px solid var(--ink-3);
-    border-radius: 0 14px 14px 0;
+    border-left: 3px solid var(--ink-3);
+    border-radius: 0 12px 12px 0;
     box-shadow: var(--shadow-sm);
   }
   .layer-ref-card .lab {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--ink-2);
-    letter-spacing: 0.13em; margin-bottom: 0.6rem;
-    display: block; font-weight: 700;
+    font-size: 0.82rem; color: var(--ink-2);
+    letter-spacing: 0.13em; margin-bottom: 0.55rem;
+    display: block; font-weight: 700; text-transform: uppercase;
   }
-  .layer-ref-card p { font-size: 1.15rem; line-height: 1.55; color: var(--ink-1); }
-  .layer-ref-card b { color: var(--ink-0); font-weight: 700; }
-
-  /* ===== BIG STAT ===== */
-  .bigstat {
-    display: flex; align-items: baseline; gap: 2.5rem;
-    margin-top: 2rem; flex-wrap: wrap;
-  }
-  .bigstat .num-huge {
-    font-size: clamp(6rem, 16vw, 14rem);
-    font-weight: 700; line-height: 0.9;
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    font-family: 'Space Grotesk', system-ui;
-    letter-spacing: -0.05em;
-  }
-  .bigstat .num-text {
-    font-size: clamp(1.3rem, 1.7vw, 1.55rem);
-    color: var(--ink-1); line-height: 1.45;
-    max-width: 38ch;
-  }
-  .bigstat .num-text b { color: var(--ink-0); font-weight: 700; }
-
-  /* ===== 5 LAYERS LIST (gap intro slide) ===== */
-  .layers-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.4rem;
-    margin-top: 2.5rem;
-  }
-  .ll-item {
-    padding: 1.5rem 1.4rem;
-    border-radius: 14px;
-    background: var(--bg-card);
-    box-shadow: var(--shadow-sm);
-  }
-  .ll-item .ic { font-size: 2.2rem; margin-bottom: 0.6rem; }
-  .ll-item .name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--ink-0); }
-  .ll-item .desc { font-size: 1.05rem; color: var(--ink-2); line-height: 1.4; }
+  .layer-ref-card p { font-size: 1.1rem; line-height: 1.55; color: var(--ink-1); }
+  .layer-ref-card b { color: var(--ink); font-weight: 700; }
 
   /* ===== COMPETITIVE ===== */
   .vs-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.4rem;
-    margin-top: 2rem;
+    margin-top: 1.8rem;
   }
   @media (max-width: 1000px) { .vs-matrix { grid-template-columns: 1fr; } }
   .vs-col {
-    padding: 2rem 1.8rem;
-    border-radius: 16px;
+    padding: 1.8rem 1.7rem;
+    border-radius: 14px;
     background: var(--bg-card);
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
   }
   .vs-col.us {
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
     color: white;
-    box-shadow: 0 20px 50px rgba(0, 128, 255, 0.3);
+    box-shadow: 0 20px 50px rgba(0, 112, 232, 0.25);
   }
   .vs-col .name {
-    font-size: 1.4rem; font-weight: 700;
-    margin-bottom: 0.5rem; color: var(--ink-0);
-    letter-spacing: -0.01em;
+    font-size: 1.35rem; font-weight: 700;
+    margin-bottom: 0.45rem; color: var(--ink);
+    letter-spacing: -0.005em;
   }
   .vs-col.us .name { color: white; }
   .vs-col .ko {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: var(--ink-3);
-    letter-spacing: 0.13em; margin-bottom: 1.2rem; font-weight: 700;
+    letter-spacing: 0.13em; margin-bottom: 1.1rem; font-weight: 700;
+    text-transform: uppercase;
   }
   .vs-col.us .ko { color: rgba(255,255,255,0.85); }
-  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
   .vs-col li {
-    font-size: 1.15rem;
+    font-size: 1.13rem;
     line-height: 1.5;
-    padding-left: 1.5rem;
+    padding-left: 1.4rem;
     position: relative;
     color: var(--ink-1);
   }
@@ -397,155 +456,159 @@
     color: var(--ink-3);
     font-weight: 700;
   }
-  .vs-col.us li::before { content: '✦'; color: white; font-size: 0.85rem; top: 4px; left: 0; }
+  .vs-col.us li::before { content: '✦'; color: white; font-size: 0.8rem; top: 4px; left: 0; }
 
   /* ===== STACK ===== */
   .stack {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     display: flex; flex-direction: column;
-    gap: 0.7rem;
-    max-width: 1200px;
+    gap: 0.55rem;
   }
   .stack-layer {
     display: grid;
-    grid-template-columns: 120px 1fr 200px;
+    grid-template-columns: 110px 1fr 180px;
     gap: 1.4rem;
-    padding: 1.3rem 1.8rem;
-    border-radius: 14px;
+    padding: 1.1rem 1.6rem;
+    border-radius: 12px;
     align-items: center;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
   }
   .stack-layer.existing {
-    background: linear-gradient(90deg, rgba(0, 165, 116, 0.06), rgba(255,255,255,1));
-    border-left: 4px solid var(--teal);
+    background: linear-gradient(90deg, rgba(0, 122, 94, 0.05), rgba(255,255,255,1));
+    border-left: 3px solid var(--teal);
   }
   .stack-layer.new {
-    background: linear-gradient(90deg, rgba(0, 128, 255, 0.05), rgba(124, 58, 237, 0.03));
-    border-left: 4px solid var(--cyan);
+    background: linear-gradient(90deg, rgba(0, 112, 232, 0.04), rgba(109, 58, 168, 0.02));
+    border-left: 3px solid var(--cyan);
   }
   .stack-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     letter-spacing: 0.13em; font-weight: 700;
+    text-transform: uppercase;
   }
   .stack-layer.existing .stack-tag { color: var(--teal); }
   .stack-layer.new .stack-tag { color: var(--cyan); }
-  .stack-name { font-size: 1.25rem; font-weight: 700; color: var(--ink-0); letter-spacing: -0.01em; }
-  .stack-name small { display: block; font-size: 1.05rem; color: var(--ink-2); font-weight: 400; margin-top: 4px; line-height: 1.4; }
+  .stack-name { font-size: 1.2rem; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  .stack-name small { display: block; font-size: 1rem; color: var(--ink-2); font-weight: 400; margin-top: 4px; line-height: 1.4; }
   .stack-owner {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem; color: var(--ink-3);
+    font-size: 0.85rem; color: var(--ink-3);
     text-align: right;
     letter-spacing: 0.05em; font-weight: 600;
   }
 
   /* ===== ROADMAP ===== */
   .roadmap {
-    margin-top: 2rem;
+    margin-top: 1.8rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
+    gap: 1.4rem;
   }
   @media (max-width: 1000px) { .roadmap { grid-template-columns: 1fr; } }
   .roadphase {
-    padding: 2rem 1.8rem;
-    border-radius: 16px;
+    padding: 1.9rem 1.7rem;
+    border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
   }
-  .roadphase.p1 { border-top: 4px solid var(--teal); }
-  .roadphase.p2 { border-top: 4px solid var(--cyan); }
-  .roadphase.p3 { border-top: 4px solid var(--violet); }
+  .roadphase.p1 { border-top: 3px solid var(--teal); }
+  .roadphase.p2 { border-top: 3px solid var(--cyan); }
+  .roadphase.p3 { border-top: 3px solid var(--violet); }
   .roadphase .when {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em; margin-bottom: 0.8rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.15em; margin-bottom: 0.7rem;
     color: var(--ink-3); font-weight: 700;
+    text-transform: uppercase;
   }
-  .roadphase h3 { margin-bottom: 0.6rem; font-size: 1.5rem; }
-  .roadphase .focus { font-size: 1.1rem; color: var(--ink-2); margin-bottom: 1.4rem; line-height: 1.45; }
-  .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
-  .roadphase li { font-size: 1.1rem; color: var(--ink-1); padding-left: 1.2rem; position: relative; line-height: 1.45; }
+  .roadphase h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+  .roadphase .focus { font-size: 1.05rem; color: var(--ink-2); margin-bottom: 1.2rem; line-height: 1.45; }
+  .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .roadphase li { font-size: 1.05rem; color: var(--ink-1); padding-left: 1.2rem; position: relative; line-height: 1.4; }
   .roadphase li::before { content: '→'; position: absolute; left: 0; color: var(--ink-3); }
 
   /* ===== STAT GRID ===== */
   .stat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem;
+    margin-top: 1.8rem;
   }
   .stat {
-    padding: 2rem 1.8rem;
-    border-radius: 16px;
+    padding: 1.8rem 1.7rem;
+    border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
     position: relative; overflow: hidden;
   }
   .stat::before {
-    content: ''; position: absolute; inset: 0 0 auto 0; height: 4px;
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
     background: linear-gradient(90deg, var(--cyan), var(--violet));
   }
   .stat .v {
-    font-size: clamp(2.6rem, 4.2vw, 3.6rem);
-    font-weight: 700; font-family: 'Space Grotesk', system-ui;
+    font-family: 'Fraunces', serif;
+    font-variation-settings: "opsz" 144;
+    font-style: italic; font-weight: 500;
+    font-size: clamp(2.4rem, 3.8vw, 3.2rem);
     letter-spacing: -0.025em; line-height: 1;
-    background: linear-gradient(135deg, var(--cyan), var(--violet));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    margin-bottom: 0.6rem;
+    color: var(--cyan);
+    margin-bottom: 0.5rem;
   }
-  .stat .k { font-size: 1.15rem; color: var(--ink-2); line-height: 1.4; font-weight: 500; }
+  .stat .k { font-size: 1.1rem; color: var(--ink-2); line-height: 1.4; font-weight: 500; }
   .stat.teal::before { background: linear-gradient(90deg, var(--teal), var(--cyan)); }
-  .stat.teal .v { background: linear-gradient(135deg, var(--teal), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .stat.amber::before { background: linear-gradient(90deg, var(--amber), var(--red)); }
-  .stat.amber .v { background: linear-gradient(135deg, var(--amber), var(--red)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat.teal .v { color: var(--teal); }
+  .stat.amber::before { background: linear-gradient(90deg, var(--amber), var(--coral)); }
+  .stat.amber .v { color: var(--amber); }
   .stat.violet::before { background: linear-gradient(90deg, var(--violet), var(--pink)); }
-  .stat.violet .v { background: linear-gradient(135deg, var(--violet), var(--pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .stat.violet .v { color: var(--violet); }
 
   /* ===== HIGHLIGHT ===== */
   .highlight {
-    padding: 1.6rem 1.8rem;
-    background: linear-gradient(135deg, rgba(0, 128, 255, 0.05), rgba(124, 58, 237, 0.03));
-    border-left: 4px solid var(--cyan);
-    border-radius: 0 14px 14px 0;
-    margin-top: 1.8rem;
+    padding: 1.4rem 1.7rem;
+    background: linear-gradient(135deg, rgba(0, 112, 232, 0.05), rgba(109, 58, 168, 0.03));
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 12px 12px 0;
+    margin-top: 1.6rem;
   }
   .highlight .label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--cyan);
-    letter-spacing: 0.15em; margin-bottom: 0.5rem; font-weight: 700;
+    font-size: 0.82rem; color: var(--cyan);
+    letter-spacing: 0.15em; margin-bottom: 0.45rem; font-weight: 700;
+    text-transform: uppercase;
   }
-  .highlight .text { font-size: 1.25rem; color: var(--ink-0); line-height: 1.5; font-weight: 500; }
+  .highlight .text { font-size: 1.18rem; color: var(--ink); line-height: 1.5; font-weight: 500; }
   .highlight .text b { font-weight: 700; }
 
   /* ===== ASK ===== */
   .ask-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.6rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin-top: 1.8rem;
   }
   @media (max-width: 900px) { .ask-grid { grid-template-columns: 1fr; } }
   .ask-col {
-    padding: 2rem 1.8rem;
-    border-radius: 16px;
+    padding: 1.9rem 1.7rem;
+    border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
   }
-  .ask-col.nit { border-top: 4px solid var(--cyan); }
-  .ask-col.sd { border-top: 4px solid var(--teal); }
+  .ask-col.nit { border-top: 3px solid var(--cyan); }
+  .ask-col.sd { border-top: 3px solid var(--teal); }
   .ask-col .who {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem; letter-spacing: 0.15em;
-    margin-bottom: 1.3rem; font-weight: 700;
+    font-size: 0.9rem; letter-spacing: 0.15em;
+    margin-bottom: 1.1rem; font-weight: 700;
+    text-transform: uppercase;
   }
   .ask-col.nit .who { color: var(--cyan); }
   .ask-col.sd .who { color: var(--teal); }
-  .ask-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+  .ask-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
   .ask-col li {
-    font-size: 1.2rem; color: var(--ink-1);
-    line-height: 1.5; padding-left: 1.6rem; position: relative;
+    font-size: 1.18rem; color: var(--ink-1);
+    line-height: 1.5; padding-left: 1.5rem; position: relative;
   }
   .ask-col li::before {
     content: '✓'; position: absolute; left: 0;
@@ -557,30 +620,36 @@
   .vision-panel {
     margin-top: 2rem;
     padding: 4rem 3rem;
-    border-radius: 24px;
+    border-radius: 22px;
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
     color: white;
     text-align: center;
-    box-shadow: 0 28px 70px rgba(0, 128, 255, 0.28);
+    box-shadow: 0 28px 70px rgba(0, 112, 232, 0.25);
   }
   .vision-panel .year {
     font-family: 'JetBrains Mono', monospace;
-    color: rgba(255,255,255,0.9);
-    font-size: 1.05rem; letter-spacing: 0.22em;
-    margin-bottom: 1.5rem; font-weight: 700;
+    color: rgba(255,255,255,0.85);
+    font-size: 1rem; letter-spacing: 0.22em;
+    margin-bottom: 1.3rem; font-weight: 700;
+    text-transform: uppercase;
   }
   .vision-panel .quote {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-optical-sizing: auto;
+    font-variation-settings: "opsz" 144;
+    font-weight: 500;
     font-size: clamp(1.8rem, 3vw, 2.6rem);
-    font-weight: 600; line-height: 1.3;
-    max-width: 32ch; margin: 0 auto;
+    line-height: 1.3;
+    max-width: 34ch; margin: 0 auto;
     letter-spacing: -0.015em; color: white;
   }
 
   /* ===== END ===== */
   .end { align-items: center; justify-content: center; text-align: center; }
   .end h1 {
-    font-size: clamp(2.8rem, 5.4vw, 4.6rem);
-    font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 700; letter-spacing: -0.025em; line-height: 1.2;
   }
 
   /* ===== NAVIGATION ===== */
@@ -589,22 +658,22 @@
     display: flex; align-items: center; gap: 0.9rem;
     z-index: 10;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9rem; color: var(--ink-2);
+    font-size: 0.85rem; color: var(--ink-2);
     font-weight: 600;
   }
-  .nav .counter { color: var(--ink-0); }
+  .nav .counter { color: var(--ink); }
   .nav button {
-    width: 40px; height: 40px;
+    width: 38px; height: 38px;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
     border: 0; border-radius: 10px;
     color: var(--ink-1);
-    cursor: pointer; font-size: 1.2rem; transition: all 0.2s;
+    cursor: pointer; font-size: 1.1rem; transition: all 0.2s;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .nav button:hover {
     background: var(--cyan); color: white;
-    box-shadow: 0 4px 12px rgba(0, 128, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 112, 232, 0.3);
   }
   .progress {
     position: fixed; top: 0; left: 0; height: 3px;
@@ -616,12 +685,13 @@
     position: fixed; top: 1.4rem; left: 1.8rem;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.85rem; color: var(--ink-2);
-    letter-spacing: 0.2em; z-index: 10; font-weight: 700;
+    letter-spacing: 0.22em; z-index: 10; font-weight: 700;
+    text-transform: uppercase;
   }
-  .brand span { color: var(--cyan); }
+  .brand span { color: var(--coral); }
 
   @media print {
-    body { overflow: visible; background: var(--bg-0); }
+    body { overflow: visible; background: var(--bg); }
     .deck { width: 100%; height: auto; }
     .slide { display: flex !important; page-break-after: always; position: relative; width: 100vw; height: 100vh; }
     .nav, .progress, .brand { display: none; }
@@ -634,28 +704,27 @@
 <body>
 
 <div class="progress" id="progress" style="width: 0%"></div>
-<div class="brand"><span>●</span> NIT × SALA DAENG</div>
+<div class="brand"><span>●</span>&nbsp; NIT × Sala Daeng</div>
 
 <div class="deck">
 
   <!-- 1. COVER -->
   <section class="slide cover active">
     <div class="cover-header">
-      <span>FOR THE DIRECTOR / NIT</span>
-      <span>v5.0 · 2026</span>
+      <span>FOR THE DIRECTOR · NIT</span>
+      <span>VOLUME 06 · 2026</span>
     </div>
     <div class="cover-main">
       <div class="cover-tag">
-        <span class="pulse"></span> NOT ANOTHER SMART HOSPITAL DECK
+        <span class="pulse"></span> Not another smart hospital deck
       </div>
       <h1 class="cover-title">
-        ทำให้ NIT เป็น<br>
-        <span class="grad">Brain Hospital of Asia</span>
+        ทำให้ NIT เป็น
+        <span class="cover-title-serif">Brain Hospital of Asia.</span>
       </h1>
       <p class="cover-sub">
-        NIT มี foundation ดีกว่า 95% รพ. ไทยอยู่แล้ว <br>
-        เราไม่มาขายของพื้น ๆ — มาเสริมด้วย <b>5 Force Multipliers</b><br>
-        ที่จะทำให้ NIT ติด WIRED · NEJM · WHO Innovation
+        NIT มี foundation ดีกว่า 95% รพ. ไทยอยู่แล้ว — <b>เราไม่มาขายของพื้น ๆ</b><br>
+        เรามาเสริมด้วย <b>5 Force Multipliers</b> ที่จะทำให้ NIT ติด WIRED · NEJM · WHO Innovation
       </p>
     </div>
     <div class="cover-footer">
@@ -666,7 +735,7 @@
 
   <!-- 2. WHAT NIT HAS — Part 1 -->
   <section class="slide">
-    <div class="num">02 / WHAT NIT ALREADY HAS · 1/2</div>
+    <div class="marker"><span class="num">02</span> <span class="em-dash">—</span> What NIT Already Has · 1/2</div>
     <h1>NIT <span class="teal">ไม่ใช่</span>โรงพยาบาลธรรมดา</h1>
     <p class="lead">3 ระบบสำคัญที่ทำให้คนไข้ได้รับ care ดีกว่า รพ. ทั่วไป</p>
     <div class="cards-3">
@@ -693,8 +762,8 @@
 
   <!-- 3. WHAT NIT HAS — Part 2 -->
   <section class="slide">
-    <div class="num">03 / WHAT NIT ALREADY HAS · 2/2</div>
-    <h1>และอีก <span class="teal">3 ด้าน</span> ที่แข็งแกร่ง</h1>
+    <div class="marker"><span class="num">03</span> <span class="em-dash">—</span> What NIT Already Has · 2/2</div>
+    <h1>และ <span class="teal">3 ด้าน</span> ที่แข็งแกร่ง</h1>
     <p class="lead">Research, partnership, automation — foundation ของ AI-ready hospital</p>
     <div class="cards-3">
       <div class="card have">
@@ -717,31 +786,31 @@
       </div>
     </div>
     <div class="highlight">
-      <div class="label">THE INSIGHT</div>
-      <div class="text">เรา <b class="red">ไม่ rebuild</b> สิ่งที่ NIT มี — เรามา <b class="teal">เสริม</b> สิ่งที่ NIT ยังไม่มี และไม่มีใครในไทยมี</div>
+      <div class="label">The insight</div>
+      <div class="text">เรา<b class="coral"> ไม่ rebuild</b> สิ่งที่ NIT มี — เรามา<b class="teal"> เสริม</b> สิ่งที่ NIT ยังไม่มี และไม่มีใครในไทยมี</div>
     </div>
   </section>
 
   <!-- 4. STATE OF THE WORLD — Part 1 -->
   <section class="slide">
-    <div class="num">04 / STATE OF THE WORLD · 1/2</div>
-    <h1>โลกไปถึงไหนแล้วใน <span class="grad">Neuro AI</span></h1>
+    <div class="marker"><span class="num">04</span> <span class="em-dash">—</span> State of the World · 1/2</div>
+    <h1>โลกไปถึงไหนแล้วใน <span class="serif-italic coral">neuro AI</span></h1>
     <p class="lead">นวัตกรรม clinical ที่ Cleveland Clinic, Mayo, Stanford ใช้แล้ว</p>
     <div class="cards-3">
       <div class="world-card">
-        <div class="tech">🚑 RAPIDAI / VIZ.AI</div>
+        <div class="tech">🚑 RapidAI / Viz.ai</div>
         <div class="what">AI อ่าน CT Brain ในรถพยาบาล</div>
         <div class="who">Cleveland Clinic MSU · 2,000+ รพ. · FDA-cleared</div>
         <div class="impact">↓ door-to-needle 38 นาที</div>
       </div>
       <div class="world-card">
-        <div class="tech">🎙️ DAX / ABRIDGE</div>
+        <div class="tech">🎙️ DAX / Abridge</div>
         <div class="what">GenAI ฟังหมอ → เขียน progress note</div>
         <div class="who">Mayo · Stanford · HCA · Abridge $1.2B</div>
         <div class="impact">↑ ประหยัด 1 ชม./วัน/หมอ</div>
       </div>
       <div class="world-card">
-        <div class="tech">🧬 BRAINOMIX</div>
+        <div class="tech">🧬 Brainomix</div>
         <div class="what">AI predict 90-day mRS จาก CT</div>
         <div class="who">Oxford NIHR · Lancet 2024</div>
         <div class="impact">↑ treatment accuracy 30%</div>
@@ -751,24 +820,24 @@
 
   <!-- 5. STATE OF THE WORLD — Part 2 -->
   <section class="slide">
-    <div class="num">05 / STATE OF THE WORLD · 2/2</div>
-    <h1>และ <span class="grad">3 นวัตกรรม</span> ฝั่ง preventive + network</h1>
+    <div class="marker"><span class="num">05</span> <span class="em-dash">—</span> State of the World · 2/2</div>
+    <h1>และ <span class="serif-italic coral">3 นวัตกรรม</span> ฝั่ง prevention + network</h1>
     <p class="lead">Care AI ที่กำลังเปลี่ยนวิธีดูแลผู้ป่วยทั่วโลก</p>
     <div class="cards-3">
       <div class="world-card">
-        <div class="tech">⌚ APPLE WATCH</div>
+        <div class="tech">⌚ Apple Watch</div>
         <div class="what">นาฬิกาตรวจ AFib (30% สาเหตุ stroke)</div>
         <div class="who">FDA-cleared · 200M users · Apple Heart Study</div>
         <div class="impact">↑ early detection 84%</div>
       </div>
       <div class="world-card">
-        <div class="tech">🌐 OWKIN / FEDERATED</div>
+        <div class="tech">🌐 Owkin / Federated</div>
         <div class="what">รพ. หลายแห่ง train AI ร่วม — data ไม่ออก</div>
         <div class="who">Mt Sinai · NIH · Nature Med 2024</div>
         <div class="impact">↑ 10× dataset · 0 leak</div>
       </div>
       <div class="world-card">
-        <div class="tech">📱 DIGITAL BIOMARKERS</div>
+        <div class="tech">📱 Digital Biomarkers</div>
         <div class="what">มือถือตรวจ Parkinson's / dementia</div>
         <div class="who">Stanford · MIT · Google DeepMind</div>
         <div class="impact">↑ home screen 92% accuracy</div>
@@ -776,33 +845,66 @@
     </div>
   </section>
 
-  <!-- 6. THE GAP -->
+  <!-- 6. THE GAP — clean hero -->
   <section class="slide">
-    <div class="num">06 / THE GAP</div>
-    <h1>NIT มี foundation แล้ว<br><span class="amber">ขาด force multipliers</span></h1>
-    <div class="bigstat">
-      <div class="num-huge">5</div>
-      <div class="num-text">
-        Force Multipliers ที่จะทำให้<br>
+    <div class="marker"><span class="num">06</span> <span class="em-dash">—</span> The Gap</div>
+    <h1>NIT มี foundation แล้ว<br><span class="coral">ขาด force multipliers</span></h1>
+    <div class="gap-hero">
+      <div class="gap-number">Five.</div>
+      <div class="gap-text">
+        Force multipliers ที่จะทำให้<br>
         <b>NIT × Sala Daeng</b> ติดอันดับโลก<br>
-        — นวัตกรรมที่ทั่วประเทศไทย<br>ยังไม่มีใครทำเต็มรูป
+        — นวัตกรรมที่ทั่วประเทศไทย<br>
+        ยังไม่มีใครทำเต็มรูป
       </div>
-    </div>
-    <div class="layers-list">
-      <div class="ll-item"><div class="ic">🚑</div><div class="name">Layer 1<br>MSU Co-pilot</div><div class="desc">AI on-board ใน Mobile Stroke Unit</div></div>
-      <div class="ll-item"><div class="ic">🎙️</div><div class="name">Layer 2<br>GenAI Scribe</div><div class="desc">AI เขียน chart ภาษาไทย</div></div>
-      <div class="ll-item"><div class="ic">⌚</div><div class="name">Layer 3<br>Brain Health Twin</div><div class="desc">Wearable + smartphone monitoring</div></div>
-      <div class="ll-item"><div class="ic">🧬</div><div class="name">Layer 4<br>Outcome AI</div><div class="desc">ทำนาย recovery ก่อนรักษา</div></div>
-      <div class="ll-item"><div class="ic">🌐</div><div class="name">Layer 5<br>DMS Network</div><div class="desc">30 รพ. train AI ร่วม</div></div>
     </div>
   </section>
 
-  <!-- 7. LAYER 1 — Problem/Solution -->
+  <!-- 7. 5 LAYERS PREVIEW -->
+  <section class="slide">
+    <div class="marker"><span class="num">07</span> <span class="em-dash">—</span> The Five Multipliers</div>
+    <h1>เสริม <span class="coral">5 layers</span> ที่ NIT ยังไม่มี</h1>
+    <p class="lead">ตั้งแต่รถพยาบาล จนถึงบ้านคนไข้ — สเปกตรัมครบ neuro AI ระดับ world-class</p>
+    <div class="preview-cards">
+      <div class="preview-card l1">
+        <div class="layer-num-small">LAYER 01</div>
+        <div class="ic">🚑</div>
+        <div class="name">MSU Co-pilot</div>
+        <div class="desc">AI on-board ใน Mobile Stroke Unit</div>
+      </div>
+      <div class="preview-card l2">
+        <div class="layer-num-small">LAYER 02</div>
+        <div class="ic">🎙️</div>
+        <div class="name">GenAI Scribe</div>
+        <div class="desc">AI เขียน chart ภาษาไทย</div>
+      </div>
+      <div class="preview-card l3">
+        <div class="layer-num-small">LAYER 03</div>
+        <div class="ic">⌚</div>
+        <div class="name">Brain Health Twin</div>
+        <div class="desc">Wearable monitoring ที่บ้าน</div>
+      </div>
+      <div class="preview-card l4">
+        <div class="layer-num-small">LAYER 04</div>
+        <div class="ic">🧬</div>
+        <div class="name">Outcome AI</div>
+        <div class="desc">ทำนาย recovery ก่อนรักษา</div>
+      </div>
+      <div class="preview-card l5">
+        <div class="layer-num-small">LAYER 05</div>
+        <div class="ic">🌐</div>
+        <div class="name">DMS Network</div>
+        <div class="desc">30 รพ. train AI ร่วม</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. LAYER 1 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num">1</div>
       <div class="layer-title-block">
-        <div class="layer-tag">STROKE · CRITICAL CARE</div>
+        <div class="layer-tag">Stroke · critical care</div>
         <div class="layer-title">🚑 MSU Co-pilot</div>
       </div>
     </div>
@@ -813,18 +915,18 @@
         <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · ใช้เวลา <b>20-30 นาที</b> · บางเคสเลย Golden Hour</p>
       </div>
       <div class="layer-side solution">
-        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <div class="ls-label">Sala Daeng solution</div>
         <p>AI on-board อ่าน NCCT ใน <b>3 นาที</b> · ตรวจ LVO + hemorrhage · ส่งผล + case briefing ให้ NIT ขณะรถยังวิ่งอยู่</p>
       </div>
     </div>
   </section>
 
-  <!-- 8. LAYER 1 — Impact + Reference -->
+  <!-- 9. LAYER 1 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num">1</div>
       <div class="layer-title-block">
-        <div class="layer-tag">LAYER 1 · IMPACT</div>
+        <div class="layer-tag">Layer 1 · impact</div>
         <div class="layer-title">MSU Co-pilot · ผลลัพธ์</div>
       </div>
     </div>
@@ -835,17 +937,17 @@
       <div class="ih-stat"><div class="v">+15%</div><div class="k">mRS 0-2<br>(เดินกลับบ้านได้)</div></div>
     </div>
     <div class="layer-ref-card">
-      <span class="lab">REFERENCE</span>
+      <span class="lab">Reference</span>
       <p>Cleveland Clinic MSU + <b>RapidAI</b> ลด door-to-needle 38 min (Stroke 2022) · Berlin MSU mortality trial · <b>Viz.ai</b> LVO detection ใน 8 min vs standard 60 min</p>
     </div>
   </section>
 
-  <!-- 9. LAYER 2 — Problem/Solution -->
+  <!-- 10. LAYER 2 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--violet);">DOCTOR · PRODUCTIVITY</div>
+        <div class="layer-tag" style="color: var(--violet);">Doctor · productivity</div>
         <div class="layer-title">🎙️ GenAI Scribe</div>
       </div>
     </div>
@@ -856,18 +958,18 @@
         <p>หมอใช้ <b>30%</b> ของ consultation เขียน chart · burnout 7.2/10 · บางคนทำงาน 12 ชม. เพราะเขียนเอกสารหลังเลิก</p>
       </div>
       <div class="layer-side solution">
-        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <div class="ls-label">Sala Daeng solution</div>
         <p>ไมค์ในห้องตรวจ → AI ถอดเสียง + แยก speaker + เขียน note ใน <b>30 วินาที</b> · template เฉพาะ stroke · parkinson · epilepsy</p>
       </div>
     </div>
   </section>
 
-  <!-- 10. LAYER 2 — Impact + Reference -->
+  <!-- 11. LAYER 2 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--violet);">LAYER 2 · IMPACT</div>
+        <div class="layer-tag" style="color: var(--violet);">Layer 2 · impact</div>
         <div class="layer-title">GenAI Scribe · ผลลัพธ์</div>
       </div>
     </div>
@@ -878,17 +980,17 @@
       <div class="ih-stat"><div class="v">1st</div><div class="k">Thai-language<br>neuro scribe</div></div>
     </div>
     <div class="layer-ref-card">
-      <span class="lab">REFERENCE</span>
+      <span class="lab">Reference</span>
       <p><b>Microsoft DAX</b> + <b>Abridge</b> ($1.2B valuation) · ใช้ใน Mayo, Stanford, HCA, UPMC · saving 1 hr/doctor/day (JAMA 2024) · <b>Anthropic</b> + Memorial Sloan Kettering pilot</p>
     </div>
   </section>
 
-  <!-- 11. LAYER 3 — Problem/Solution -->
+  <!-- 12. LAYER 3 — Setup -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--red));">3</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--coral));">3</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--amber);">PREVENTION · HOME CARE</div>
+        <div class="layer-tag" style="color: var(--amber);">Prevention · home care</div>
         <div class="layer-title">⌚ Brain Health Twin</div>
       </div>
     </div>
@@ -899,39 +1001,39 @@
         <p><b>30%</b> ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี · คนไข้มา รพ. แค่ตอนป่วยหนัก</p>
       </div>
       <div class="layer-side solution">
-        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <div class="ls-label">Sala Daeng solution</div>
         <p>Apple Watch / Galaxy Watch + NIT app · AFib detection · voice → dementia screen · typing → Parkinson's · gait → fall risk · alert NIT ถ้าผิดปกติ</p>
       </div>
     </div>
   </section>
 
-  <!-- 12. LAYER 3 — Impact + Reference -->
+  <!-- 13. LAYER 3 — Impact -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--red));">3</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--coral));">3</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--amber);">LAYER 3 · IMPACT</div>
+        <div class="layer-tag" style="color: var(--amber);">Layer 3 · impact</div>
         <div class="layer-title">Brain Health Twin · ผลลัพธ์</div>
       </div>
     </div>
-    <div class="impact-hero amber-red">
+    <div class="impact-hero amber-coral">
       <div class="ih-stat"><div class="v">50K</div><div class="k">คนไข้ติดตาม<br>ภายในปี 2</div></div>
       <div class="ih-stat"><div class="v">1,000+</div><div class="k">Stroke ป้องกัน<br>ต่อปี (AFib)</div></div>
       <div class="ih-stat"><div class="v">-2 yr</div><div class="k">ลดเวลาวินิจฉัย<br>Parkinson's</div></div>
       <div class="ih-stat"><div class="v">24/7</div><div class="k">Brain monitoring<br>at home</div></div>
     </div>
     <div class="layer-ref-card">
-      <span class="lab">REFERENCE</span>
+      <span class="lab">Reference</span>
       <p><b>Apple Heart Study</b> 400K participants · AFib sensitivity 84% · <b>Stanford</b> voice biomarker for dementia · <b>Google DeepMind</b> gait analysis · <b>icometrix</b> brain volumetrics</p>
     </div>
   </section>
 
-  <!-- 13. LAYER 4 — Problem/Solution -->
+  <!-- 14. LAYER 4 — Setup -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--red), var(--amber));">4</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--coral), var(--amber));">4</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--red);">TREATMENT · DECISION SUPPORT</div>
+        <div class="layer-tag" style="color: var(--coral);">Treatment · decision support</div>
         <div class="layer-title">🧬 Outcome AI</div>
       </div>
     </div>
@@ -942,39 +1044,39 @@
         <p>หมอตัดสิน treatment โดยใช้ guideline + experience · บางเคสขัดแย้ง · <b>30%</b> ของเคสเปลี่ยน decision หลังเห็น outcome เคสคล้ายกัน</p>
       </div>
       <div class="layer-side solution">
-        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <div class="ls-label">Sala Daeng solution</div>
         <p>Input: CT + age + NIHSS + history<br>Output: P(mRS 0-2) · P(hemorrhage from tPA) · recommended action<br>Built กับ KMUTT MOU + NIT 5-yr data</p>
       </div>
     </div>
   </section>
 
-  <!-- 14. LAYER 4 — Impact + Reference -->
+  <!-- 15. LAYER 4 — Impact -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--red), var(--amber));">4</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--coral), var(--amber));">4</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--red);">LAYER 4 · IMPACT</div>
+        <div class="layer-tag" style="color: var(--coral);">Layer 4 · impact</div>
         <div class="layer-title">Outcome AI · ผลลัพธ์</div>
       </div>
     </div>
-    <div class="impact-hero red-amber">
+    <div class="impact-hero coral-amber">
       <div class="ih-stat"><div class="v">+30%</div><div class="k">Treatment<br>accuracy</div></div>
       <div class="ih-stat"><div class="v">-20%</div><div class="k">Unnecessary<br>thrombectomy</div></div>
       <div class="ih-stat"><div class="v">+15%</div><div class="k">tPA candidacy<br>(elderly)</div></div>
       <div class="ih-stat"><div class="v">1st</div><div class="k">Thai-specific<br>outcome model</div></div>
     </div>
     <div class="layer-ref-card">
-      <span class="lab">REFERENCE</span>
+      <span class="lab">Reference</span>
       <p><b>Brainomix e-Stroke</b> · Oxford NIHR · Lancet Neurology 2024 mRS prediction · <b>RapidAI Outcome</b> in US clinical use · <b>Heuron</b> Korea · ยังไม่มี Thai-specific model</p>
     </div>
   </section>
 
-  <!-- 15. LAYER 5 — Problem/Solution -->
+  <!-- 16. LAYER 5 — Setup -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--cyan), var(--teal));">5</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--teal), var(--cyan));">5</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--violet);">NATIONAL · NETWORK</div>
+        <div class="layer-tag" style="color: var(--teal);">National · network</div>
         <div class="layer-title">🌐 DMS Neuro Network</div>
       </div>
     </div>
@@ -985,56 +1087,56 @@
         <p>AI ของแต่ละ รพ. train จาก data ของตัวเอง — เล็ก biased · ไม่มี privacy-preserving way ในการ share · NIT คนเดียวติด data scarcity</p>
       </div>
       <div class="layer-side solution">
-        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <div class="ls-label">Sala Daeng solution</div>
         <p>Federated framework — รพ. train local → ส่ง weights ไม่ใช่ data · NIT รวม weights · AI ใหญ่ <b>10×</b> · เคารพ PDPA · NIT = knowledge hub</p>
       </div>
     </div>
   </section>
 
-  <!-- 16. LAYER 5 — Impact + Reference -->
+  <!-- 17. LAYER 5 — Impact -->
   <section class="slide">
     <div class="layer-header">
-      <div class="layer-num" style="background: linear-gradient(135deg, var(--cyan), var(--teal));">5</div>
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--teal), var(--cyan));">5</div>
       <div class="layer-title-block">
-        <div class="layer-tag" style="color: var(--violet);">LAYER 5 · IMPACT</div>
+        <div class="layer-tag" style="color: var(--teal);">Layer 5 · impact</div>
         <div class="layer-title">DMS Network · ผลลัพธ์</div>
       </div>
     </div>
-    <div class="impact-hero cyan-teal">
+    <div class="impact-hero teal-cyan">
       <div class="ih-stat"><div class="v">30 รพ.</div><div class="k">ในกรมการแพทย์<br>ใน network</div></div>
       <div class="ih-stat"><div class="v">10×</div><div class="k">Dataset size<br>vs NIT alone</div></div>
       <div class="ih-stat"><div class="v">0</div><div class="k">Data leaving<br>each hospital</div></div>
       <div class="ih-stat"><div class="v">1st</div><div class="k">Federated neuro<br>network ใน SE Asia</div></div>
     </div>
     <div class="layer-ref-card">
-      <span class="lab">REFERENCE</span>
+      <span class="lab">Reference</span>
       <p><b>Owkin</b> ($300M valuation) federated learning ใน Mt Sinai, Memorial Sloan Kettering · <b>BrainXell</b> 30+ hospitals · <b>NIH NCRC</b> federated cancer · Nature Med 2024 multi-site brain MRI</p>
     </div>
   </section>
 
-  <!-- 17. INTEGRATION STACK -->
+  <!-- 18. INTEGRATION STACK -->
   <section class="slide">
-    <div class="num">17 / INTEGRATION</div>
-    <h1>เราไม่ <span class="red">rebuild</span> — เรา <span class="teal">เสริม</span></h1>
+    <div class="marker"><span class="num">18</span> <span class="em-dash">—</span> Integration</div>
+    <h1>เราไม่ <span class="coral">rebuild</span> — เรา <span class="teal">เสริม</span></h1>
     <p class="lead">5 Force Multipliers <b>นั่งบน foundation ที่ NIT มี</b> — ไม่ทับซ้อน ไม่ขัดแย้ง</p>
     <div class="stack">
-      <div class="stack-layer new"><span class="stack-tag">LAYER 5</span><span class="stack-name">DMS Federated Neuro Network<small>NIT เป็น hub · 30 รพ. ในกรมการแพทย์</small></span><span class="stack-owner">SALA DAENG</span></div>
-      <div class="stack-layer new"><span class="stack-tag">LAYER 4</span><span class="stack-name">Outcome Prediction AI<small>90-day mRS · treatment decision</small></span><span class="stack-owner">+ KMUTT</span></div>
-      <div class="stack-layer new"><span class="stack-tag">LAYER 3</span><span class="stack-name">Brain Health Twin<small>Wearable + smartphone passive monitoring</small></span><span class="stack-owner">SALA DAENG</span></div>
-      <div class="stack-layer new"><span class="stack-tag">LAYER 2</span><span class="stack-name">GenAI Ambient Scribe<small>Thai-language neuro-specialized</small></span><span class="stack-owner">SALA DAENG</span></div>
-      <div class="stack-layer new"><span class="stack-tag">LAYER 1</span><span class="stack-name">MSU Co-pilot AI<small>On-board CT analysis + voice triage</small></span><span class="stack-owner">SALA DAENG</span></div>
-      <div class="stack-layer existing"><span class="stack-tag">FOUNDATION</span><span class="stack-name">PNI Plus · NIT Telemed · MSU · 8 AI projects · MOU KMUTT · FlashBot<small>สิ่งที่ NIT มีอยู่ — เราเชื่อม ไม่ทับซ้อน</small></span><span class="stack-owner">NIT TODAY</span></div>
+      <div class="stack-layer new"><span class="stack-tag">Layer 5</span><span class="stack-name">DMS Federated Neuro Network<small>NIT เป็น hub · 30 รพ. ในกรมการแพทย์</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">Layer 4</span><span class="stack-name">Outcome Prediction AI<small>90-day mRS · treatment decision</small></span><span class="stack-owner">+ KMUTT</span></div>
+      <div class="stack-layer new"><span class="stack-tag">Layer 3</span><span class="stack-name">Brain Health Twin<small>Wearable + smartphone passive monitoring</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">Layer 2</span><span class="stack-name">GenAI Ambient Scribe<small>Thai-language neuro-specialized</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">Layer 1</span><span class="stack-name">MSU Co-pilot AI<small>On-board CT analysis + voice triage</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer existing"><span class="stack-tag">Foundation</span><span class="stack-name">PNI Plus · Telemed · MSU · 8 AI · MOU KMUTT · FlashBot<small>สิ่งที่ NIT มีอยู่ — เราเชื่อม ไม่ทับซ้อน</small></span><span class="stack-owner">NIT TODAY</span></div>
     </div>
   </section>
 
-  <!-- 18. COMPETITIVE -->
+  <!-- 19. COMPETITIVE -->
   <section class="slide">
-    <div class="num">18 / COMPETITIVE POSITION</div>
+    <div class="marker"><span class="num">19</span> <span class="em-dash">—</span> Competitive Position</div>
     <h1>เราไม่แข่งกับ <span class="amber">AN AN Bot</span><br>เราอยู่ <span class="cyan">คนละชั้น</span></h1>
     <div class="vs-matrix">
       <div class="vs-col">
         <div class="name">Agnos AN AN Bot</div>
-        <div class="ko">CHATBOT TRIAGE</div>
+        <div class="ko">Chatbot triage</div>
         <ul>
           <li>Generic LLM chatbot</li>
           <li>Pre-visit only</li>
@@ -1044,7 +1146,7 @@
       </div>
       <div class="vs-col">
         <div class="name">HOSxP / SSB / JHCIS</div>
-        <div class="ko">HIS / EMR VENDORS</div>
+        <div class="ko">HIS / EMR vendors</div>
         <ul>
           <li>Records + scheduling</li>
           <li>ไม่ใช่ AI native</li>
@@ -1054,7 +1156,7 @@
       </div>
       <div class="vs-col us">
         <div class="name">Sala Daeng × NIT</div>
-        <div class="ko">SPECIALIZED NEURO STACK</div>
+        <div class="ko">Specialized neuro stack</div>
         <ul>
           <li>5 multipliers ครบเส้นทาง</li>
           <li>Ambulance → ward → home</li>
@@ -1066,13 +1168,13 @@
     </div>
   </section>
 
-  <!-- 19. ROADMAP -->
+  <!-- 20. ROADMAP -->
   <section class="slide">
-    <div class="num">19 / ROADMAP · 2026–2028</div>
+    <div class="marker"><span class="num">20</span> <span class="em-dash">—</span> Roadmap · 2026–2028</div>
     <h1>เส้นทาง <span class="cyan">3 เฟส · 30 เดือน</span></h1>
     <div class="roadmap">
       <div class="roadphase p1">
-        <div class="when">PHASE 1 · Q3-Q4 2026</div>
+        <div class="when">Phase 1 · Q3-Q4 2026</div>
         <h3>Quick Win</h3>
         <p class="focus">Layer 2 + 3 ก่อน · ไม่ติด อย. · ROI ชัด</p>
         <ul>
@@ -1083,7 +1185,7 @@
         </ul>
       </div>
       <div class="roadphase p2">
-        <div class="when">PHASE 2 · 2027</div>
+        <div class="when">Phase 2 · 2027</div>
         <h3>Stroke Stack</h3>
         <p class="focus">ลงลึกที่ stroke — MSU + outcome AI</p>
         <ul>
@@ -1095,7 +1197,7 @@
         </ul>
       </div>
       <div class="roadphase p3">
-        <div class="when">PHASE 3 · 2028</div>
+        <div class="when">Phase 3 · 2028</div>
         <h3>National Hub</h3>
         <p class="focus">NIT เป็นแกนกลาง · scale ทั่วประเทศ</p>
         <ul>
@@ -1109,9 +1211,9 @@
     </div>
   </section>
 
-  <!-- 20. IMPACT -->
+  <!-- 21. IMPACT -->
   <section class="slide">
-    <div class="num">20 / IMPACT</div>
+    <div class="marker"><span class="num">21</span> <span class="em-dash">—</span> Impact</div>
     <h1>ผลลัพธ์ที่ <span class="teal">วัดได้</span></h1>
     <div class="stat-grid">
       <div class="stat"><div class="v">5,000+</div><div class="k">ชีวิต stroke<br>ช่วยได้/ปี ทั่ว DMS</div></div>
@@ -1119,15 +1221,15 @@
       <div class="stat violet"><div class="v">200+</div><div class="k">หมอที่ใช้<br>GenAI Scribe</div></div>
       <div class="stat amber"><div class="v">3,000+</div><div class="k">AFib detected<br>ก่อนเกิด stroke/ปี</div></div>
     </div>
-    <div class="highlight" style="background: linear-gradient(135deg, rgba(0, 165, 116, 0.06), rgba(0, 128, 255, 0.04)); border-left-color: var(--teal);">
-      <div class="label" style="color: var(--teal);">RECOGNITION TARGETS</div>
-      <div class="text">📰 1 NEJM + 2 Lancet papers · 🏆 HIMSS Davies + WHO Innovation · 📺 WIRED/TIME feature · 🎙️ ESO/WSC keynote · 🏥 WHO Collaborating Centre · 🌏 First Thai hospital in MIT Tech Review</div>
+    <div class="highlight" style="background: linear-gradient(135deg, rgba(0, 122, 94, 0.06), rgba(0, 112, 232, 0.04)); border-left-color: var(--teal);">
+      <div class="label" style="color: var(--teal);">Recognition targets</div>
+      <div class="text">📰 1 NEJM + 2 Lancet papers · 🏆 HIMSS Davies + WHO Innovation · 📺 WIRED/TIME feature · 🎙️ ESO/WSC keynote · 🏥 WHO Collaborating Centre</div>
     </div>
   </section>
 
-  <!-- 21. THE ASK -->
+  <!-- 22. THE ASK -->
   <section class="slide">
-    <div class="num">21 / THE ASK</div>
+    <div class="marker"><span class="num">22</span> <span class="em-dash">—</span> The Ask</div>
     <h1>เริ่มกัน <span class="cyan">วันนี้</span></h1>
     <p class="lead">NIT มี vision + foundation + MOU · Sala Daeng มี engineering + AI + DMS access · combine = world-class</p>
     <div class="ask-grid">
@@ -1152,38 +1254,16 @@
         </ul>
       </div>
     </div>
-    <div class="highlight">
-      <div class="label">FIRST STEP</div>
-      <div class="text"><b>Meeting 90 นาที</b> กับผู้บริหาร NIT · ตัดสินใจ pilot scope · sign LOI · เริ่ม Week 1 ภายในเดือนหน้า</div>
-    </div>
   </section>
 
-  <!-- 22. VISION -->
-  <section class="slide">
-    <div class="num">22 / VISION 2030</div>
-    <h1>NIT ในปี 2030</h1>
-    <div class="vision-panel">
-      <div class="year">VISION · 2030</div>
-      <div class="quote">"เมื่อ neurologist ในเอเชีย<br>คิดถึง AI ในวงการประสาท —<br>เขาคิดถึง NIT"</div>
-    </div>
-  </section>
-
-  <!-- 23. CLOSING -->
+  <!-- 23. VISION + CLOSING -->
   <section class="slide end">
-    <div style="font-family: 'JetBrains Mono', monospace; color: var(--ink-2); letter-spacing: 0.2em; margin-bottom: 2rem; font-weight: 700;">
-      <span class="pulse" style="display: inline-block;"></span> &nbsp; READY WHEN YOU ARE
+    <div class="vision-panel" style="margin-top: 0; max-width: 1100px;">
+      <div class="year">Vision · 2030</div>
+      <div class="quote">"When a neurologist in Asia<br>thinks of AI in neurology —<br>they think of NIT."</div>
     </div>
-    <h1>
-      <span class="grad">5 Force Multipliers</span><br>
-      เปลี่ยน NIT จาก<br>
-      <span style="color: var(--ink-2);">"Smart Hospital"</span><br>
-      เป็น<span class="grad-teal"> "World-Class"</span>
-    </h1>
-    <p class="lead" style="margin-top: 2rem; max-width: 56ch;">
-      ไม่ใช่ slide deck — แต่คือ <b>partnership</b> ที่จะ define ตำแหน่งของ NIT 10 ปีข้างหน้า
-    </p>
-    <div style="margin-top: 3rem; font-family: 'JetBrains Mono', monospace; color: var(--ink-3); font-size: 0.95rem; letter-spacing: 0.2em; font-weight: 700;">
-      NIT × SALA DAENG &nbsp;·&nbsp; 2026
+    <div style="margin-top: 3rem; font-family: 'JetBrains Mono', monospace; color: var(--ink-3); font-size: 0.95rem; letter-spacing: 0.22em; font-weight: 700; text-transform: uppercase;">
+      NIT × Sala Daeng &nbsp;·&nbsp; 2026
     </div>
   </section>
 
