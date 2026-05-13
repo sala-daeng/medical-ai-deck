@@ -33,6 +33,7 @@
     background: var(--bg-0); color: var(--ink-0);
     font-family: 'IBM Plex Sans Thai', 'Space Grotesk', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    line-height: 1.5;
   }
   body::before {
     content: ''; position: fixed; inset: 0;
@@ -51,7 +52,7 @@
   .deck { position: relative; width: 100vw; height: 100vh; z-index: 2; }
   .slide {
     position: absolute; inset: 0;
-    padding: 5vh 7vw;
+    padding: 6vh 8vw;
     flex-direction: column;
     justify-content: center;
     animation: fadeIn 0.5s cubic-bezier(.2,.7,.3,1);
@@ -66,33 +67,34 @@
 
   .num {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--ink-3); font-size: 0.85rem;
-    letter-spacing: 0.18em; margin-bottom: 1.2rem;
+    color: var(--ink-3); font-size: 0.9rem;
+    letter-spacing: 0.18em; margin-bottom: 1.6rem;
     display: flex; align-items: center; gap: 0.6rem; font-weight: 500;
   }
   .num::before { content: ''; width: 28px; height: 1px; background: var(--ink-3); }
 
   h1 {
-    font-size: clamp(2.6rem, 5.4vw, 4.6rem);
-    line-height: 1.08; font-weight: 600;
-    letter-spacing: -0.025em; margin-bottom: 1.2rem;
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    line-height: 1.1; font-weight: 700;
+    letter-spacing: -0.025em; margin-bottom: 1.4rem;
     color: var(--ink-0);
   }
   h2 {
-    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
-    line-height: 1.15; font-weight: 600;
-    letter-spacing: -0.02em; margin-bottom: 1rem;
+    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+    line-height: 1.2; font-weight: 600;
+    letter-spacing: -0.02em; margin-bottom: 1.2rem;
     color: var(--ink-0);
   }
   h3 {
-    font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+    font-size: clamp(1.3rem, 1.8vw, 1.6rem);
     font-weight: 700; color: var(--ink-0);
     letter-spacing: -0.01em;
   }
-  p, li { font-size: clamp(1.05rem, 1.3vw, 1.25rem); line-height: 1.55; color: var(--ink-1); }
+  p { font-size: clamp(1.2rem, 1.4vw, 1.4rem); line-height: 1.55; color: var(--ink-1); }
+  li { font-size: clamp(1.2rem, 1.4vw, 1.4rem); line-height: 1.55; color: var(--ink-1); }
   .lead {
-    font-size: clamp(1.2rem, 1.6vw, 1.55rem);
-    line-height: 1.5; color: var(--ink-1); max-width: 68ch;
+    font-size: clamp(1.35rem, 1.8vw, 1.65rem);
+    line-height: 1.5; color: var(--ink-1); max-width: 64ch;
     font-weight: 400;
   }
 
@@ -128,25 +130,24 @@
     display: flex; justify-content: space-between; align-items: center;
     color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-size: 0.9rem; letter-spacing: 0.18em; text-transform: uppercase;
     font-weight: 500;
   }
-  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 1.8rem; }
+  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 2rem; }
   .cover-tag {
     display: flex; align-items: center; gap: 1rem;
     color: var(--ink-2);
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.95rem; letter-spacing: 0.18em; font-weight: 500;
+    font-size: 1rem; letter-spacing: 0.18em; font-weight: 500;
   }
   .cover-title {
-    font-size: clamp(3rem, 6.4vw, 6rem);
-    line-height: 1.08; font-weight: 700;
+    font-size: clamp(3rem, 6vw, 5.6rem);
+    line-height: 1.1; font-weight: 700;
     letter-spacing: -0.035em; color: var(--ink-0);
   }
   .cover-sub {
-    font-size: clamp(1.15rem, 1.55vw, 1.5rem);
+    font-size: clamp(1.25rem, 1.6vw, 1.5rem);
     color: var(--ink-1); max-width: 72ch; line-height: 1.55;
-    font-weight: 400;
   }
   .cover-footer {
     display: flex; justify-content: space-between; align-items: end;
@@ -154,93 +155,86 @@
     font-weight: 500;
   }
 
-  /* ===== STATE CARDS ===== */
-  .state-grid {
+  /* ===== CARDS (3-up grid) ===== */
+  .cards-3 {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.2rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    margin-top: 2rem;
   }
-  .state-card {
-    padding: 1.6rem 1.5rem;
-    border-radius: 14px;
+  @media (max-width: 1000px) { .cards-3 { grid-template-columns: 1fr; } }
+
+  .card {
+    padding: 2rem 1.8rem;
+    border-radius: 16px;
     background: var(--bg-card);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .state-card.have {
-    background: linear-gradient(135deg, rgba(0, 165, 116, 0.04), rgba(255,255,255,1));
-    border-left: 3px solid var(--teal);
+  .card .ic { font-size: 2.6rem; margin-bottom: 1rem; line-height: 1; }
+  .card .name {
+    font-size: 1.4rem; font-weight: 700; margin-bottom: 0.6rem;
+    color: var(--ink-0); letter-spacing: -0.01em; line-height: 1.25;
   }
-  .state-card .ic { font-size: 2rem; margin-bottom: 0.6rem; }
-  .state-card .name {
-    font-size: 1.2rem; font-weight: 600; margin-bottom: 0.4rem;
-    color: var(--ink-0); letter-spacing: -0.01em;
-  }
-  .state-card .desc { font-size: 1rem; color: var(--ink-2); line-height: 1.5; }
-  .state-card .since {
+  .card .desc { font-size: 1.2rem; color: var(--ink-2); line-height: 1.5; }
+  .card .since {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--teal);
-    letter-spacing: 0.1em; margin-top: 0.7rem; font-weight: 600;
+    font-size: 0.85rem; color: var(--teal);
+    letter-spacing: 0.1em; margin-top: 1rem; font-weight: 700;
   }
+  .card.have { border-left: 4px solid var(--teal); }
 
   /* ===== WORLD CARDS ===== */
-  .world-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.3rem;
-    margin-top: 1.5rem;
-  }
   .world-card {
-    padding: 1.5rem 1.6rem;
-    border-radius: 14px;
+    padding: 1.8rem;
+    border-radius: 16px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
   }
   .world-card .tech {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; color: var(--cyan);
-    letter-spacing: 0.13em; margin-bottom: 0.6rem;
-    text-transform: uppercase; font-weight: 600;
+    font-size: 0.85rem; color: var(--cyan);
+    letter-spacing: 0.13em; margin-bottom: 0.8rem;
+    text-transform: uppercase; font-weight: 700;
   }
   .world-card .what {
-    font-size: 1.25rem; font-weight: 600;
-    color: var(--ink-0); margin-bottom: 0.5rem; line-height: 1.25;
+    font-size: 1.4rem; font-weight: 700;
+    color: var(--ink-0); margin-bottom: 0.7rem; line-height: 1.3;
     letter-spacing: -0.01em;
   }
   .world-card .who {
-    font-size: 0.95rem; color: var(--ink-2);
-    margin-bottom: 0.7rem; line-height: 1.45;
+    font-size: 1.05rem; color: var(--ink-2);
+    margin-bottom: 1rem; line-height: 1.5;
   }
   .world-card .impact {
-    font-size: 1.05rem; color: var(--teal);
-    font-weight: 600; line-height: 1.4;
+    font-size: 1.2rem; color: var(--teal);
+    font-weight: 700; line-height: 1.4;
   }
 
   /* ===== LAYER ===== */
   .layer-header {
-    display: flex; align-items: center; gap: 1.4rem;
-    margin-bottom: 1.4rem;
+    display: flex; align-items: center; gap: 1.6rem;
+    margin-bottom: 1.6rem;
   }
   .layer-num {
-    width: 76px; height: 76px;
-    border-radius: 18px;
+    width: 88px; height: 88px;
+    border-radius: 20px;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     display: inline-flex; align-items: center; justify-content: center;
     color: white; font-weight: 700;
     font-family: 'Space Grotesk', system-ui;
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     flex-shrink: 0;
-    box-shadow: 0 12px 32px rgba(0, 128, 255, 0.25);
+    box-shadow: 0 16px 40px rgba(0, 128, 255, 0.3);
   }
   .layer-title-block { flex: 1; }
   .layer-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--cyan);
-    letter-spacing: 0.15em; margin-bottom: 0.35rem; font-weight: 600;
+    font-size: 0.9rem; color: var(--cyan);
+    letter-spacing: 0.15em; margin-bottom: 0.4rem; font-weight: 700;
   }
   .layer-title {
-    font-size: clamp(1.7rem, 3vw, 2.6rem);
+    font-size: clamp(1.8rem, 3.2vw, 2.8rem);
     font-weight: 700; line-height: 1.1;
     letter-spacing: -0.025em; color: var(--ink-0);
   }
@@ -248,76 +242,83 @@
   .layer-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-    margin-top: 1rem;
+    gap: 1.8rem;
+    margin-top: 1.5rem;
   }
   @media (max-width: 900px) { .layer-grid { grid-template-columns: 1fr; } }
 
   .layer-side {
-    padding: 1.5rem 1.6rem;
-    border-radius: 14px;
+    padding: 1.8rem 2rem;
+    border-radius: 16px;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
   }
   .layer-side .ls-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.15em; margin-bottom: 0.6rem; font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em; margin-bottom: 0.8rem; font-weight: 700;
   }
-  .layer-side.problem { border-left: 3px solid var(--red); }
+  .layer-side.problem { border-left: 4px solid var(--red); }
   .layer-side.problem .ls-label { color: var(--red); }
   .layer-side.solution {
-    border-left: 3px solid var(--teal);
+    border-left: 4px solid var(--teal);
     background: linear-gradient(135deg, rgba(0, 165, 116, 0.04), rgba(255,255,255,1));
   }
   .layer-side.solution .ls-label { color: var(--teal); }
-  .layer-side p { font-size: 1.05rem; line-height: 1.5; color: var(--ink-1); }
-  .layer-side p b { color: var(--ink-0); }
+  .layer-side p { font-size: 1.2rem; line-height: 1.55; color: var(--ink-1); }
+  .layer-side p b { color: var(--ink-0); font-weight: 700; }
 
-  .layer-impact {
-    margin-top: 1.3rem;
-    padding: 1.6rem 1.8rem;
-    border-radius: 16px;
+  /* ===== IMPACT PANEL (its own slide) ===== */
+  .impact-hero {
+    margin-top: 2rem;
+    padding: 3rem 2.5rem;
+    border-radius: 22px;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     color: white;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.2rem;
-    box-shadow: 0 12px 32px rgba(0, 128, 255, 0.2);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.6rem;
+    box-shadow: 0 24px 60px rgba(0, 128, 255, 0.25);
   }
-  .impact-stat .v {
-    font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  .impact-hero.violet-pink { background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 24px 60px rgba(124, 58, 237, 0.25); }
+  .impact-hero.amber-red { background: linear-gradient(135deg, var(--amber), var(--red)); box-shadow: 0 24px 60px rgba(217, 119, 6, 0.25); }
+  .impact-hero.red-amber { background: linear-gradient(135deg, var(--red), var(--amber)); box-shadow: 0 24px 60px rgba(220, 38, 38, 0.25); }
+  .impact-hero.cyan-teal { background: linear-gradient(135deg, var(--cyan), var(--teal)); box-shadow: 0 24px 60px rgba(0, 128, 255, 0.25); }
+  .impact-hero .ih-stat {
+    color: white;
+  }
+  .impact-hero .ih-stat .v {
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
     font-weight: 700; color: white;
     line-height: 1; font-family: 'Space Grotesk', system-ui;
-    letter-spacing: -0.02em; margin-bottom: 0.4rem;
+    letter-spacing: -0.025em; margin-bottom: 0.6rem;
   }
-  .impact-stat .k { font-size: 0.95rem; color: rgba(255,255,255,0.85); line-height: 1.35; font-weight: 500; }
+  .impact-hero .ih-stat .k { font-size: 1.15rem; color: rgba(255,255,255,0.9); line-height: 1.35; font-weight: 500; }
 
-  .layer-ref {
-    margin-top: 1.2rem;
-    padding: 0.9rem 1.2rem;
-    background: rgba(10, 18, 38, 0.03);
-    border-left: 3px solid var(--ink-3);
-    border-radius: 0 10px 10px 0;
-    font-size: 0.9rem;
-    color: var(--ink-2);
-    line-height: 1.55;
+  .layer-ref-card {
+    margin-top: 1.8rem;
+    padding: 1.6rem 2rem;
+    background: var(--bg-card);
+    border-left: 4px solid var(--ink-3);
+    border-radius: 0 14px 14px 0;
+    box-shadow: var(--shadow-sm);
   }
-  .layer-ref .lab {
+  .layer-ref-card .lab {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem; color: var(--ink-2);
-    letter-spacing: 0.13em; margin-bottom: 0.3rem;
-    display: block; font-weight: 600;
+    font-size: 0.85rem; color: var(--ink-2);
+    letter-spacing: 0.13em; margin-bottom: 0.6rem;
+    display: block; font-weight: 700;
   }
-  .layer-ref b { color: var(--ink-0); font-weight: 600; }
+  .layer-ref-card p { font-size: 1.15rem; line-height: 1.55; color: var(--ink-1); }
+  .layer-ref-card b { color: var(--ink-0); font-weight: 700; }
 
   /* ===== BIG STAT ===== */
   .bigstat {
-    display: flex; align-items: baseline; gap: 2rem;
-    margin-top: 1.5rem; flex-wrap: wrap;
+    display: flex; align-items: baseline; gap: 2.5rem;
+    margin-top: 2rem; flex-wrap: wrap;
   }
   .bigstat .num-huge {
-    font-size: clamp(5rem, 14vw, 11rem);
+    font-size: clamp(6rem, 16vw, 14rem);
     font-weight: 700; line-height: 0.9;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -325,49 +326,66 @@
     letter-spacing: -0.05em;
   }
   .bigstat .num-text {
-    font-size: clamp(1.2rem, 1.6vw, 1.5rem);
-    color: var(--ink-1); line-height: 1.4;
+    font-size: clamp(1.3rem, 1.7vw, 1.55rem);
+    color: var(--ink-1); line-height: 1.45;
     max-width: 38ch;
   }
   .bigstat .num-text b { color: var(--ink-0); font-weight: 700; }
+
+  /* ===== 5 LAYERS LIST (gap intro slide) ===== */
+  .layers-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.4rem;
+    margin-top: 2.5rem;
+  }
+  .ll-item {
+    padding: 1.5rem 1.4rem;
+    border-radius: 14px;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-sm);
+  }
+  .ll-item .ic { font-size: 2.2rem; margin-bottom: 0.6rem; }
+  .ll-item .name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.4rem; color: var(--ink-0); }
+  .ll-item .desc { font-size: 1.05rem; color: var(--ink-2); line-height: 1.4; }
 
   /* ===== COMPETITIVE ===== */
   .vs-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.2rem;
-    margin-top: 1.5rem;
+    gap: 1.4rem;
+    margin-top: 2rem;
   }
-  @media (max-width: 900px) { .vs-matrix { grid-template-columns: 1fr; } }
+  @media (max-width: 1000px) { .vs-matrix { grid-template-columns: 1fr; } }
   .vs-col {
-    padding: 1.6rem;
-    border-radius: 14px;
+    padding: 2rem 1.8rem;
+    border-radius: 16px;
     background: var(--bg-card);
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-md);
   }
   .vs-col.us {
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
     color: white;
-    box-shadow: 0 16px 40px rgba(0, 128, 255, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 128, 255, 0.3);
   }
   .vs-col .name {
-    font-size: 1.25rem; font-weight: 700;
-    margin-bottom: 0.4rem; color: var(--ink-0);
+    font-size: 1.4rem; font-weight: 700;
+    margin-bottom: 0.5rem; color: var(--ink-0);
     letter-spacing: -0.01em;
   }
   .vs-col.us .name { color: white; }
   .vs-col .ko {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     color: var(--ink-3);
-    letter-spacing: 0.13em; margin-bottom: 1rem; font-weight: 600;
+    letter-spacing: 0.13em; margin-bottom: 1.2rem; font-weight: 700;
   }
   .vs-col.us .ko { color: rgba(255,255,255,0.85); }
-  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
   .vs-col li {
-    font-size: 1rem;
-    line-height: 1.45;
-    padding-left: 1.4rem;
+    font-size: 1.15rem;
+    line-height: 1.5;
+    padding-left: 1.5rem;
     position: relative;
     color: var(--ink-1);
   }
@@ -375,25 +393,25 @@
   .vs-col li::before {
     content: '·';
     position: absolute;
-    left: 0.3rem;
+    left: 0.4rem;
     color: var(--ink-3);
     font-weight: 700;
   }
-  .vs-col.us li::before { content: '✦'; color: white; font-size: 0.8rem; top: 4px; left: 0; }
+  .vs-col.us li::before { content: '✦'; color: white; font-size: 0.85rem; top: 4px; left: 0; }
 
   /* ===== STACK ===== */
   .stack {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     display: flex; flex-direction: column;
-    gap: 0.6rem;
-    max-width: 1100px;
+    gap: 0.7rem;
+    max-width: 1200px;
   }
   .stack-layer {
     display: grid;
-    grid-template-columns: 100px 1fr 180px;
-    gap: 1.2rem;
-    padding: 1.2rem 1.5rem;
-    border-radius: 12px;
+    grid-template-columns: 120px 1fr 200px;
+    gap: 1.4rem;
+    padding: 1.3rem 1.8rem;
+    border-radius: 14px;
     align-items: center;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
@@ -408,31 +426,31 @@
   }
   .stack-tag {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     letter-spacing: 0.13em; font-weight: 700;
   }
   .stack-layer.existing .stack-tag { color: var(--teal); }
   .stack-layer.new .stack-tag { color: var(--cyan); }
-  .stack-name { font-size: 1.15rem; font-weight: 700; color: var(--ink-0); letter-spacing: -0.01em; }
-  .stack-name small { display: block; font-size: 0.9rem; color: var(--ink-2); font-weight: 400; margin-top: 3px; }
+  .stack-name { font-size: 1.25rem; font-weight: 700; color: var(--ink-0); letter-spacing: -0.01em; }
+  .stack-name small { display: block; font-size: 1.05rem; color: var(--ink-2); font-weight: 400; margin-top: 4px; line-height: 1.4; }
   .stack-owner {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--ink-3);
+    font-size: 0.9rem; color: var(--ink-3);
     text-align: right;
     letter-spacing: 0.05em; font-weight: 600;
   }
 
   /* ===== ROADMAP ===== */
   .roadmap {
-    margin-top: 1.5rem;
+    margin-top: 2rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1.4rem;
+    gap: 1.6rem;
   }
-  @media (max-width: 900px) { .roadmap { grid-template-columns: 1fr; } }
+  @media (max-width: 1000px) { .roadmap { grid-template-columns: 1fr; } }
   .roadphase {
-    padding: 1.8rem 1.6rem;
-    border-radius: 14px;
+    padding: 2rem 1.8rem;
+    border-radius: 16px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
   }
@@ -441,43 +459,43 @@
   .roadphase.p3 { border-top: 4px solid var(--violet); }
   .roadphase .when {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.15em; margin-bottom: 0.7rem;
-    color: var(--ink-3); font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em; margin-bottom: 0.8rem;
+    color: var(--ink-3); font-weight: 700;
   }
-  .roadphase h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
-  .roadphase .focus { font-size: 1rem; color: var(--ink-2); margin-bottom: 1.2rem; line-height: 1.45; }
-  .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-  .roadphase li { font-size: 0.98rem; color: var(--ink-1); padding-left: 1.2rem; position: relative; line-height: 1.45; }
+  .roadphase h3 { margin-bottom: 0.6rem; font-size: 1.5rem; }
+  .roadphase .focus { font-size: 1.1rem; color: var(--ink-2); margin-bottom: 1.4rem; line-height: 1.45; }
+  .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+  .roadphase li { font-size: 1.1rem; color: var(--ink-1); padding-left: 1.2rem; position: relative; line-height: 1.45; }
   .roadphase li::before { content: '→'; position: absolute; left: 0; color: var(--ink-3); }
 
   /* ===== STAT GRID ===== */
   .stat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.3rem;
-    margin-top: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
   .stat {
-    padding: 1.6rem 1.5rem;
-    border-radius: 14px;
+    padding: 2rem 1.8rem;
+    border-radius: 16px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
     position: relative; overflow: hidden;
   }
   .stat::before {
-    content: ''; position: absolute; inset: 0 0 auto 0; height: 3px;
+    content: ''; position: absolute; inset: 0 0 auto 0; height: 4px;
     background: linear-gradient(90deg, var(--cyan), var(--violet));
   }
   .stat .v {
-    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-size: clamp(2.6rem, 4.2vw, 3.6rem);
     font-weight: 700; font-family: 'Space Grotesk', system-ui;
     letter-spacing: -0.025em; line-height: 1;
     background: linear-gradient(135deg, var(--cyan), var(--violet));
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
-  .stat .k { font-size: 1rem; color: var(--ink-2); line-height: 1.4; font-weight: 500; }
+  .stat .k { font-size: 1.15rem; color: var(--ink-2); line-height: 1.4; font-weight: 500; }
   .stat.teal::before { background: linear-gradient(90deg, var(--teal), var(--cyan)); }
   .stat.teal .v { background: linear-gradient(135deg, var(--teal), var(--cyan)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .stat.amber::before { background: linear-gradient(90deg, var(--amber), var(--red)); }
@@ -487,38 +505,72 @@
 
   /* ===== HIGHLIGHT ===== */
   .highlight {
-    padding: 1.4rem 1.6rem;
+    padding: 1.6rem 1.8rem;
     background: linear-gradient(135deg, rgba(0, 128, 255, 0.05), rgba(124, 58, 237, 0.03));
     border-left: 4px solid var(--cyan);
-    border-radius: 0 12px 12px 0;
-    margin-top: 1.4rem;
+    border-radius: 0 14px 14px 0;
+    margin-top: 1.8rem;
   }
   .highlight .label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem; color: var(--cyan);
-    letter-spacing: 0.15em; margin-bottom: 0.4rem; font-weight: 700;
+    font-size: 0.85rem; color: var(--cyan);
+    letter-spacing: 0.15em; margin-bottom: 0.5rem; font-weight: 700;
   }
-  .highlight .text { font-size: 1.15rem; color: var(--ink-0); line-height: 1.55; font-weight: 500; }
+  .highlight .text { font-size: 1.25rem; color: var(--ink-0); line-height: 1.5; font-weight: 500; }
   .highlight .text b { font-weight: 700; }
+
+  /* ===== ASK ===== */
+  .ask-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+  @media (max-width: 900px) { .ask-grid { grid-template-columns: 1fr; } }
+  .ask-col {
+    padding: 2rem 1.8rem;
+    border-radius: 16px;
+    background: var(--bg-card);
+    box-shadow: var(--shadow-md);
+  }
+  .ask-col.nit { border-top: 4px solid var(--cyan); }
+  .ask-col.sd { border-top: 4px solid var(--teal); }
+  .ask-col .who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.95rem; letter-spacing: 0.15em;
+    margin-bottom: 1.3rem; font-weight: 700;
+  }
+  .ask-col.nit .who { color: var(--cyan); }
+  .ask-col.sd .who { color: var(--teal); }
+  .ask-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; }
+  .ask-col li {
+    font-size: 1.2rem; color: var(--ink-1);
+    line-height: 1.5; padding-left: 1.6rem; position: relative;
+  }
+  .ask-col li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--cyan); font-weight: 700;
+  }
+  .ask-col.sd li::before { color: var(--teal); }
 
   /* ===== VISION ===== */
   .vision-panel {
-    margin-top: 1.5rem;
-    padding: 3.5rem 2.5rem;
-    border-radius: 22px;
+    margin-top: 2rem;
+    padding: 4rem 3rem;
+    border-radius: 24px;
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
     color: white;
     text-align: center;
-    box-shadow: 0 24px 60px rgba(0, 128, 255, 0.25);
+    box-shadow: 0 28px 70px rgba(0, 128, 255, 0.28);
   }
   .vision-panel .year {
     font-family: 'JetBrains Mono', monospace;
-    color: rgba(255,255,255,0.85);
-    font-size: 1rem; letter-spacing: 0.22em;
-    margin-bottom: 1.3rem; font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    font-size: 1.05rem; letter-spacing: 0.22em;
+    margin-bottom: 1.5rem; font-weight: 700;
   }
   .vision-panel .quote {
-    font-size: clamp(1.6rem, 2.8vw, 2.5rem);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
     font-weight: 600; line-height: 1.3;
     max-width: 32ch; margin: 0 auto;
     letter-spacing: -0.015em; color: white;
@@ -527,8 +579,8 @@
   /* ===== END ===== */
   .end { align-items: center; justify-content: center; text-align: center; }
   .end h1 {
-    font-size: clamp(2.6rem, 5.6vw, 5rem);
-    font-weight: 700; letter-spacing: -0.03em; line-height: 1.15;
+    font-size: clamp(2.8rem, 5.4vw, 4.6rem);
+    font-weight: 700; letter-spacing: -0.03em; line-height: 1.2;
   }
 
   /* ===== NAVIGATION ===== */
@@ -537,17 +589,17 @@
     display: flex; align-items: center; gap: 0.9rem;
     z-index: 10;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--ink-2);
+    font-size: 0.9rem; color: var(--ink-2);
     font-weight: 600;
   }
   .nav .counter { color: var(--ink-0); }
   .nav button {
-    width: 38px; height: 38px;
+    width: 40px; height: 40px;
     background: var(--bg-card);
     box-shadow: var(--shadow-sm);
     border: 0; border-radius: 10px;
     color: var(--ink-1);
-    cursor: pointer; font-size: 1.1rem; transition: all 0.2s;
+    cursor: pointer; font-size: 1.2rem; transition: all 0.2s;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .nav button:hover {
@@ -563,8 +615,8 @@
   .brand {
     position: fixed; top: 1.4rem; left: 1.8rem;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.8rem; color: var(--ink-2);
-    letter-spacing: 0.2em; z-index: 10; font-weight: 600;
+    font-size: 0.85rem; color: var(--ink-2);
+    letter-spacing: 0.2em; z-index: 10; font-weight: 700;
   }
   .brand span { color: var(--cyan); }
 
@@ -590,7 +642,7 @@
   <section class="slide cover active">
     <div class="cover-header">
       <span>FOR THE DIRECTOR / NIT</span>
-      <span>v4.0 · 2026</span>
+      <span>v5.0 · 2026</span>
     </div>
     <div class="cover-main">
       <div class="cover-tag">
@@ -598,75 +650,84 @@
       </div>
       <h1 class="cover-title">
         ทำให้ NIT เป็น<br>
-        <span class="grad">โรงพยาบาลสมอง</span><br>
-        อันดับ 1 ของเอเชีย
+        <span class="grad">Brain Hospital of Asia</span>
       </h1>
       <p class="cover-sub">
-        NIT มี foundation ดีกว่า 95% รพ. ไทยอยู่แล้ว — <b>เราไม่มาขายของพื้น ๆ</b><br>
-        เรามาเสริมด้วย <b>5 Force Multipliers</b> ที่จะทำให้ NIT ติด WIRED, NEJM, WHO Innovation
+        NIT มี foundation ดีกว่า 95% รพ. ไทยอยู่แล้ว <br>
+        เราไม่มาขายของพื้น ๆ — มาเสริมด้วย <b>5 Force Multipliers</b><br>
+        ที่จะทำให้ NIT ติด WIRED · NEJM · WHO Innovation
       </p>
     </div>
     <div class="cover-footer">
-      <span>01 / 17</span>
+      <span>01 / 23</span>
       <span>↓ ↑ → ← TO NAVIGATE · F FOR FULLSCREEN</span>
     </div>
   </section>
 
-  <!-- 2. WHAT NIT HAS -->
+  <!-- 2. WHAT NIT HAS — Part 1 -->
   <section class="slide">
-    <div class="num">02 / WHAT NIT ALREADY HAS</div>
+    <div class="num">02 / WHAT NIT ALREADY HAS · 1/2</div>
     <h1>NIT <span class="teal">ไม่ใช่</span>โรงพยาบาลธรรมดา</h1>
-    <p class="lead">รู้จัก foundation ที่ทำให้เราเลือก NIT</p>
-    <div class="state-grid">
-      <div class="state-card have">
+    <p class="lead">3 ระบบสำคัญที่ทำให้คนไข้ได้รับ care ดีกว่า รพ. ทั่วไป</p>
+    <div class="cards-3">
+      <div class="card have">
         <div class="ic">📱</div>
         <div class="name">PNI Plus App</div>
-        <div class="desc">จองคิว ดูประวัติ · partner KBank · ลดเวลา 100 นาที/visit</div>
-        <div class="since">LIVE / APP STORE</div>
+        <div class="desc">จองคิว ดูประวัติ ลดเวลา 100 นาที/visit · partner KBank</div>
+        <div class="since">LIVE · APP STORE</div>
       </div>
-      <div class="state-card have">
+      <div class="card have">
         <div class="ic">📺</div>
         <div class="name">NIT Telemed</div>
-        <div class="desc">เปิดตั้งแต่ COVID · ลด congestion 20%</div>
+        <div class="desc">Telemedicine ตั้งแต่ COVID · ลด congestion 20%</div>
         <div class="since">SINCE COVID</div>
       </div>
-      <div class="state-card have">
+      <div class="card have">
         <div class="ic">🚑</div>
         <div class="name">Mobile Stroke Unit</div>
-        <div class="desc">CT scanner + tPA · PTT OR 16 ปั๊ม</div>
+        <div class="desc">CT scanner + tPA ในรถ · partner PTT OR 16 ปั๊ม</div>
         <div class="since">SINCE 2021</div>
       </div>
-      <div class="state-card have">
+    </div>
+  </section>
+
+  <!-- 3. WHAT NIT HAS — Part 2 -->
+  <section class="slide">
+    <div class="num">03 / WHAT NIT ALREADY HAS · 2/2</div>
+    <h1>และอีก <span class="teal">3 ด้าน</span> ที่แข็งแกร่ง</h1>
+    <p class="lead">Research, partnership, automation — foundation ของ AI-ready hospital</p>
+    <div class="cards-3">
+      <div class="card have">
         <div class="ic">🧠</div>
         <div class="name">AI Pipeline 8 ตัว</div>
-        <div class="desc">CT Brain · MRI denoising · Seizure detection · Stroke recovery · etc.</div>
+        <div class="desc">CT Brain · MRI denoising · Seizure detection · Stroke recovery · Face rehab · ฯลฯ</div>
         <div class="since">EC-APPROVED</div>
       </div>
-      <div class="state-card have">
+      <div class="card have">
         <div class="ic">🤝</div>
         <div class="name">MOU KMUTT</div>
-        <div class="desc">พระจอมเกล้าธนบุรี · joint AI development</div>
+        <div class="desc">พระจอมเกล้าธนบุรี · active joint AI development</div>
         <div class="since">ACTIVE</div>
       </div>
-      <div class="state-card have">
+      <div class="card have">
         <div class="ic">🤖</div>
         <div class="name">FlashBot (PUDU)</div>
-        <div class="desc">หุ่นยนต์ส่งยา/ตัวอย่าง/เอกสาร</div>
+        <div class="desc">หุ่นยนต์ส่งยา ตัวอย่าง เอกสารในตึก</div>
         <div class="since">DEPLOYED</div>
       </div>
     </div>
     <div class="highlight">
       <div class="label">THE INSIGHT</div>
-      <div class="text">เรา <b class="red">ไม่ rebuild</b> สิ่งที่ทำงานอยู่ — เรามา <b class="teal">เสริม</b> สิ่งที่ NIT ยังไม่มี และไม่มีใครในไทยมี</div>
+      <div class="text">เรา <b class="red">ไม่ rebuild</b> สิ่งที่ NIT มี — เรามา <b class="teal">เสริม</b> สิ่งที่ NIT ยังไม่มี และไม่มีใครในไทยมี</div>
     </div>
   </section>
 
-  <!-- 3. STATE OF THE WORLD -->
+  <!-- 4. STATE OF THE WORLD — Part 1 -->
   <section class="slide">
-    <div class="num">03 / STATE OF THE WORLD · 2024–2025</div>
+    <div class="num">04 / STATE OF THE WORLD · 1/2</div>
     <h1>โลกไปถึงไหนแล้วใน <span class="grad">Neuro AI</span></h1>
-    <p class="lead">นวัตกรรมที่ Mayo, Cleveland Clinic, Mount Sinai ใช้แล้ว — <b>ไทยยังไม่มา</b></p>
-    <div class="world-grid">
+    <p class="lead">นวัตกรรม clinical ที่ Cleveland Clinic, Mayo, Stanford ใช้แล้ว</p>
+    <div class="cards-3">
       <div class="world-card">
         <div class="tech">🚑 RAPIDAI / VIZ.AI</div>
         <div class="what">AI อ่าน CT Brain ในรถพยาบาล</div>
@@ -676,26 +737,35 @@
       <div class="world-card">
         <div class="tech">🎙️ DAX / ABRIDGE</div>
         <div class="what">GenAI ฟังหมอ → เขียน progress note</div>
-        <div class="who">Mayo, Stanford, HCA · Abridge $1.2B</div>
+        <div class="who">Mayo · Stanford · HCA · Abridge $1.2B</div>
         <div class="impact">↑ ประหยัด 1 ชม./วัน/หมอ</div>
       </div>
       <div class="world-card">
+        <div class="tech">🧬 BRAINOMIX</div>
+        <div class="what">AI predict 90-day mRS จาก CT</div>
+        <div class="who">Oxford NIHR · Lancet 2024</div>
+        <div class="impact">↑ treatment accuracy 30%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. STATE OF THE WORLD — Part 2 -->
+  <section class="slide">
+    <div class="num">05 / STATE OF THE WORLD · 2/2</div>
+    <h1>และ <span class="grad">3 นวัตกรรม</span> ฝั่ง preventive + network</h1>
+    <p class="lead">Care AI ที่กำลังเปลี่ยนวิธีดูแลผู้ป่วยทั่วโลก</p>
+    <div class="cards-3">
+      <div class="world-card">
         <div class="tech">⌚ APPLE WATCH</div>
         <div class="what">นาฬิกาตรวจ AFib (30% สาเหตุ stroke)</div>
-        <div class="who">FDA-cleared · 200M users</div>
+        <div class="who">FDA-cleared · 200M users · Apple Heart Study</div>
         <div class="impact">↑ early detection 84%</div>
       </div>
       <div class="world-card">
         <div class="tech">🌐 OWKIN / FEDERATED</div>
         <div class="what">รพ. หลายแห่ง train AI ร่วม — data ไม่ออก</div>
-        <div class="who">Mt Sinai, NIH · Nature Med 2024</div>
+        <div class="who">Mt Sinai · NIH · Nature Med 2024</div>
         <div class="impact">↑ 10× dataset · 0 leak</div>
-      </div>
-      <div class="world-card">
-        <div class="tech">🧬 BRAINOMIX</div>
-        <div class="what">AI predict 90-day mRS จาก baseline CT</div>
-        <div class="who">Oxford NIHR · Lancet 2024</div>
-        <div class="impact">↑ treatment accuracy 30%</div>
       </div>
       <div class="world-card">
         <div class="tech">📱 DIGITAL BIOMARKERS</div>
@@ -706,161 +776,206 @@
     </div>
   </section>
 
-  <!-- 4. THE GAP -->
+  <!-- 6. THE GAP -->
   <section class="slide">
-    <div class="num">04 / THE GAP</div>
-    <h1>NIT มี foundation แล้ว — <span class="amber">ขาด force multipliers</span></h1>
+    <div class="num">06 / THE GAP</div>
+    <h1>NIT มี foundation แล้ว<br><span class="amber">ขาด force multipliers</span></h1>
     <div class="bigstat">
       <div class="num-huge">5</div>
       <div class="num-text">
-        Force Multipliers ที่ทำให้ <b>NIT × Sala Daeng</b> ติดอันดับโลก<br>
-        — ไม่ใช่ระบบทั่วไป แต่เป็นนวัตกรรมที่ทั่วประเทศไทยยังไม่มีใครทำเต็มรูป
+        Force Multipliers ที่จะทำให้<br>
+        <b>NIT × Sala Daeng</b> ติดอันดับโลก<br>
+        — นวัตกรรมที่ทั่วประเทศไทย<br>ยังไม่มีใครทำเต็มรูป
       </div>
     </div>
-    <div class="state-grid" style="margin-top: 2rem;">
-      <div class="state-card"><div class="ic">🚑</div><div class="name">Layer 1 — MSU Co-pilot</div><div class="desc">AI on-board ใน Mobile Stroke Unit</div></div>
-      <div class="state-card"><div class="ic">🎙️</div><div class="name">Layer 2 — GenAI Scribe</div><div class="desc">หมอคุย → AI เขียน chart ภาษาไทย</div></div>
-      <div class="state-card"><div class="ic">⌚</div><div class="name">Layer 3 — Brain Health Twin</div><div class="desc">Wearable + smartphone ตรวจที่บ้าน</div></div>
-      <div class="state-card"><div class="ic">🧬</div><div class="name">Layer 4 — Outcome AI</div><div class="desc">ทำนาย recovery ก่อนรักษา</div></div>
-      <div class="state-card"><div class="ic">🌐</div><div class="name">Layer 5 — DMS Network</div><div class="desc">NIT เป็น hub · 30 รพ. train ร่วม</div></div>
+    <div class="layers-list">
+      <div class="ll-item"><div class="ic">🚑</div><div class="name">Layer 1<br>MSU Co-pilot</div><div class="desc">AI on-board ใน Mobile Stroke Unit</div></div>
+      <div class="ll-item"><div class="ic">🎙️</div><div class="name">Layer 2<br>GenAI Scribe</div><div class="desc">AI เขียน chart ภาษาไทย</div></div>
+      <div class="ll-item"><div class="ic">⌚</div><div class="name">Layer 3<br>Brain Health Twin</div><div class="desc">Wearable + smartphone monitoring</div></div>
+      <div class="ll-item"><div class="ic">🧬</div><div class="name">Layer 4<br>Outcome AI</div><div class="desc">ทำนาย recovery ก่อนรักษา</div></div>
+      <div class="ll-item"><div class="ic">🌐</div><div class="name">Layer 5<br>DMS Network</div><div class="desc">30 รพ. train AI ร่วม</div></div>
     </div>
   </section>
 
-  <!-- 5. LAYER 1 -->
+  <!-- 7. LAYER 1 — Problem/Solution -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num">1</div>
       <div class="layer-title-block">
         <div class="layer-tag">STROKE · CRITICAL CARE</div>
-        <div class="layer-title">🚑 MSU Co-pilot — AI ในรถพยาบาล</div>
+        <div class="layer-title">🚑 MSU Co-pilot</div>
       </div>
     </div>
-    <p class="lead">AI on-board ใน Mobile Stroke Unit ของ NIT — อ่าน CT ในรถ · ส่ง briefing ให้ stroke team ก่อนถึง รพ.</p>
+    <p class="lead">AI on-board ใน Mobile Stroke Unit ของ NIT — อ่าน CT ในรถ ส่ง briefing ให้ stroke team ก่อนถึง รพ.</p>
     <div class="layer-grid">
       <div class="layer-side problem">
         <div class="ls-label">ปัญหาวันนี้</div>
-        <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · ใช้เวลา 20-30 นาที · บางเคสเลย Golden Hour</p>
+        <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · ใช้เวลา <b>20-30 นาที</b> · บางเคสเลย Golden Hour</p>
       </div>
       <div class="layer-side solution">
         <div class="ls-label">SALA DAENG SOLUTION</div>
-        <p>AI on-board อ่าน NCCT ใน 3 นาที · ตรวจ LVO + hemorrhage · ส่งผล + case briefing ให้ NIT ขณะรถวิ่งอยู่</p>
+        <p>AI on-board อ่าน NCCT ใน <b>3 นาที</b> · ตรวจ LVO + hemorrhage · ส่งผล + case briefing ให้ NIT ขณะรถยังวิ่งอยู่</p>
       </div>
-    </div>
-    <div class="layer-impact">
-      <div class="impact-stat"><div class="v">-35 min</div><div class="k">Time-to-tPA<br>90 → 55 min</div></div>
-      <div class="impact-stat"><div class="v">+40%</div><div class="k">Patients<br>eligible for tPA</div></div>
-      <div class="impact-stat"><div class="v">1st</div><div class="k">MSU ใน SE Asia<br>ที่มี on-board AI</div></div>
-      <div class="impact-stat"><div class="v">+15%</div><div class="k">mRS 0-2<br>(เดินกลับบ้านได้)</div></div>
-    </div>
-    <div class="layer-ref">
-      <span class="lab">REFERENCE</span>
-      Cleveland Clinic MSU + <b>RapidAI</b> ลด door-to-needle 38 min (Stroke 2022) · Berlin MSU mortality trial · <b>Viz.ai</b> LVO ใน 8 min
     </div>
   </section>
 
-  <!-- 6. LAYER 2 -->
+  <!-- 8. LAYER 1 — Impact + Reference -->
+  <section class="slide">
+    <div class="layer-header">
+      <div class="layer-num">1</div>
+      <div class="layer-title-block">
+        <div class="layer-tag">LAYER 1 · IMPACT</div>
+        <div class="layer-title">MSU Co-pilot · ผลลัพธ์</div>
+      </div>
+    </div>
+    <div class="impact-hero">
+      <div class="ih-stat"><div class="v">-35 min</div><div class="k">Time-to-tPA<br>90 → 55 min</div></div>
+      <div class="ih-stat"><div class="v">+40%</div><div class="k">Patients eligible<br>for tPA</div></div>
+      <div class="ih-stat"><div class="v">1st</div><div class="k">MSU ใน SE Asia<br>ที่มี on-board AI</div></div>
+      <div class="ih-stat"><div class="v">+15%</div><div class="k">mRS 0-2<br>(เดินกลับบ้านได้)</div></div>
+    </div>
+    <div class="layer-ref-card">
+      <span class="lab">REFERENCE</span>
+      <p>Cleveland Clinic MSU + <b>RapidAI</b> ลด door-to-needle 38 min (Stroke 2022) · Berlin MSU mortality trial · <b>Viz.ai</b> LVO detection ใน 8 min vs standard 60 min</p>
+    </div>
+  </section>
+
+  <!-- 9. LAYER 2 — Problem/Solution -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
       <div class="layer-title-block">
         <div class="layer-tag" style="color: var(--violet);">DOCTOR · PRODUCTIVITY</div>
-        <div class="layer-title">🎙️ GenAI Scribe — หมอเลิกพิมพ์ chart</div>
+        <div class="layer-title">🎙️ GenAI Scribe</div>
       </div>
     </div>
     <p class="lead">Ambient AI ฟังหมอคุยกับคนไข้ → เขียน SOAP + progress + discharge อัตโนมัติ · ภาษาไทย neuro-specialized</p>
     <div class="layer-grid">
       <div class="layer-side problem">
         <div class="ls-label">ปัญหาวันนี้</div>
-        <p>หมอใช้ 30% ของ consultation เขียน chart · burnout 7.2/10 · บางคนทำงาน 12 ชม. เพราะเขียนเอกสารหลังเลิก</p>
+        <p>หมอใช้ <b>30%</b> ของ consultation เขียน chart · burnout 7.2/10 · บางคนทำงาน 12 ชม. เพราะเขียนเอกสารหลังเลิก</p>
       </div>
       <div class="layer-side solution">
         <div class="ls-label">SALA DAENG SOLUTION</div>
-        <p>ไมค์ในห้องตรวจ → AI ถอดเสียง + แยก speaker + เขียน note ใน 30 วินาที · template เฉพาะ stroke / parkinson / epilepsy</p>
+        <p>ไมค์ในห้องตรวจ → AI ถอดเสียง + แยก speaker + เขียน note ใน <b>30 วินาที</b> · template เฉพาะ stroke · parkinson · epilepsy</p>
       </div>
-    </div>
-    <div class="layer-impact" style="background: linear-gradient(135deg, var(--violet), var(--pink)); box-shadow: 0 12px 32px rgba(124, 58, 237, 0.25);">
-      <div class="impact-stat"><div class="v">-1 hr</div><div class="k">เวลาเขียน chart<br>ต่อหมอ/วัน</div></div>
-      <div class="impact-stat"><div class="v">+40%</div><div class="k">เวลาตา-ต่อ-ตา<br>กับคนไข้</div></div>
-      <div class="impact-stat"><div class="v">-40%</div><div class="k">Burnout score<br>(Maslach)</div></div>
-      <div class="impact-stat"><div class="v">1st</div><div class="k">Thai-language<br>neuro scribe</div></div>
-    </div>
-    <div class="layer-ref">
-      <span class="lab">REFERENCE</span>
-      <b>Microsoft DAX</b> + <b>Abridge</b> ($1.2B) ใช้ใน Mayo, Stanford, HCA, UPMC · saving 1 hr/doctor/day (JAMA 2024) · Anthropic + Memorial Sloan Kettering pilot
     </div>
   </section>
 
-  <!-- 7. LAYER 3 -->
+  <!-- 10. LAYER 2 — Impact + Reference -->
+  <section class="slide">
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--violet);">LAYER 2 · IMPACT</div>
+        <div class="layer-title">GenAI Scribe · ผลลัพธ์</div>
+      </div>
+    </div>
+    <div class="impact-hero violet-pink">
+      <div class="ih-stat"><div class="v">-1 hr</div><div class="k">เวลาเขียน chart<br>ต่อหมอ/วัน</div></div>
+      <div class="ih-stat"><div class="v">+40%</div><div class="k">เวลาตา-ต่อ-ตา<br>กับคนไข้</div></div>
+      <div class="ih-stat"><div class="v">-40%</div><div class="k">Burnout score<br>(Maslach)</div></div>
+      <div class="ih-stat"><div class="v">1st</div><div class="k">Thai-language<br>neuro scribe</div></div>
+    </div>
+    <div class="layer-ref-card">
+      <span class="lab">REFERENCE</span>
+      <p><b>Microsoft DAX</b> + <b>Abridge</b> ($1.2B valuation) · ใช้ใน Mayo, Stanford, HCA, UPMC · saving 1 hr/doctor/day (JAMA 2024) · <b>Anthropic</b> + Memorial Sloan Kettering pilot</p>
+    </div>
+  </section>
+
+  <!-- 11. LAYER 3 — Problem/Solution -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--red));">3</div>
       <div class="layer-title-block">
         <div class="layer-tag" style="color: var(--amber);">PREVENTION · HOME CARE</div>
-        <div class="layer-title">⌚ Brain Health Twin — ตรวจสมองที่บ้าน</div>
+        <div class="layer-title">⌚ Brain Health Twin</div>
       </div>
     </div>
     <p class="lead">Wearable + smartphone passive monitoring — AFib, voice biomarker, gait analysis · alert NIT ก่อนเกิด stroke</p>
     <div class="layer-grid">
       <div class="layer-side problem">
         <div class="ls-label">ปัญหาวันนี้</div>
-        <p>30% ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี · คนไข้มา รพ. แค่ตอนป่วยหนัก</p>
+        <p><b>30%</b> ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี · คนไข้มา รพ. แค่ตอนป่วยหนัก</p>
       </div>
       <div class="layer-side solution">
         <div class="ls-label">SALA DAENG SOLUTION</div>
-        <p>Apple Watch / Galaxy Watch + NIT app — AFib detection · voice → dementia screen · typing → Parkinson's · gait → fall risk · alert NIT ถ้าผิดปกติ</p>
+        <p>Apple Watch / Galaxy Watch + NIT app · AFib detection · voice → dementia screen · typing → Parkinson's · gait → fall risk · alert NIT ถ้าผิดปกติ</p>
       </div>
-    </div>
-    <div class="layer-impact" style="background: linear-gradient(135deg, var(--amber), var(--red)); box-shadow: 0 12px 32px rgba(217, 119, 6, 0.25);">
-      <div class="impact-stat"><div class="v">50K</div><div class="k">คนไข้ติดตาม<br>ภายในปี 2</div></div>
-      <div class="impact-stat"><div class="v">1,000+</div><div class="k">Stroke ป้องกัน<br>ต่อปี (AFib)</div></div>
-      <div class="impact-stat"><div class="v">-2 yr</div><div class="k">ลดเวลาวินิจฉัย<br>Parkinson's</div></div>
-      <div class="impact-stat"><div class="v">24/7</div><div class="k">Brain monitoring<br>at home</div></div>
-    </div>
-    <div class="layer-ref">
-      <span class="lab">REFERENCE</span>
-      <b>Apple Heart Study</b> 400K participants · AFib sensitivity 84% · <b>Stanford</b> voice biomarker for dementia · <b>Google DeepMind</b> gait analysis · <b>icometrix</b> brain volumetrics
     </div>
   </section>
 
-  <!-- 8. LAYER 4 -->
+  <!-- 12. LAYER 3 — Impact + Reference -->
+  <section class="slide">
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--red));">3</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--amber);">LAYER 3 · IMPACT</div>
+        <div class="layer-title">Brain Health Twin · ผลลัพธ์</div>
+      </div>
+    </div>
+    <div class="impact-hero amber-red">
+      <div class="ih-stat"><div class="v">50K</div><div class="k">คนไข้ติดตาม<br>ภายในปี 2</div></div>
+      <div class="ih-stat"><div class="v">1,000+</div><div class="k">Stroke ป้องกัน<br>ต่อปี (AFib)</div></div>
+      <div class="ih-stat"><div class="v">-2 yr</div><div class="k">ลดเวลาวินิจฉัย<br>Parkinson's</div></div>
+      <div class="ih-stat"><div class="v">24/7</div><div class="k">Brain monitoring<br>at home</div></div>
+    </div>
+    <div class="layer-ref-card">
+      <span class="lab">REFERENCE</span>
+      <p><b>Apple Heart Study</b> 400K participants · AFib sensitivity 84% · <b>Stanford</b> voice biomarker for dementia · <b>Google DeepMind</b> gait analysis · <b>icometrix</b> brain volumetrics</p>
+    </div>
+  </section>
+
+  <!-- 13. LAYER 4 — Problem/Solution -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--red), var(--amber));">4</div>
       <div class="layer-title-block">
         <div class="layer-tag" style="color: var(--red);">TREATMENT · DECISION SUPPORT</div>
-        <div class="layer-title">🧬 Outcome AI — ทำนายผลก่อนรักษา</div>
+        <div class="layer-title">🧬 Outcome AI</div>
       </div>
     </div>
     <p class="lead">AI predict 90-day modified Rankin Score (mRS) จาก baseline CT + clinical data → ตัดสินใจ tPA vs thrombectomy</p>
     <div class="layer-grid">
       <div class="layer-side problem">
         <div class="ls-label">ปัญหาวันนี้</div>
-        <p>หมอตัดสิน treatment โดยใช้ guideline + experience · บางเคสขัดแย้ง (tPA risk vs benefit) · 30% เคสเปลี่ยน decision หลังเห็น outcome เคสเดียวกัน</p>
+        <p>หมอตัดสิน treatment โดยใช้ guideline + experience · บางเคสขัดแย้ง · <b>30%</b> ของเคสเปลี่ยน decision หลังเห็น outcome เคสคล้ายกัน</p>
       </div>
       <div class="layer-side solution">
         <div class="ls-label">SALA DAENG SOLUTION</div>
-        <p>Input: CT + age + NIHSS + history → Output: P(mRS 0-2) · P(hemorrhage from tPA) · recommended action · Built กับ KMUTT MOU + NIT 5-yr data</p>
+        <p>Input: CT + age + NIHSS + history<br>Output: P(mRS 0-2) · P(hemorrhage from tPA) · recommended action<br>Built กับ KMUTT MOU + NIT 5-yr data</p>
       </div>
-    </div>
-    <div class="layer-impact" style="background: linear-gradient(135deg, var(--red), var(--amber)); box-shadow: 0 12px 32px rgba(220, 38, 38, 0.25);">
-      <div class="impact-stat"><div class="v">+30%</div><div class="k">Treatment<br>accuracy</div></div>
-      <div class="impact-stat"><div class="v">-20%</div><div class="k">Unnecessary<br>thrombectomy</div></div>
-      <div class="impact-stat"><div class="v">+15%</div><div class="k">tPA candidacy<br>(elderly)</div></div>
-      <div class="impact-stat"><div class="v">1st</div><div class="k">Thai-specific<br>outcome model</div></div>
-    </div>
-    <div class="layer-ref">
-      <span class="lab">REFERENCE</span>
-      <b>Brainomix e-Stroke</b> · Oxford NIHR · Lancet Neurology 2024 mRS prediction · <b>RapidAI Outcome</b> in US clinical use · <b>Heuron</b> Korea · ยังไม่มี Thai-specific model
     </div>
   </section>
 
-  <!-- 9. LAYER 5 -->
+  <!-- 14. LAYER 4 — Impact + Reference -->
+  <section class="slide">
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--red), var(--amber));">4</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--red);">LAYER 4 · IMPACT</div>
+        <div class="layer-title">Outcome AI · ผลลัพธ์</div>
+      </div>
+    </div>
+    <div class="impact-hero red-amber">
+      <div class="ih-stat"><div class="v">+30%</div><div class="k">Treatment<br>accuracy</div></div>
+      <div class="ih-stat"><div class="v">-20%</div><div class="k">Unnecessary<br>thrombectomy</div></div>
+      <div class="ih-stat"><div class="v">+15%</div><div class="k">tPA candidacy<br>(elderly)</div></div>
+      <div class="ih-stat"><div class="v">1st</div><div class="k">Thai-specific<br>outcome model</div></div>
+    </div>
+    <div class="layer-ref-card">
+      <span class="lab">REFERENCE</span>
+      <p><b>Brainomix e-Stroke</b> · Oxford NIHR · Lancet Neurology 2024 mRS prediction · <b>RapidAI Outcome</b> in US clinical use · <b>Heuron</b> Korea · ยังไม่มี Thai-specific model</p>
+    </div>
+  </section>
+
+  <!-- 15. LAYER 5 — Problem/Solution -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--cyan), var(--teal));">5</div>
       <div class="layer-title-block">
         <div class="layer-tag" style="color: var(--violet);">NATIONAL · NETWORK</div>
-        <div class="layer-title">🌐 DMS Neuro Network — NIT เป็นแกนกลาง</div>
+        <div class="layer-title">🌐 DMS Neuro Network</div>
       </div>
     </div>
     <p class="lead">Federated Learning ระดับชาติ · 30 รพ. ในกรมการแพทย์ train AI ร่วมกัน · data ไม่ออก รพ. · NIT เป็น hub</p>
@@ -871,24 +986,35 @@
       </div>
       <div class="layer-side solution">
         <div class="ls-label">SALA DAENG SOLUTION</div>
-        <p>Federated framework: รพ. train local → ส่ง weights ไม่ใช่ data → NIT รวม weights · AI ใหญ่ 10× · เคารพ PDPA · NIT = knowledge hub</p>
+        <p>Federated framework — รพ. train local → ส่ง weights ไม่ใช่ data · NIT รวม weights · AI ใหญ่ <b>10×</b> · เคารพ PDPA · NIT = knowledge hub</p>
       </div>
-    </div>
-    <div class="layer-impact" style="background: linear-gradient(135deg, var(--cyan), var(--teal)); box-shadow: 0 12px 32px rgba(0, 128, 255, 0.25);">
-      <div class="impact-stat"><div class="v">30 รพ.</div><div class="k">ในกรมการแพทย์<br>ใน network</div></div>
-      <div class="impact-stat"><div class="v">10×</div><div class="k">Dataset size<br>vs NIT alone</div></div>
-      <div class="impact-stat"><div class="v">0</div><div class="k">Data leaving<br>each hospital</div></div>
-      <div class="impact-stat"><div class="v">1st</div><div class="k">Federated neuro<br>network ใน SE Asia</div></div>
-    </div>
-    <div class="layer-ref">
-      <span class="lab">REFERENCE</span>
-      <b>Owkin</b> ($300M) federated learning ใน Mt Sinai, Memorial Sloan Kettering · <b>BrainXell</b> 30+ hospitals · <b>NIH NCRC</b> federated cancer · Nature Med 2024 multi-site brain MRI
     </div>
   </section>
 
-  <!-- 10. STACK -->
+  <!-- 16. LAYER 5 — Impact + Reference -->
   <section class="slide">
-    <div class="num">10 / THE INTEGRATION</div>
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--cyan), var(--teal));">5</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--violet);">LAYER 5 · IMPACT</div>
+        <div class="layer-title">DMS Network · ผลลัพธ์</div>
+      </div>
+    </div>
+    <div class="impact-hero cyan-teal">
+      <div class="ih-stat"><div class="v">30 รพ.</div><div class="k">ในกรมการแพทย์<br>ใน network</div></div>
+      <div class="ih-stat"><div class="v">10×</div><div class="k">Dataset size<br>vs NIT alone</div></div>
+      <div class="ih-stat"><div class="v">0</div><div class="k">Data leaving<br>each hospital</div></div>
+      <div class="ih-stat"><div class="v">1st</div><div class="k">Federated neuro<br>network ใน SE Asia</div></div>
+    </div>
+    <div class="layer-ref-card">
+      <span class="lab">REFERENCE</span>
+      <p><b>Owkin</b> ($300M valuation) federated learning ใน Mt Sinai, Memorial Sloan Kettering · <b>BrainXell</b> 30+ hospitals · <b>NIH NCRC</b> federated cancer · Nature Med 2024 multi-site brain MRI</p>
+    </div>
+  </section>
+
+  <!-- 17. INTEGRATION STACK -->
+  <section class="slide">
+    <div class="num">17 / INTEGRATION</div>
     <h1>เราไม่ <span class="red">rebuild</span> — เรา <span class="teal">เสริม</span></h1>
     <p class="lead">5 Force Multipliers <b>นั่งบน foundation ที่ NIT มี</b> — ไม่ทับซ้อน ไม่ขัดแย้ง</p>
     <div class="stack">
@@ -901,11 +1027,10 @@
     </div>
   </section>
 
-  <!-- 11. COMPETITIVE -->
+  <!-- 18. COMPETITIVE -->
   <section class="slide">
-    <div class="num">11 / COMPETITIVE POSITION</div>
-    <h1>เราไม่แข่งกับ <span class="amber">AN AN Bot</span> — เราอยู่ <span class="cyan">คนละชั้น</span></h1>
-    <p class="lead">Agnos AN AN Bot = chatbot triage ทั่วไป · Sala Daeng = specialized neuro stack ตั้งแต่ ambulance → home</p>
+    <div class="num">18 / COMPETITIVE POSITION</div>
+    <h1>เราไม่แข่งกับ <span class="amber">AN AN Bot</span><br>เราอยู่ <span class="cyan">คนละชั้น</span></h1>
     <div class="vs-matrix">
       <div class="vs-col">
         <div class="name">Agnos AN AN Bot</div>
@@ -913,16 +1038,14 @@
         <ul>
           <li>Generic LLM chatbot</li>
           <li>Pre-visit only</li>
-          <li>LINE + FB Messenger</li>
-          <li>Multi-disease, ไม่ specialized</li>
+          <li>Multi-disease ไม่ specialized</li>
           <li>Pruksa-funded · 2025 launch</li>
         </ul>
       </div>
       <div class="vs-col">
-        <div class="name">Hospital IT Vendors</div>
-        <div class="ko">HIS / EMR / WORKFLOW</div>
+        <div class="name">HOSxP / SSB / JHCIS</div>
+        <div class="ko">HIS / EMR VENDORS</div>
         <ul>
-          <li>HOSxP · SSB · JHCIS</li>
           <li>Records + scheduling</li>
           <li>ไม่ใช่ AI native</li>
           <li>ของเก่า ต่อยอด AI ยาก</li>
@@ -933,63 +1056,19 @@
         <div class="name">Sala Daeng × NIT</div>
         <div class="ko">SPECIALIZED NEURO STACK</div>
         <ul>
-          <li>5 force multipliers ครบเส้นทาง</li>
+          <li>5 multipliers ครบเส้นทาง</li>
           <li>Ambulance → ward → home</li>
           <li>Thai neuro-specialized</li>
           <li>Federated network</li>
           <li>KMUTT research depth</li>
-          <li>NIT brand + DMS scale</li>
         </ul>
       </div>
     </div>
-    <div class="highlight">
-      <div class="label">STRATEGIC INSIGHT</div>
-      <div class="text">AN AN Bot = <b>horizontal</b> (ทุกโรค) · เรา = <b>vertical</b> (เฉพาะ neuro แต่ลึก) · ใน healthcare AI — <b class="cyan">vertical ชนะ horizontal เสมอ</b></div>
-    </div>
   </section>
 
-  <!-- 12. WHY WORLD-FAMOUS -->
+  <!-- 19. ROADMAP -->
   <section class="slide">
-    <div class="num">12 / WHY NIT GETS WORLD-FAMOUS</div>
-    <h1>NIT ติด <span class="grad">WIRED · NEJM · WHO</span> ได้ยังไง</h1>
-    <p class="lead">เราไม่ใช่แค่ผู้ใช้ — เราสร้าง <b>story</b> ที่ทำให้ NIT เป็น case study ระดับโลก</p>
-    <div class="state-grid">
-      <div class="state-card">
-        <div class="ic">📰</div>
-        <div class="name">Publications</div>
-        <div class="desc">NEJM · Lancet Neurology · Nature Digital Medicine — KMUTT academic backing</div>
-      </div>
-      <div class="state-card">
-        <div class="ic">🏆</div>
-        <div class="name">Awards</div>
-        <div class="desc">HIMSS Davies · JCI Quality · WHO Digital Health · Asia Hospital Mgmt</div>
-      </div>
-      <div class="state-card">
-        <div class="ic">📺</div>
-        <div class="name">Media</div>
-        <div class="desc">WIRED · TIME · MIT Tech Review · Bloomberg · Thai PBS feature</div>
-      </div>
-      <div class="state-card">
-        <div class="ic">🌍</div>
-        <div class="name">Conference Keynotes</div>
-        <div class="desc">ESO · World Stroke Congress · AAN · HIMSS APAC — ผอ. NIT keynote</div>
-      </div>
-      <div class="state-card">
-        <div class="ic">🏥</div>
-        <div class="name">WHO Centre</div>
-        <div class="desc">WHO Collaborating Centre for AI Neurology · SE Asia regional hub</div>
-      </div>
-      <div class="state-card">
-        <div class="ic">🎓</div>
-        <div class="name">Academic Programs</div>
-        <div class="desc">Fellowship in AI Neurology · co-degree KMUTT/Mahidol</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 13. ROADMAP -->
-  <section class="slide">
-    <div class="num">13 / ROADMAP · 2026–2028</div>
+    <div class="num">19 / ROADMAP · 2026–2028</div>
     <h1>เส้นทาง <span class="cyan">3 เฟส · 30 เดือน</span></h1>
     <div class="roadmap">
       <div class="roadphase p1">
@@ -997,7 +1076,7 @@
         <h3>Quick Win</h3>
         <p class="focus">Layer 2 + 3 ก่อน · ไม่ติด อย. · ROI ชัด</p>
         <ul>
-          <li>GenAI Scribe MVP — pilot 5 doctors</li>
+          <li>GenAI Scribe MVP — pilot 5 หมอ</li>
           <li>Brain Health Twin — Apple Watch AFib</li>
           <li>Publish paper Thai-MED Journal</li>
           <li>เปิด NIT–KMUTT Joint AI Lab</li>
@@ -1008,8 +1087,8 @@
         <h3>Stroke Stack</h3>
         <p class="focus">ลงลึกที่ stroke — MSU + outcome AI</p>
         <ul>
-          <li>MSU Co-pilot — deploy in ambulance</li>
-          <li>Outcome AI — clinical validation</li>
+          <li>MSU Co-pilot · deploy in ambulance</li>
+          <li>Outcome AI · clinical validation</li>
           <li>Federated kick-off · 5 รพ.</li>
           <li>Submit Lancet Neurology paper</li>
           <li>HIMSS APAC keynote</li>
@@ -1024,19 +1103,19 @@
           <li>WHO Collaborating Centre apply</li>
           <li>Expansion ไป CLMV</li>
           <li>NEJM publication</li>
-          <li>WIRED / MIT Tech Review feature</li>
+          <li>WIRED feature</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- 14. IMPACT -->
+  <!-- 20. IMPACT -->
   <section class="slide">
-    <div class="num">14 / IMPACT</div>
+    <div class="num">20 / IMPACT</div>
     <h1>ผลลัพธ์ที่ <span class="teal">วัดได้</span></h1>
     <div class="stat-grid">
       <div class="stat"><div class="v">5,000+</div><div class="k">ชีวิต stroke<br>ช่วยได้/ปี ทั่ว DMS</div></div>
-      <div class="stat teal"><div class="v">฿2B</div><div class="k">ประหยัด healthcare cost<br>ระบบสาธารณสุข/ปี</div></div>
+      <div class="stat teal"><div class="v">฿2B</div><div class="k">ประหยัด healthcare<br>cost ระบบ/ปี</div></div>
       <div class="stat violet"><div class="v">200+</div><div class="k">หมอที่ใช้<br>GenAI Scribe</div></div>
       <div class="stat amber"><div class="v">3,000+</div><div class="k">AFib detected<br>ก่อนเกิด stroke/ปี</div></div>
     </div>
@@ -1046,30 +1125,30 @@
     </div>
   </section>
 
-  <!-- 15. THE ASK -->
+  <!-- 21. THE ASK -->
   <section class="slide">
-    <div class="num">15 / THE ASK</div>
+    <div class="num">21 / THE ASK</div>
     <h1>เริ่มกัน <span class="cyan">วันนี้</span></h1>
-    <p class="lead">NIT มี vision + foundation + MOU · Sala Daeng มี engineering + AI + DMS access · combine = unlock world-class</p>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; margin-top: 1.5rem;">
-      <div style="padding: 1.8rem; border-radius: 16px; background: var(--bg-card); box-shadow: var(--shadow-md); border-top: 4px solid var(--cyan);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--cyan); margin-bottom: 1rem; font-weight: 700;">📋 จาก NIT</div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.7rem;">
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--cyan);">✓</span>Access ให้ historical data (PDPA)</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--cyan);">✓</span>Clinical champion — 2-3 หมอ</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--cyan);">✓</span>Pilot ward สำหรับ Scribe (5 หมอ)</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--cyan);">✓</span>MSU access สำหรับ Layer 1</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--cyan);">✓</span>Co-author commitment</li>
+    <p class="lead">NIT มี vision + foundation + MOU · Sala Daeng มี engineering + AI + DMS access · combine = world-class</p>
+    <div class="ask-grid">
+      <div class="ask-col nit">
+        <div class="who">📋 จาก NIT</div>
+        <ul>
+          <li>Access historical data (PDPA-compliant)</li>
+          <li>Clinical champion 2-3 หมอ</li>
+          <li>Pilot ward สำหรับ Scribe (5 หมอ)</li>
+          <li>MSU access สำหรับ Layer 1</li>
+          <li>Co-author commitment</li>
         </ul>
       </div>
-      <div style="padding: 1.8rem; border-radius: 16px; background: var(--bg-card); box-shadow: var(--shadow-md); border-top: 4px solid var(--teal);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.15em; color: var(--teal); margin-bottom: 1rem; font-weight: 700;">🚀 จาก SALA DAENG</div>
-        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.7rem;">
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--teal);">✓</span>Dedicated team 4-5 dev</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--teal);">✓</span>MD advisor + engineering lead</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--teal);">✓</span>Phase 1 MVP ใน 12 สัปดาห์</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--teal);">✓</span>ไม่คิด project fee Phase 1 — แลก co-IP</li>
-          <li style="font-size: 1.05rem; padding-left: 1.4rem; position: relative; line-height: 1.45;"><span style="position: absolute; left: 0; color: var(--teal);">✓</span>Pursue ทุน depa/NIA ร่วม</li>
+      <div class="ask-col sd">
+        <div class="who">🚀 จาก SALA DAENG</div>
+        <ul>
+          <li>Dedicated team 4-5 dev</li>
+          <li>MD advisor + engineering lead</li>
+          <li>Phase 1 MVP ใน 12 สัปดาห์</li>
+          <li>ไม่คิด project fee Phase 1 · co-IP</li>
+          <li>Pursue ทุน depa/NIA ร่วม</li>
         </ul>
       </div>
     </div>
@@ -1079,22 +1158,19 @@
     </div>
   </section>
 
-  <!-- 16. VISION -->
+  <!-- 22. VISION -->
   <section class="slide">
-    <div class="num">16 / VISION 2030</div>
-    <h1>NIT ในปี 2030 — <span class="grad">"Brain Hospital of Asia"</span></h1>
+    <div class="num">22 / VISION 2030</div>
+    <h1>NIT ในปี 2030</h1>
     <div class="vision-panel">
       <div class="year">VISION · 2030</div>
       <div class="quote">"เมื่อ neurologist ในเอเชีย<br>คิดถึง AI ในวงการประสาท —<br>เขาคิดถึง NIT"</div>
     </div>
-    <p class="lead" style="text-align: center; margin: 1.5rem auto 0; max-width: 60ch;">
-      ไม่ใช่เพราะเราขายของถูก ไม่ใช่เพราะเราใหญ่ — แต่เพราะเรา <b>ทำสิ่งที่คนอื่นไม่กล้าทำ</b> และทำสำเร็จ
-    </p>
   </section>
 
-  <!-- 17. CLOSING -->
+  <!-- 23. CLOSING -->
   <section class="slide end">
-    <div style="font-family: 'JetBrains Mono', monospace; color: var(--ink-2); letter-spacing: 0.2em; margin-bottom: 2rem; font-weight: 600;">
+    <div style="font-family: 'JetBrains Mono', monospace; color: var(--ink-2); letter-spacing: 0.2em; margin-bottom: 2rem; font-weight: 700;">
       <span class="pulse" style="display: inline-block;"></span> &nbsp; READY WHEN YOU ARE
     </div>
     <h1>
@@ -1106,7 +1182,7 @@
     <p class="lead" style="margin-top: 2rem; max-width: 56ch;">
       ไม่ใช่ slide deck — แต่คือ <b>partnership</b> ที่จะ define ตำแหน่งของ NIT 10 ปีข้างหน้า
     </p>
-    <div style="margin-top: 3rem; font-family: 'JetBrains Mono', monospace; color: var(--ink-3); font-size: 0.9rem; letter-spacing: 0.2em; font-weight: 600;">
+    <div style="margin-top: 3rem; font-family: 'JetBrains Mono', monospace; color: var(--ink-3); font-size: 0.95rem; letter-spacing: 0.2em; font-weight: 700;">
       NIT × SALA DAENG &nbsp;·&nbsp; 2026
     </div>
   </section>
@@ -1114,7 +1190,7 @@
 </div>
 
 <div class="nav">
-  <span class="counter"><span id="cur">1</span> / <span id="total">17</span></span>
+  <span class="counter"><span id="cur">1</span> / <span id="total">23</span></span>
   <button id="prev" aria-label="previous">←</button>
   <button id="next" aria-label="next">→</button>
 </div>
