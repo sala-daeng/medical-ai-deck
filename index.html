@@ -6,7 +6,7 @@
 <title>NIT × Sala Daeng — Brain Hospital of Asia</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #faf9f5;
@@ -50,11 +50,6 @@
     pointer-events: none; z-index: 0;
   }
 
-  .serif {
-    font-family: 'Fraunces', 'IBM Plex Sans Thai', serif;
-    font-optical-sizing: auto;
-    font-variation-settings: "opsz" 144;
-  }
   .serif-italic {
     font-family: 'Fraunces', serif;
     font-style: italic;
@@ -72,6 +67,7 @@
     animation: fadeIn 0.5s cubic-bezier(.2,.7,.3,1);
     overflow-y: auto;
   }
+  .slide.ui-showcase { padding: 5vh 4vw; }
   .slide:not(.active) { display: none; }
   .slide.active { display: flex; }
   @keyframes fadeIn {
@@ -98,15 +94,6 @@
     line-height: 1.2; font-weight: 700;
     margin-bottom: 1.4rem; color: var(--ink);
   }
-  h2 {
-    font-size: clamp(1.7rem, 3vw, 2.4rem);
-    line-height: 1.25; font-weight: 600;
-    margin-bottom: 1rem; color: var(--ink);
-  }
-  h3 {
-    font-size: clamp(1.25rem, 1.7vw, 1.5rem);
-    font-weight: 700; color: var(--ink);
-  }
   p, li {
     font-size: clamp(1.2rem, 1.4vw, 1.35rem);
     line-height: 1.55; color: var(--ink-1);
@@ -116,7 +103,6 @@
     line-height: 1.5; color: var(--ink-1); max-width: 64ch;
     font-weight: 400; margin-bottom: 0;
   }
-
   .cyan { color: var(--cyan); }
   .teal { color: var(--teal); }
   .violet { color: var(--violet); }
@@ -158,7 +144,7 @@
   }
   .cover-sub b { font-weight: 700; color: var(--ink); }
 
-  /* ===== 3 CARDS ROW ===== */
+  /* ===== 3 CARDS ===== */
   .cards-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -186,7 +172,6 @@
   }
   .card.have { border-left: 3px solid var(--teal); }
 
-  /* ===== WORLD CARDS ===== */
   .world-card {
     padding: 1.8rem;
     border-radius: 14px;
@@ -212,7 +197,7 @@
     font-weight: 700; line-height: 1.4;
   }
 
-  /* ===== GAP HERO ===== */
+  /* ===== GAP ===== */
   .gap-hero {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -239,7 +224,7 @@
   }
   .gap-text b { color: var(--ink); font-weight: 700; }
 
-  /* ===== 5 LAYERS PREVIEW ===== */
+  /* ===== PREVIEW ===== */
   .preview-cards {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -270,7 +255,7 @@
   .preview-card .name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--ink); line-height: 1.4; }
   .preview-card .desc { font-size: 1.02rem; color: var(--ink-2); line-height: 1.45; }
 
-  /* ===== LAYER ===== */
+  /* ===== LAYER HEADER ===== */
   .layer-header {
     display: flex; align-items: center; gap: 1.4rem;
     margin-bottom: 1.4rem;
@@ -301,418 +286,1199 @@
     color: var(--ink);
   }
 
-  .layer-body {
+  /* ===== LAYER SETUP (text only) ===== */
+  .setup-grid {
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.8rem;
     margin-top: 1.4rem;
-    align-items: start;
   }
-  @media (max-width: 1000px) { .layer-body { grid-template-columns: 1fr; } }
-
-  .layer-mockup-wrap {
+  @media (max-width: 900px) { .setup-grid { grid-template-columns: 1fr; } }
+  .setup-side {
+    padding: 1.8rem 2rem;
     border-radius: 14px;
     background: var(--bg-card);
     box-shadow: var(--shadow-md);
-    overflow: hidden;
-    min-height: 320px;
   }
-
-  .layer-side {
-    padding: 1.5rem 1.6rem;
-    border-radius: 14px;
-    background: var(--bg-card);
-    box-shadow: var(--shadow-sm);
-    display: flex; flex-direction: column;
-    gap: 1.2rem;
-  }
-  .layer-side .ls-block .ls-label {
+  .setup-side .ls-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em; margin-bottom: 0.5rem; font-weight: 700;
-    text-transform: uppercase;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
-  .layer-side .ls-block .ls-label::before {
-    content: ''; width: 12px; height: 2px;
-  }
-  .layer-side .ls-block.problem .ls-label { color: var(--coral); }
-  .layer-side .ls-block.problem .ls-label::before { background: var(--coral); }
-  .layer-side .ls-block.solution .ls-label { color: var(--teal); }
-  .layer-side .ls-block.solution .ls-label::before { background: var(--teal); }
-  .layer-side .ls-block p { font-size: 1.1rem; line-height: 1.55; color: var(--ink-1); }
-  .layer-side .ls-block p b { color: var(--ink); font-weight: 700; }
-
-  /* ===== MOCKUP base ===== */
-  .mockup {
-    background: var(--bg-card);
-    width: 100%; height: 100%;
-    min-height: 320px;
-    display: flex; flex-direction: column;
-    font-family: 'IBM Plex Sans Thai', sans-serif;
-  }
-  .mk-header {
-    background: #f5f5f0;
-    border-bottom: 1px solid var(--line);
-    padding: 0.8rem 1.2rem;
-    display: flex; align-items: center; justify-content: space-between;
-    gap: 0.8rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.75rem; color: var(--ink-2);
-    letter-spacing: 0.08em; font-weight: 600;
-  }
-  .mk-header .left { display: flex; align-items: center; gap: 0.6rem; }
-  .mk-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: var(--teal);
-  }
-  .mk-dot.red {
-    background: var(--coral);
-    animation: pulseRed 1.5s ease-in-out infinite;
-  }
-  @keyframes pulseRed {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(196, 61, 45, 0.6); }
-    50% { box-shadow: 0 0 0 8px rgba(196, 61, 45, 0); }
-  }
-  .mk-body { padding: 1.2rem; flex: 1; display: flex; flex-direction: column; gap: 0.9rem; }
-
-  /* MOCKUP — MSU TABLET (Layer 1) */
-  .mk-msu .mk-body {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 1rem;
-  }
-  .msu-ct {
-    background: radial-gradient(circle at 50% 50%, #2a2a2a 30%, #0a0a0a 70%);
-    border-radius: 10px;
-    aspect-ratio: 1;
-    position: relative;
-    display: flex; align-items: center; justify-content: center;
-    overflow: hidden;
-  }
-  .msu-ct::before {
-    content: '';
-    position: absolute;
-    width: 75%; height: 78%;
-    border-radius: 45% 55% 55% 45%;
-    background: radial-gradient(ellipse at 50% 50%, #555 30%, #2a2a2a 80%);
-    box-shadow: inset 0 0 12px rgba(0,0,0,0.6);
-  }
-  .msu-ct::after {
-    content: '';
-    position: absolute;
-    width: 14%; height: 14%;
-    border-radius: 50%;
-    background: var(--coral);
-    top: 36%; left: 32%;
-    box-shadow: 0 0 16px rgba(196, 61, 45, 0.8), inset 0 0 6px rgba(0,0,0,0.3);
-    animation: pulseRed 1.5s ease-in-out infinite;
-  }
-  .msu-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem; color: var(--ink-3);
-    text-align: center; margin-top: 0.5rem;
-    letter-spacing: 0.1em;
-  }
-  .msu-right { display: flex; flex-direction: column; gap: 0.7rem; }
-  .msu-alert {
-    background: rgba(196, 61, 45, 0.08);
-    border-left: 3px solid var(--coral);
-    border-radius: 0 8px 8px 0;
-    padding: 0.7rem 0.9rem;
-  }
-  .msu-alert .lab {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem; color: var(--coral);
-    letter-spacing: 0.13em; font-weight: 700;
-  }
-  .msu-alert .val {
-    font-size: 1.15rem; font-weight: 700; color: var(--ink);
-    margin-top: 0.15rem;
-  }
-  .msu-alert .sub { font-size: 0.85rem; color: var(--ink-2); margin-top: 0.1rem; }
-  .msu-row {
-    display: flex; justify-content: space-between;
-    font-size: 0.85rem; padding: 0.35rem 0;
-    border-bottom: 1px solid var(--line);
-  }
-  .msu-row:last-child { border-bottom: 0; }
-  .msu-row .k { color: var(--ink-2); }
-  .msu-row .v { font-weight: 700; color: var(--ink); }
-  .msu-row .v.teal { color: var(--teal); }
-  .msu-send {
-    background: var(--ink);
-    color: white;
-    padding: 0.6rem 0.9rem;
-    border-radius: 8px;
     font-size: 0.85rem;
-    text-align: center;
-    font-weight: 600;
-    margin-top: 0.3rem;
+    letter-spacing: 0.15em; margin-bottom: 0.8rem; font-weight: 700;
+    text-transform: uppercase;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .setup-side .ls-label::before {
+    content: ''; width: 16px; height: 3px; border-radius: 2px;
+  }
+  .setup-side.problem { border-left: 4px solid var(--coral); }
+  .setup-side.problem .ls-label { color: var(--coral); }
+  .setup-side.problem .ls-label::before { background: var(--coral); }
+  .setup-side.solution {
+    border-left: 4px solid var(--teal);
+    background: linear-gradient(135deg, rgba(0, 122, 94, 0.04), rgba(255,255,255,1));
+  }
+  .setup-side.solution .ls-label { color: var(--teal); }
+  .setup-side.solution .ls-label::before { background: var(--teal); }
+  .setup-side p { font-size: 1.25rem; line-height: 1.6; color: var(--ink-1); }
+  .setup-side p b { color: var(--ink); font-weight: 700; }
+
+  /* ===== UI SHOWCASE FRAME ===== */
+  .ui-showcase-frame {
+    position: relative;
+    width: 100%;
+    margin-top: 0.4rem;
+    flex: 1;
+    display: flex; flex-direction: column;
+    min-height: 0;
+  }
+  .ui-tag {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 0.8rem;
     font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.05em;
+    font-size: 0.82rem; letter-spacing: 0.15em;
+    text-transform: uppercase; font-weight: 700;
+    color: var(--ink-2);
+  }
+  .ui-tag .pill {
+    padding: 0.25rem 0.7rem; border-radius: 999px;
+    background: var(--ink); color: white;
+    font-size: 0.75rem; letter-spacing: 0.12em;
+  }
+  .ui-caption {
+    font-size: clamp(1.6rem, 2.4vw, 2rem);
+    font-weight: 700; line-height: 1.25;
+    margin-bottom: 1.2rem; letter-spacing: -0.01em;
+  }
+  .ui-caption b {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--coral);
+  }
+  .ui-canvas {
+    flex: 1;
+    border-radius: 18px;
+    overflow: hidden;
+    background: white;
+    box-shadow: var(--shadow-lg);
+    display: flex; flex-direction: column;
+    min-height: 0;
   }
 
-  /* MOCKUP — SCRIBE (Layer 2) */
-  .mk-scribe .mk-body { gap: 0.6rem; }
-  .scribe-split {
+  /* =================================================== */
+  /* MOCKUP 1 — MSU TABLET (Dark Clinical) */
+  /* =================================================== */
+  .mock-msu {
+    background: #0a0e1a;
+    color: #e8eaf4;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    min-height: 540px;
+  }
+  .mock-msu .top-bar {
+    background: linear-gradient(180deg, #14182a, #0e1220);
+    border-bottom: 1px solid #1f2336;
+    padding: 0.9rem 1.4rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; letter-spacing: 0.1em;
+  }
+  .mock-msu .top-bar .left { display: flex; align-items: center; gap: 1.2rem; color: #8d92a8; }
+  .mock-msu .top-bar .right { display: flex; align-items: center; gap: 1.2rem; }
+  .live-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #ff3838;
+    box-shadow: 0 0 12px rgba(255, 56, 56, 0.8);
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+  @keyframes livePulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .mock-msu .pt-id { color: #e8eaf4; font-weight: 700; }
+  .mock-msu .timer { color: #ff3838; font-weight: 700; font-size: 0.95rem; }
+  .mock-msu .timer .label { color: #8d92a8; font-size: 0.7rem; font-weight: 600; margin-right: 0.5rem; }
+
+  .mock-msu .main {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 1px;
+    background: #1f2336;
     flex: 1;
   }
+  .mock-msu .panel {
+    background: #0a0e1a;
+    padding: 1.1rem 1.2rem;
+    display: flex; flex-direction: column;
+    gap: 0.7rem;
+    overflow: hidden;
+  }
+  .mock-msu .panel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem; color: #8d92a8;
+    letter-spacing: 0.18em; font-weight: 700;
+    text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .mock-msu .panel-label .badge {
+    background: rgba(0, 255, 198, 0.15);
+    color: #00ffc6;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* CT scan viewer */
+  .ct-viewer {
+    aspect-ratio: 1;
+    background:
+      radial-gradient(circle at 50% 50%, #2a2e40 25%, #15182a 65%, #0a0e1a 90%);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+  }
+  .ct-viewer::before {
+    content: '';
+    position: absolute;
+    top: 14%; left: 14%; right: 14%; bottom: 14%;
+    border-radius: 45% 55% 50% 50%;
+    background: radial-gradient(ellipse at 50% 45%, #555 20%, #2a2e40 65%, #1a1d2c 90%);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+  }
+  .ct-viewer::after {
+    content: '';
+    position: absolute;
+    top: 38%; left: 33%;
+    width: 13%; height: 13%;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff3838 30%, #c41e15 80%);
+    box-shadow: 0 0 18px rgba(255, 56, 56, 0.7);
+    animation: lvoPulse 1.5s ease-in-out infinite;
+  }
+  @keyframes lvoPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 18px rgba(255, 56, 56, 0.7); }
+    50% { transform: scale(1.12); box-shadow: 0 0 28px rgba(255, 56, 56, 1); }
+  }
+  .ct-overlay {
+    position: absolute;
+    bottom: 8px; left: 8px; right: 8px;
+    display: flex; justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; color: rgba(255,255,255,0.5);
+    letter-spacing: 0.1em;
+  }
+  .ct-crosshair {
+    position: absolute;
+    top: 44%; left: 39%;
+    width: 24px; height: 24px;
+    pointer-events: none;
+  }
+  .ct-crosshair::before, .ct-crosshair::after {
+    content: ''; position: absolute;
+    background: rgba(255, 56, 56, 0.8);
+  }
+  .ct-crosshair::before { left: 50%; top: 0; bottom: 0; width: 1px; }
+  .ct-crosshair::after { top: 50%; left: 0; right: 0; height: 1px; }
+
+  .ct-tabs {
+    display: flex; gap: 0.4rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    margin-top: 0.4rem;
+  }
+  .ct-tab {
+    padding: 0.25rem 0.7rem;
+    border-radius: 5px;
+    color: #8d92a8;
+    background: #14182a;
+    letter-spacing: 0.05em;
+  }
+  .ct-tab.active { background: #00d4ff; color: #0a0e1a; font-weight: 700; }
+
+  .findings {
+    display: flex; flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+  }
+  .finding {
+    display: grid;
+    grid-template-columns: 16px 1fr auto;
+    gap: 0.5rem;
+    align-items: center;
+    padding: 0.55rem 0.7rem;
+    background: #14182a;
+    border-radius: 6px;
+    border-left: 2px solid transparent;
+    font-size: 0.82rem;
+  }
+  .finding.critical { border-left-color: #ff3838; background: rgba(255, 56, 56, 0.08); }
+  .finding.ok { border-left-color: #00ffc6; }
+  .finding .icon-tag {
+    width: 14px; height: 14px;
+    border-radius: 3px;
+    background: #1f2336;
+    display: flex; align-items: center; justify-content: center;
+    color: #00ffc6; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem;
+  }
+  .finding.critical .icon-tag { background: rgba(255, 56, 56, 0.3); color: #ff3838; }
+  .finding .label { color: #e8eaf4; font-weight: 500; }
+  .finding .conf {
+    font-family: 'JetBrains Mono', monospace;
+    color: #8d92a8;
+    font-weight: 700;
+    font-size: 0.75rem;
+  }
+  .finding.critical .conf { color: #ff3838; }
+
+  /* Vitals panel */
+  .vital-row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    gap: 0.7rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #1f2336;
+    font-size: 0.8rem;
+  }
+  .vital-row:last-of-type { border-bottom: 0; }
+  .vital-row .k {
+    color: #8d92a8;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .vital-row .v {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #e8eaf4;
+    font-size: 0.95rem;
+  }
+  .vital-row .v.warn { color: #ffb547; }
+  .vital-row .v.crit { color: #ff3838; }
+  .waveform {
+    height: 28px;
+    margin: 0.4rem -0.3rem 0;
+    display: flex; align-items: center;
+    color: #00ffc6;
+  }
+  .waveform svg { width: 100%; height: 100%; }
+
+  /* Stroke pathway */
+  .pathway {
+    display: flex; flex-direction: column;
+    gap: 0.45rem;
+    flex: 1;
+    overflow: hidden;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 14px 60px 1fr;
+    gap: 0.6rem;
+    align-items: center;
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .step .marker-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: #1f2336;
+    border: 2px solid #1f2336;
+  }
+  .step.done .marker-dot { background: #00ffc6; border-color: #00ffc6; box-shadow: 0 0 8px rgba(0, 255, 198, 0.4); }
+  .step.now .marker-dot {
+    background: #ff3838;
+    border-color: #ff3838;
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+  .step.future .marker-dot { border-color: #3a4060; }
+  .step .time { color: #8d92a8; font-size: 0.7rem; }
+  .step.done .time { color: #00ffc6; }
+  .step.now .time { color: #ff3838; font-weight: 700; }
+  .step .lbl { color: #e8eaf4; }
+  .step.future .lbl { color: #5a6080; }
+
+  .mock-msu .action-bar {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 1px;
+    background: #1f2336;
+    border-top: 1px solid #1f2336;
+  }
+  .action-btn {
+    background: #14182a;
+    padding: 1rem 1.2rem;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #e8eaf4;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .action-btn.primary {
+    background: linear-gradient(135deg, #ff3838, #c41e15);
+    color: white;
+    position: relative;
+  }
+  .action-btn.primary::before {
+    content: '⚡ ';
+  }
+  .action-btn .sub {
+    display: block;
+    font-size: 0.65rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    margin-top: 0.2rem;
+    text-transform: none;
+  }
+  .action-btn.primary .sub { color: rgba(255,255,255,0.8); }
+
+  /* =================================================== */
+  /* MOCKUP 2 — GenAI SCRIBE (Light Productivity) */
+  /* =================================================== */
+  .mock-scribe {
+    background: white;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+    min-height: 540px;
+  }
+  .mock-scribe .top {
+    padding: 0.9rem 1.4rem;
+    border-bottom: 1px solid var(--line);
+    background: #fafafa;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1.2rem;
+    align-items: center;
+  }
+  .mock-scribe .rec {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--coral); font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 0.1em;
+  }
+  .rec-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--coral);
+    animation: livePulse 1.2s ease-in-out infinite;
+  }
+  .mock-scribe .time-elapsed {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem; color: var(--ink-1); font-weight: 600;
+  }
+  .audio-level {
+    display: flex; gap: 2px; align-items: flex-end; height: 24px;
+  }
+  .audio-bar {
+    width: 3px; background: var(--violet);
+    border-radius: 1px; opacity: 0.5;
+  }
+  .mock-scribe .pt-info {
+    font-size: 0.85rem; color: var(--ink-2);
+  }
+  .mock-scribe .pt-info b { color: var(--ink); }
+
+  .scribe-panes {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.3fr;
+    gap: 1px;
+    background: var(--line);
+    flex: 1;
+    overflow: hidden;
+  }
   .scribe-pane {
-    background: #fafaf6;
+    background: white;
+    padding: 1.1rem 1.2rem;
+    display: flex; flex-direction: column;
+    gap: 0.6rem;
+    overflow: hidden;
+  }
+  .scribe-pane-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--ink-3);
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .scribe-pane-label .badge {
+    background: var(--violet); color: white;
+    padding: 0.18rem 0.55rem;
+    border-radius: 4px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+  }
+
+  .transcript-line {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f5f5f0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .transcript-line:last-of-type { border-bottom: 0; }
+  .transcript-line .ts {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--ink-3);
+    margin-right: 0.5rem;
+  }
+  .transcript-line .who {
+    font-weight: 700; font-size: 0.78rem;
+    text-transform: uppercase;
+    margin-right: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+  .transcript-line .who.dr { color: var(--cyan); }
+  .transcript-line .who.pt { color: var(--teal); }
+  .transcript-line .txt { color: var(--ink-1); }
+  .transcript-line.live {
+    background: rgba(109, 58, 168, 0.05);
+    margin: 0 -0.4rem;
+    padding-left: 0.4rem; padding-right: 0.4rem;
+    border-radius: 6px;
+    border-bottom: 0;
+  }
+  .transcript-line.live .txt::after {
+    content: '▍';
+    color: var(--violet);
+    animation: livePulse 1s ease-in-out infinite;
+    margin-left: 2px;
+  }
+
+  .ai-action {
+    padding: 0.7rem 0.8rem;
+    background: #faf9f5;
+    border-left: 3px solid var(--violet);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.86rem;
+  }
+  .ai-action.warn { border-left-color: var(--amber); background: rgba(184, 136, 26, 0.06); }
+  .ai-action.good { border-left-color: var(--teal); background: rgba(0, 122, 94, 0.06); }
+  .ai-action .ai-symbol {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; font-weight: 700;
+    color: var(--violet); letter-spacing: 0.1em;
+    margin-right: 0.3rem;
+  }
+  .ai-action.warn .ai-symbol { color: var(--amber); }
+  .ai-action.good .ai-symbol { color: var(--teal); }
+  .ai-action .ai-text { color: var(--ink-1); font-size: 0.86rem; line-height: 1.45; }
+  .ai-action .ai-text b { color: var(--ink); }
+
+  .soap-section {
+    margin-bottom: 0.6rem;
+  }
+  .soap-letter {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--violet);
+    line-height: 1; margin-bottom: 0.2rem;
+  }
+  .soap-text {
+    font-size: 0.86rem; line-height: 1.55;
+    color: var(--ink-1); padding-left: 0.2rem;
+  }
+  .soap-text b { color: var(--ink); }
+  .soap-text .ai-fill {
+    background: linear-gradient(120deg, rgba(109, 58, 168, 0.1), rgba(109, 58, 168, 0.02));
+    border-bottom: 1px dashed var(--violet);
+    padding: 0 2px;
+  }
+
+  .mock-scribe .bottom {
+    display: grid;
+    grid-template-columns: auto auto 1fr auto auto;
+    gap: 1rem;
+    padding: 0.85rem 1.4rem;
+    border-top: 1px solid var(--line);
+    background: #fafafa;
+    align-items: center;
+    font-size: 0.85rem;
+  }
+  .chip {
+    padding: 0.4rem 0.8rem;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; font-weight: 600;
+    color: var(--ink-1);
+    letter-spacing: 0.05em;
+  }
+  .chip.icd { color: var(--violet); border-color: rgba(109, 58, 168, 0.3); }
+  .btn-sign {
+    background: var(--teal); color: white;
+    padding: 0.55rem 1.1rem;
     border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  .btn-ghost {
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--ink-2);
+  }
+
+  /* =================================================== */
+  /* MOCKUP 3 — BRAIN HEALTH TWIN (Mixed devices) */
+  /* =================================================== */
+  .mock-bh {
+    background: linear-gradient(135deg, #fef9f3, #f5f1e8);
+    height: 100%;
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1.3fr;
+    gap: 1px;
+    color: var(--ink);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+  }
+  .mock-bh > .bh-col {
+    padding: 1.4rem 1.2rem;
+    display: flex; flex-direction: column;
+    gap: 0.7rem;
+    overflow: hidden;
+    background: rgba(255,255,255,0.4);
+  }
+  .mock-bh .col-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--ink-2);
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase; margin-bottom: 0.3rem;
+  }
+
+  /* Apple Watch */
+  .watch {
+    background: #1a1a1a;
+    border-radius: 38px;
+    padding: 9px;
+    width: 100%; max-width: 180px;
+    margin: 1.5rem auto;
+    aspect-ratio: 0.85;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
+    position: relative;
+  }
+  .watch::before {
+    content: '';
+    position: absolute;
+    right: -6px; top: 25%;
+    width: 6px; height: 50%;
+    background: #2a2a2a;
+    border-radius: 0 3px 3px 0;
+  }
+  .watch-screen {
+    background: black;
+    border-radius: 30px;
+    height: 100%;
     padding: 0.7rem;
     display: flex; flex-direction: column;
     gap: 0.4rem;
+    color: white;
+    overflow: hidden;
   }
-  .scribe-pane .pane-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem; color: var(--ink-3);
-    letter-spacing: 0.12em; font-weight: 700;
-    margin-bottom: 0.3rem;
-  }
-  .scribe-bubble {
-    background: white;
-    border-radius: 6px;
-    padding: 0.4rem 0.6rem;
-    font-size: 0.82rem;
-    line-height: 1.4;
-    color: var(--ink-1);
-    border-left: 2px solid var(--cyan);
-  }
-  .scribe-bubble.pt { border-left-color: var(--violet); }
-  .scribe-bubble b { color: var(--ink); font-weight: 700; margin-right: 0.2rem; font-size: 0.78rem; }
-  .soap-line { font-size: 0.82rem; line-height: 1.5; color: var(--ink-1); padding: 0.15rem 0; }
-  .soap-line b { color: var(--violet); font-weight: 700; }
-  .scribe-footer {
+  .watch-header {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0.4rem 0.1rem 0;
-    border-top: 1px solid var(--line);
-    margin-top: 0.4rem;
-    font-size: 0.75rem;
-  }
-  .scribe-tmpl {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--ink-2); letter-spacing: 0.05em;
+    font-size: 0.55rem; color: #ff3838;
+    font-weight: 700;
   }
-  .scribe-sign {
-    background: var(--teal); color: white;
-    padding: 0.3rem 0.7rem; border-radius: 6px;
-    font-weight: 600;
+  .watch-time { color: white; }
+  .watch-alert {
+    font-size: 0.7rem; color: #ff3838;
+    font-weight: 700;
+    margin-top: 0.3rem;
+  }
+  .watch-bpm {
+    text-align: center;
+    margin-top: auto; margin-bottom: auto;
+  }
+  .watch-bpm .num {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    font-size: 2.4rem; font-weight: 500;
+    color: #ff3838;
+    line-height: 1;
+  }
+  .watch-bpm .unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem; color: rgba(255,255,255,0.6);
+    letter-spacing: 0.1em; margin-top: 0.15rem;
+  }
+  .watch-ecg {
+    background: rgba(255, 56, 56, 0.15);
+    border-radius: 4px;
+    padding: 0.3rem;
+    height: 28px;
+  }
+  .watch-ecg svg { width: 100%; height: 100%; color: #ff3838; }
+  .watch-note {
+    font-size: 0.55rem; color: rgba(255,255,255,0.8); text-align: center;
+    line-height: 1.3;
   }
 
-  /* MOCKUP — PHONE / Brain Health (Layer 3) */
-  .mk-phone .mk-body {
-    padding: 1.4rem;
-    align-items: center;
-    justify-content: center;
-  }
-  .phone-frame {
-    width: 220px;
+  /* iPhone screen */
+  .phone-bh {
     background: #1a1a1a;
     border-radius: 24px;
     padding: 6px;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.18);
     position: relative;
   }
-  .phone-frame::before {
+  .phone-bh::before {
     content: '';
     position: absolute;
     top: 10px; left: 50%; transform: translateX(-50%);
-    width: 56px; height: 14px;
+    width: 50px; height: 14px;
     background: #1a1a1a;
     border-radius: 10px;
     z-index: 2;
   }
-  .phone-screen-bh {
-    background: #faf9f5;
+  .phone-bh-screen {
+    background: var(--bg);
     border-radius: 18px;
-    padding: 24px 12px 12px;
-    min-height: 360px;
+    padding: 24px 12px 14px;
     display: flex; flex-direction: column;
     gap: 0.5rem;
   }
-  .bh-header { padding: 0.4rem 0.2rem 0.7rem; border-bottom: 1px solid var(--line); }
-  .bh-header h4 { font-size: 1rem; font-weight: 700; color: var(--ink); }
-  .bh-header span { font-size: 0.7rem; color: var(--ink-2); }
-  .bh-metric {
-    display: grid;
-    grid-template-columns: 28px 1fr auto auto;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.45rem 0.2rem;
+  .phone-greet {
+    padding-bottom: 0.6rem;
     border-bottom: 1px solid var(--line);
-    font-size: 0.82rem;
   }
-  .bh-metric:last-of-type { border-bottom: 0; }
-  .bh-metric .ic { font-size: 1rem; line-height: 1; }
-  .bh-metric .k { color: var(--ink-2); }
-  .bh-metric .v { font-weight: 700; color: var(--ink); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; }
-  .bh-metric .dot {
+  .phone-greet h4 { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+  .phone-greet .sub { font-size: 0.7rem; color: var(--ink-2); }
+  .bh-card {
+    background: white;
+    border-radius: 10px;
+    padding: 0.55rem 0.7rem;
+    display: grid;
+    grid-template-columns: 24px 1fr auto auto;
+    gap: 0.45rem;
+    align-items: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    font-size: 0.78rem;
+  }
+  .bh-card .ic { font-size: 1rem; line-height: 1; }
+  .bh-card .lab { color: var(--ink-2); font-size: 0.72rem; }
+  .bh-card .lab b { display: block; color: var(--ink); font-size: 0.78rem; font-weight: 700; }
+  .bh-card .num { font-family: 'JetBrains Mono', monospace; font-weight: 700; color: var(--ink); font-size: 0.85rem; }
+  .bh-card .dot {
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--teal);
   }
-  .bh-metric .dot.warn { background: var(--amber); }
-  .bh-chart {
+  .bh-card .dot.warn { background: var(--amber); }
+  .bh-card .dot.alert { background: var(--coral); }
+
+  .bh-mini-chart {
     background: white;
-    border-radius: 8px;
+    border-radius: 10px;
     padding: 0.5rem 0.6rem;
-    margin-top: 0.3rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
-  .bh-chart .lab { font-size: 0.65rem; color: var(--ink-3); letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace; font-weight: 600; margin-bottom: 0.2rem; }
-  .bh-bars {
-    display: flex; align-items: flex-end; gap: 1.5px; height: 26px;
+  .bh-mini-chart .lab { font-size: 0.6rem; color: var(--ink-3); letter-spacing: 0.1em; font-family: 'JetBrains Mono', monospace; font-weight: 700; margin-bottom: 0.25rem; }
+  .bh-mini-bars {
+    display: flex; align-items: flex-end;
+    gap: 2px; height: 22px;
   }
-  .bh-bar {
-    flex: 1; background: var(--cyan);
-    border-radius: 1.5px 1.5px 0 0;
-    opacity: 0.85;
+  .bh-mini-bars .bar {
+    flex: 1; background: linear-gradient(180deg, var(--cyan), rgba(0, 112, 232, 0.4));
+    border-radius: 1px 1px 0 0;
   }
 
-  /* MOCKUP — OUTCOME (Layer 4) */
-  .mk-outcome .mk-body { gap: 0.7rem; }
-  .out-inputs {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.5rem;
+  /* Clinician web view */
+  .clinician {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex; flex-direction: column;
+    gap: 0.6rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    height: 100%;
   }
-  .out-input {
+  .clinician-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-bottom: 0.7rem; border-bottom: 1px solid var(--line);
+  }
+  .clinician-header h5 { font-size: 0.95rem; font-weight: 700; color: var(--ink); }
+  .clinician-header .pop {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--teal); font-weight: 700;
+  }
+  .clinician-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem;
+  }
+  .cstat {
     background: #fafaf6;
     border-radius: 8px;
-    padding: 0.6rem 0.4rem;
-    text-align: center;
-    border: 1px solid var(--line);
+    padding: 0.5rem 0.6rem;
   }
-  .out-input .ic { font-size: 1.2rem; line-height: 1; margin-bottom: 0.15rem; }
-  .out-input .lab { font-size: 0.72rem; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-  .out-input .check { color: var(--teal); font-weight: 700; font-size: 0.85rem; }
-  .out-arrow {
-    text-align: center; font-size: 1rem; color: var(--ink-3);
-    margin: 0.2rem 0;
+  .cstat .n {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-variation-settings: "opsz" 144;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: var(--ink); line-height: 1;
   }
-  .out-pred {
+  .cstat .lab {
+    font-size: 0.62rem; color: var(--ink-2);
+    margin-top: 0.2rem; line-height: 1.2;
+  }
+  .alerts-feed {
+    display: flex; flex-direction: column;
+    gap: 0.3rem;
+    flex: 1; overflow: hidden;
+  }
+  .alert-row {
     display: grid;
-    grid-template-columns: 1fr 100px 50px;
-    gap: 0.7rem;
+    grid-template-columns: 6px 1fr auto;
+    gap: 0.5rem;
     align-items: center;
-    padding: 0.4rem 0;
+    padding: 0.4rem 0.5rem;
+    background: #fafaf6;
+    border-radius: 6px;
+    font-size: 0.74rem;
   }
-  .out-pred .pl { font-size: 0.86rem; color: var(--ink-1); }
-  .out-bar {
-    height: 8px;
-    background: var(--line);
-    border-radius: 4px;
-    overflow: hidden;
+  .alert-row .bar {
+    width: 4px; height: 100%; min-height: 26px;
+    border-radius: 2px;
+    background: var(--amber);
   }
-  .out-bar .fill {
-    height: 100%;
-    background: var(--teal);
-    border-radius: 4px;
-  }
-  .out-bar.danger .fill { background: var(--coral); }
-  .out-pct {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; font-weight: 700;
-    text-align: right;
+  .alert-row.crit .bar { background: var(--coral); }
+  .alert-row.ok .bar { background: var(--teal); }
+  .alert-row .info { color: var(--ink-1); line-height: 1.3; }
+  .alert-row .info b { display: block; color: var(--ink); font-weight: 700; font-size: 0.78rem; }
+  .alert-row .time { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; color: var(--ink-3); }
+
+  /* =================================================== */
+  /* MOCKUP 4 — OUTCOME AI (Scientific decision tool) */
+  /* =================================================== */
+  .mock-outcome {
+    background: white;
     color: var(--ink);
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    min-height: 540px;
   }
-  .out-pct.danger { color: var(--coral); }
-  .out-rec {
-    background: linear-gradient(135deg, rgba(0, 122, 94, 0.12), rgba(0, 112, 232, 0.06));
-    border: 1px solid rgba(0, 122, 94, 0.25);
-    border-radius: 8px;
-    padding: 0.7rem 0.9rem;
-    margin-top: 0.3rem;
-    display: flex; justify-content: space-between; align-items: center;
+  .mock-outcome .top {
+    padding: 0.9rem 1.4rem;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, #faf6f0, white);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
   }
-  .out-rec .lab {
-    font-size: 0.7rem; color: var(--teal);
-    font-family: 'JetBrains Mono', monospace; font-weight: 700; letter-spacing: 0.1em;
-    margin-bottom: 0.15rem;
+  .mock-outcome .top .title-row {
+    display: flex; align-items: baseline; gap: 0.8rem;
   }
-  .out-rec .val { font-size: 1.05rem; font-weight: 700; color: var(--ink); }
-  .out-rec .conf {
+  .mock-outcome .top .tool {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--teal); font-weight: 700;
+    font-size: 0.78rem; color: var(--ink-2);
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase;
+  }
+  .mock-outcome .top .pt {
+    font-size: 1rem; font-weight: 700; color: var(--ink);
+  }
+  .mock-outcome .top .pt span { color: var(--ink-2); font-weight: 400; }
+  .mock-outcome .top .right {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; color: var(--coral); font-weight: 700;
+    background: rgba(196, 61, 45, 0.08);
+    padding: 0.3rem 0.7rem; border-radius: 6px;
+    letter-spacing: 0.08em;
   }
 
-  /* MOCKUP — NETWORK (Layer 5) */
-  .mk-network .mk-body {
-    align-items: center; justify-content: center;
-    padding: 1.5rem;
+  .outcome-body {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr 1.3fr;
+    gap: 1px;
+    background: var(--line);
   }
-  .network-diagram {
+  .outcome-body > .col {
+    background: white;
+    padding: 1.1rem 1.2rem;
+    display: flex; flex-direction: column;
+    gap: 0.7rem;
+  }
+  .col-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--ink-3);
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .col-title .badge {
+    background: var(--coral); color: white;
+    padding: 0.16rem 0.5rem; border-radius: 4px;
+    font-size: 0.62rem; letter-spacing: 0.08em;
+  }
+
+  .input-block {
+    background: #faf9f5;
+    border-radius: 8px;
+    padding: 0.65rem 0.8rem;
+    display: grid;
+    grid-template-columns: 28px 1fr auto;
+    gap: 0.55rem;
+    align-items: center;
+  }
+  .input-block .ic { font-size: 1.1rem; line-height: 1; }
+  .input-block .lab { font-size: 0.72rem; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-weight: 600; letter-spacing: 0.05em; }
+  .input-block .lab b { display: block; color: var(--ink); font-size: 0.95rem; font-weight: 700; font-family: 'IBM Plex Sans Thai', sans-serif; letter-spacing: 0; }
+  .input-block .check { color: var(--teal); font-weight: 700; font-size: 1rem; }
+
+  .scenario {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.7rem 0.85rem;
+    display: flex; flex-direction: column;
+    gap: 0.35rem;
+  }
+  .scenario.rec {
+    border-color: var(--teal);
+    background: linear-gradient(135deg, rgba(0, 122, 94, 0.04), rgba(0, 112, 232, 0.02));
+    box-shadow: 0 0 0 2px rgba(0, 122, 94, 0.1);
+  }
+  .scenario .scn-name {
+    font-size: 0.88rem; font-weight: 700; color: var(--ink);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .scenario .scn-name .rec-badge {
+    background: var(--teal); color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem; padding: 0.15rem 0.45rem;
+    border-radius: 3px; letter-spacing: 0.08em;
+  }
+  .scenario .scn-row {
+    display: grid;
+    grid-template-columns: 1fr 60px 36px;
+    gap: 0.5rem;
+    align-items: center;
+    font-size: 0.78rem;
+  }
+  .scenario .scn-row .pl { color: var(--ink-2); }
+  .scn-bar {
+    height: 6px; border-radius: 3px;
+    background: var(--line);
+    overflow: hidden;
+  }
+  .scn-bar .fill {
+    height: 100%; background: var(--teal);
+    border-radius: 3px;
+  }
+  .scn-bar.danger .fill { background: var(--coral); }
+  .scn-pct {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700; font-size: 0.78rem;
+    text-align: right; color: var(--ink);
+  }
+  .scn-pct.danger { color: var(--coral); }
+
+  .reasoning {
+    background: #faf9f5;
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink-1);
+    border-left: 3px solid var(--violet);
+  }
+  .reasoning .lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--violet);
+    letter-spacing: 0.1em; font-weight: 700;
+    margin-bottom: 0.3rem;
+    display: block;
+  }
+  .reasoning b { color: var(--ink); }
+
+  .similar-cases {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 0.7rem 0.9rem;
+  }
+  .similar-cases .lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: var(--ink-3);
+    letter-spacing: 0.1em; font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .case-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.5rem;
+    padding: 0.3rem 0;
+    font-size: 0.74rem;
+    color: var(--ink-1);
+    align-items: center;
+    border-bottom: 1px solid #f5f5f0;
+  }
+  .case-row:last-child { border-bottom: 0; }
+  .case-row .cid { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--ink-3); }
+  .case-row .out { font-weight: 700; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--teal); }
+  .case-row .out.bad { color: var(--coral); }
+
+  .final-rec {
+    background: linear-gradient(135deg, var(--teal), var(--cyan));
+    color: white;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    margin-top: auto;
+  }
+  .final-rec .lab {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: rgba(255,255,255,0.85);
+    letter-spacing: 0.1em; font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+  .final-rec .action {
+    font-size: 1.2rem; font-weight: 700; color: white;
+  }
+  .final-rec .conf {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+  }
+  .final-rec .conf .pct { font-size: 1.4rem; line-height: 1; }
+  .final-rec .conf .label { font-size: 0.65rem; color: rgba(255,255,255,0.85); letter-spacing: 0.08em; }
+
+  /* =================================================== */
+  /* MOCKUP 5 — DMS NETWORK (Dark Infrastructure) */
+  /* =================================================== */
+  .mock-net {
+    background: #0a0e1a;
+    color: #e8eaf4;
+    font-family: 'IBM Plex Sans Thai', system-ui, sans-serif;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    min-height: 540px;
+  }
+  .mock-net .top {
+    padding: 0.9rem 1.4rem;
+    border-bottom: 1px solid #1f2336;
+    background: linear-gradient(180deg, #14182a, #0e1220);
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 1.2rem;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem; letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .mock-net .top .name { color: white; font-weight: 700; }
+  .mock-net .top .meta { color: #8d92a8; }
+  .mock-net .top .compliance {
+    color: #00ffc6; font-weight: 700;
+    display: flex; gap: 0.6rem;
+  }
+  .mock-net .top .round {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff; font-weight: 700;
+    padding: 0.3rem 0.6rem; border-radius: 5px;
+  }
+
+  .net-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 1px;
+    background: #1f2336;
+  }
+  .net-panel {
+    background: #0a0e1a;
+    padding: 1.2rem;
+    display: flex; flex-direction: column;
+    gap: 0.8rem;
+    overflow: hidden;
+  }
+
+  .net-map {
+    flex: 1;
     position: relative;
-    width: 100%;
-    aspect-ratio: 1.4;
-    max-width: 360px;
+    background:
+      radial-gradient(circle at 50% 50%, #131724, #0a0e1a 70%);
+    border-radius: 10px;
+    border: 1px solid #1f2336;
+    overflow: hidden;
+    min-height: 220px;
   }
-  .net-hub {
+  .net-grid-bg {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0, 212, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 212, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.4;
+  }
+  .net-hub-big {
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 76px; height: 76px;
+    width: 80px; height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--cyan), var(--teal));
-    color: white;
+    background: radial-gradient(circle, #00d4ff 30%, #0070e8 80%);
+    box-shadow: 0 0 60px rgba(0, 212, 255, 0.6), 0 0 20px rgba(0, 212, 255, 0.9);
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700;
+    color: white; font-weight: 700;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.05em;
-    box-shadow: 0 8px 24px rgba(0, 112, 232, 0.3);
-    z-index: 2;
+    font-size: 0.9rem; letter-spacing: 0.05em;
+    z-index: 3;
   }
-  .net-node {
-    position: absolute;
-    width: 30px; height: 30px;
-    border-radius: 50%;
-    background: var(--bg-card);
-    border: 1.5px solid var(--teal);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.65rem;
-    color: var(--teal);
-    font-weight: 700;
-    z-index: 2;
-  }
-  .net-node::before {
+  .net-hub-big::before {
     content: '';
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: -8px;
     border-radius: 50%;
-    background: rgba(0, 122, 94, 0.15);
-    animation: nodeBlip 2s ease-in-out infinite;
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    animation: hubRing 3s linear infinite;
   }
-  @keyframes nodeBlip {
-    0%, 100% { transform: scale(1); opacity: 0; }
-    50% { transform: scale(1.4); opacity: 1; }
+  .net-hub-big::after {
+    content: '';
+    position: absolute; inset: -20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    animation: hubRing 3s linear infinite 1.5s;
+  }
+  @keyframes hubRing {
+    0% { transform: scale(0.9); opacity: 0.8; }
+    100% { transform: scale(1.4); opacity: 0; }
+  }
+  .net-node-sm {
+    position: absolute;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: #14182a;
+    border: 1.5px solid #00ffc6;
+    z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem; font-weight: 700;
+    color: #00ffc6;
+    transform: translate(-50%, -50%);
+  }
+  .net-node-sm::before {
+    content: '';
+    position: absolute; inset: -4px;
+    border-radius: 50%;
+    background: rgba(0, 255, 198, 0.2);
+    animation: nodeBlink 2s ease-in-out infinite;
+  }
+  @keyframes nodeBlink {
+    0%, 100% { transform: scale(1); opacity: 0.4; }
+    50% { transform: scale(1.5); opacity: 0; }
   }
   .net-line {
     position: absolute;
-    height: 1px;
-    background: linear-gradient(90deg, rgba(0, 122, 94, 0.4), rgba(0, 122, 94, 0.1));
     top: 50%; left: 50%;
+    height: 1px;
     transform-origin: 0 0;
     z-index: 1;
+    overflow: hidden;
   }
-  .net-status {
-    margin-top: 1.2rem;
-    display: flex; flex-direction: column;
-    gap: 0.3rem;
-    width: 100%;
+  .net-line::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(0, 255, 198, 0.4), rgba(0, 255, 198, 0.05));
   }
-  .net-status .row {
-    display: flex; align-items: center; gap: 0.5rem;
-    font-size: 0.85rem; color: var(--ink-1);
+  .net-line::after {
+    content: '';
+    position: absolute;
+    width: 8px; height: 100%;
+    background: linear-gradient(90deg, transparent, #00ffc6, transparent);
+    animation: flow 2s linear infinite;
   }
-  .net-status .check {
-    color: var(--teal); font-weight: 700;
+  @keyframes flow {
+    0% { left: -10px; opacity: 0.8; }
+    100% { left: 100%; opacity: 0; }
   }
 
-  /* ===== IMPACT HERO PANEL ===== */
+  .net-chart {
+    background: #14182a;
+    border: 1px solid #1f2336;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+  }
+  .net-chart .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: #8d92a8;
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase;
+    display: flex; justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+  .net-chart .label .val { color: #00ffc6; font-size: 0.8rem; }
+  .chart-line {
+    height: 60px;
+    position: relative;
+  }
+  .chart-line svg { width: 100%; height: 100%; }
+
+  .net-section {
+    padding: 0.8rem 1rem;
+    background: #14182a;
+    border-radius: 10px;
+    border: 1px solid #1f2336;
+  }
+  .net-section .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; color: #8d92a8;
+    letter-spacing: 0.15em; font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .privacy-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 0.35rem 0;
+    font-size: 0.78rem;
+    border-bottom: 1px solid #1f2336;
+  }
+  .privacy-row:last-child { border-bottom: 0; }
+  .privacy-row .k { color: #8d92a8; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em; }
+  .privacy-row .v {
+    color: #00ffc6; font-weight: 700;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
+  }
+
+  .project-row {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 0.6rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid #1f2336;
+    font-size: 0.78rem;
+    align-items: center;
+  }
+  .project-row:last-child { border-bottom: 0; }
+  .project-row .name { color: #e8eaf4; }
+  .project-row .ver { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #8d92a8; }
+  .project-row .sites {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem; font-weight: 700;
+  }
+
+  /* =================================================== */
+  /* IMPACT HERO PANEL */
+  /* =================================================== */
   .impact-hero {
     margin-top: 2rem;
     padding: 2.8rem 2.5rem;
@@ -758,7 +1524,7 @@
   .layer-ref-card p { font-size: 1.1rem; line-height: 1.6; color: var(--ink-1); }
   .layer-ref-card b { color: var(--ink); font-weight: 700; }
 
-  /* ===== COMPETITIVE ===== */
+  /* ===== ETC SLIDES STYLES (same as v7) ===== */
   .vs-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -800,13 +1566,9 @@
     color: var(--ink-1);
   }
   .vs-col.us li { color: rgba(255,255,255,0.95); }
-  .vs-col li::before {
-    content: '·'; position: absolute; left: 0.4rem;
-    color: var(--ink-3); font-weight: 700;
-  }
+  .vs-col li::before { content: '·'; position: absolute; left: 0.4rem; color: var(--ink-3); font-weight: 700; }
   .vs-col.us li::before { content: '✦'; color: white; font-size: 0.8rem; top: 4px; left: 0; }
 
-  /* ===== STACK ===== */
   .stack {
     margin-top: 1.5rem;
     display: flex; flex-direction: column;
@@ -846,7 +1608,6 @@
     text-align: right; letter-spacing: 0.05em; font-weight: 600;
   }
 
-  /* ===== ROADMAP ===== */
   .roadmap {
     margin-top: 1.8rem;
     display: grid;
@@ -870,13 +1631,12 @@
     color: var(--ink-3); font-weight: 700;
     text-transform: uppercase;
   }
-  .roadphase h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+  .roadphase h3 { margin-bottom: 0.5rem; font-size: 1.4rem; font-weight: 700; }
   .roadphase .focus { font-size: 1.05rem; color: var(--ink-2); margin-bottom: 1.2rem; line-height: 1.5; }
   .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
   .roadphase li { font-size: 1.05rem; color: var(--ink-1); padding-left: 1.2rem; position: relative; line-height: 1.45; }
   .roadphase li::before { content: '→'; position: absolute; left: 0; color: var(--ink-3); }
 
-  /* ===== STAT GRID ===== */
   .stat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -911,7 +1671,6 @@
   .stat.violet::before { background: linear-gradient(90deg, var(--violet), var(--pink)); }
   .stat.violet .v { color: var(--violet); }
 
-  /* ===== HIGHLIGHT ===== */
   .highlight {
     padding: 1.4rem 1.7rem;
     background: linear-gradient(135deg, rgba(0, 112, 232, 0.05), rgba(109, 58, 168, 0.03));
@@ -928,7 +1687,6 @@
   .highlight .text { font-size: 1.18rem; color: var(--ink); line-height: 1.5; font-weight: 500; }
   .highlight .text b { font-weight: 700; }
 
-  /* ===== ASK ===== */
   .ask-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -957,15 +1715,10 @@
     font-size: 1.18rem; color: var(--ink-1);
     line-height: 1.5; padding-left: 1.5rem; position: relative;
   }
-  .ask-col li::before {
-    content: '✓'; position: absolute; left: 0;
-    color: var(--cyan); font-weight: 700;
-  }
+  .ask-col li::before { content: '✓'; position: absolute; left: 0; color: var(--cyan); font-weight: 700; }
   .ask-col.sd li::before { color: var(--teal); }
 
-  /* ===== VISION / END ===== */
   .vision-panel {
-    margin-top: 0;
     padding: 4rem 3rem;
     border-radius: 22px;
     background: linear-gradient(135deg, var(--cyan) 0%, var(--violet) 100%);
@@ -994,14 +1747,12 @@
   }
   .end { align-items: center; justify-content: center; text-align: center; }
 
-  /* ===== NAVIGATION ===== */
   .nav {
     position: fixed; bottom: 1.4rem; right: 1.6rem;
     display: flex; align-items: center; gap: 0.9rem;
     z-index: 10;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem; color: var(--ink-2);
-    font-weight: 600;
+    font-size: 0.85rem; color: var(--ink-2); font-weight: 600;
   }
   .nav .counter { color: var(--ink); }
   .nav button {
@@ -1013,10 +1764,7 @@
     cursor: pointer; font-size: 1.1rem; transition: all 0.2s;
     display: inline-flex; align-items: center; justify-content: center;
   }
-  .nav button:hover {
-    background: var(--cyan); color: white;
-    box-shadow: 0 4px 12px rgba(0, 112, 232, 0.3);
-  }
+  .nav button:hover { background: var(--cyan); color: white; box-shadow: 0 4px 12px rgba(0, 112, 232, 0.3); }
   .progress {
     position: fixed; top: 0; left: 0; height: 3px;
     background: linear-gradient(90deg, var(--cyan), var(--violet));
@@ -1113,7 +1861,7 @@
     </div>
   </section>
 
-  <!-- 4. STATE OF THE WORLD — Part 1 -->
+  <!-- 4. STATE OF THE WORLD — 1 -->
   <section class="slide">
     <div class="marker"><span class="num">04</span> <span class="em-dash">—</span> State of the World · 1/2</div>
     <h1>โลกไปถึงไหนแล้วใน <span class="serif-italic coral">neuro AI</span></h1>
@@ -1140,7 +1888,7 @@
     </div>
   </section>
 
-  <!-- 5. STATE OF THE WORLD — Part 2 -->
+  <!-- 5. STATE OF THE WORLD — 2 -->
   <section class="slide">
     <div class="marker"><span class="num">05</span> <span class="em-dash">—</span> State of the World · 2/2</div>
     <h1>และ <span class="serif-italic coral">3 นวัตกรรม</span> ฝั่ง prevention + network</h1>
@@ -1196,7 +1944,8 @@
     </div>
   </section>
 
-  <!-- 8. LAYER 1 — Setup + UI -->
+  <!-- =========== LAYER 1 =========== -->
+  <!-- 8. LAYER 1 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num">1</div>
@@ -1205,45 +1954,123 @@
         <div class="layer-title">🚑 MSU Co-pilot</div>
       </div>
     </div>
-    <div class="layer-body">
-      <div class="layer-mockup-wrap">
-        <div class="mockup mk-msu">
-          <div class="mk-header">
-            <div class="left"><span class="mk-dot red"></span> MSU TABLET · LIVE</div>
-            <span>11:47:23</span>
-          </div>
-          <div class="mk-body">
-            <div>
-              <div class="msu-ct"></div>
-              <div class="msu-label">PT #4421 · 65y · NIHSS 14</div>
-            </div>
-            <div class="msu-right">
-              <div class="msu-alert">
-                <div class="lab">⚡ STROKE ALERT</div>
-                <div class="val">LVO detected</div>
-                <div class="sub">tPA eligible · no hemorrhage</div>
-              </div>
-              <div class="msu-row"><span class="k">Door-to-needle ETA</span><span class="v">32 min</span></div>
-              <div class="msu-row"><span class="k">NIT Stroke Team</span><span class="v teal">● standby</span></div>
-              <div class="msu-send">→ Auto-routed to NIT</div>
-            </div>
-          </div>
-        </div>
+    <p class="lead">AI on-board ใน Mobile Stroke Unit ของ NIT — อ่าน CT ในรถ ส่ง briefing ให้ stroke team ก่อนถึง รพ.</p>
+    <div class="setup-grid">
+      <div class="setup-side problem">
+        <div class="ls-label">ปัญหา</div>
+        <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · <b>20–30 นาที</b> · บางเคสเลย Golden Hour</p>
       </div>
-      <div class="layer-side">
-        <div class="ls-block problem">
-          <div class="ls-label">ปัญหา</div>
-          <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · <b>20–30 นาที</b> · บางเคสเลย Golden Hour</p>
-        </div>
-        <div class="ls-block solution">
-          <div class="ls-label">Solution</div>
-          <p>AI on-board อ่าน NCCT ใน <b>3 นาที</b> · ตรวจ LVO + hemorrhage · ส่ง briefing ให้ NIT ขณะรถยังวิ่ง</p>
+      <div class="setup-side solution">
+        <div class="ls-label">Solution</div>
+        <p>AI on-board อ่าน NCCT ใน <b>3 นาที</b> · ตรวจ LVO + hemorrhage · ส่งผล + case briefing ให้ NIT ขณะรถยังวิ่ง</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. LAYER 1 — UI SHOWCASE -->
+  <section class="slide ui-showcase">
+    <div class="ui-showcase-frame">
+      <div class="ui-tag"><span class="pill">UI · LAYER 1</span> MSU TABLET · LIVE INTERFACE</div>
+      <div class="ui-caption">หน้าจอจริงในรถพยาบาล MSU — <b>AI อ่าน CT เสร็จใน 3 นาที</b> แล้วส่ง briefing พร้อม decision ให้ NIT</div>
+      <div class="ui-canvas">
+        <div class="mock-msu">
+          <div class="top-bar">
+            <div class="left">
+              <span><span class="live-dot"></span> LIVE</span>
+              <span>MSU UNIT 04</span>
+              <span class="pt-id">PT #4421 · M · 65y</span>
+            </div>
+            <div class="right">
+              <span>NIHSS 14</span>
+              <span class="timer"><span class="label">Door-to-Needle ETA</span>00:14:32</span>
+            </div>
+          </div>
+          <div class="main">
+            <!-- CT Viewer -->
+            <div class="panel">
+              <div class="panel-label">AI READ · NCCT BRAIN <span class="badge">3.2s</span></div>
+              <div class="ct-viewer">
+                <div class="ct-crosshair"></div>
+                <div class="ct-overlay">
+                  <span>AXIAL · 5mm</span>
+                  <span>WW 80 / WL 40</span>
+                </div>
+              </div>
+              <div class="ct-tabs">
+                <div class="ct-tab active">AXIAL</div>
+                <div class="ct-tab">CORONAL</div>
+                <div class="ct-tab">SAGITTAL</div>
+                <div class="ct-tab">MIP</div>
+              </div>
+              <div class="findings">
+                <div class="finding critical">
+                  <div class="icon-tag">!</div>
+                  <span class="label">LVO · MCA M1 (right)</span>
+                  <span class="conf">96%</span>
+                </div>
+                <div class="finding ok">
+                  <div class="icon-tag">✓</div>
+                  <span class="label">No hemorrhage</span>
+                  <span class="conf">2%</span>
+                </div>
+                <div class="finding ok">
+                  <div class="icon-tag">✓</div>
+                  <span class="label">ASPECTS</span>
+                  <span class="conf">8 / 10</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vitals -->
+            <div class="panel">
+              <div class="panel-label">VITALS · LIVE STREAM</div>
+              <div class="vital-row"><span class="k">Blood Pressure</span><span class="v warn">165 / 92</span></div>
+              <div class="vital-row"><span class="k">Heart Rate</span><span class="v">88 bpm</span></div>
+              <div class="vital-row"><span class="k">SpO₂</span><span class="v">96 %</span></div>
+              <div class="vital-row"><span class="k">GCS</span><span class="v warn">13</span></div>
+              <div class="vital-row"><span class="k">Glucose</span><span class="v">112</span></div>
+              <div class="waveform">
+                <svg viewBox="0 0 200 30" preserveAspectRatio="none">
+                  <path d="M 0,15 L 20,15 L 25,5 L 30,25 L 35,15 L 55,15 L 60,8 L 65,22 L 70,15 L 90,15 L 95,4 L 100,26 L 105,15 L 130,15 L 135,9 L 140,21 L 145,15 L 170,15 L 175,5 L 180,25 L 185,15 L 200,15"
+                    fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="panel-label" style="margin-top: 0.4rem;">tPA SCREEN</div>
+              <div class="vital-row"><span class="k">Onset → Now</span><span class="v">2h 12m</span></div>
+              <div class="vital-row"><span class="k">Last well</span><span class="v">07:14</span></div>
+              <div class="vital-row"><span class="k">Eligibility</span><span class="v" style="color: #00ffc6;">✓ tPA window</span></div>
+            </div>
+
+            <!-- Pathway -->
+            <div class="panel">
+              <div class="panel-label">STROKE PATHWAY · UNIT 04</div>
+              <div class="pathway">
+                <div class="step done"><div class="marker-dot"></div><span class="time">07:14</span><span class="lbl">Symptom onset</span></div>
+                <div class="step done"><div class="marker-dot"></div><span class="time">07:22</span><span class="lbl">1669 dispatch</span></div>
+                <div class="step done"><div class="marker-dot"></div><span class="time">07:38</span><span class="lbl">MSU on-scene</span></div>
+                <div class="step done"><div class="marker-dot"></div><span class="time">07:43</span><span class="lbl">CT acquired</span></div>
+                <div class="step done"><div class="marker-dot"></div><span class="time">07:46</span><span class="lbl">AI analysis · LVO</span></div>
+                <div class="step now"><div class="marker-dot"></div><span class="time">07:47</span><span class="lbl">tPA decision</span></div>
+                <div class="step future"><div class="marker-dot"></div><span class="time">+14m</span><span class="lbl">Needle in</span></div>
+                <div class="step future"><div class="marker-dot"></div><span class="time">+32m</span><span class="lbl">Arrive NIT</span></div>
+              </div>
+              <div class="panel-label" style="margin-top: 0.3rem;">NIT STROKE TEAM</div>
+              <div class="vital-row"><span class="k">Dr. Somchai (Lead)</span><span class="v" style="color: #00ffc6;">● standby</span></div>
+              <div class="vital-row"><span class="k">Cath lab</span><span class="v" style="color: #00ffc6;">● ready</span></div>
+              <div class="vital-row"><span class="k">ICU bed</span><span class="v" style="color: #00ffc6;">● reserved</span></div>
+            </div>
+          </div>
+          <div class="action-bar">
+            <div class="action-btn primary">INITIATE tPA PROTOCOL<span class="sub">Sends to NIT · arms cath lab · prepares meds</span></div>
+            <div class="action-btn">CONSULT NIT<span class="sub">Video call</span></div>
+            <div class="action-btn">REROUTE<span class="sub">Closer center</span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. LAYER 1 — Impact -->
+  <!-- 10. LAYER 1 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num">1</div>
@@ -1264,7 +2091,8 @@
     </div>
   </section>
 
-  <!-- 10. LAYER 2 — Setup + UI -->
+  <!-- =========== LAYER 2 =========== -->
+  <!-- 11. LAYER 2 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
@@ -1273,51 +2101,121 @@
         <div class="layer-title">🎙️ GenAI Scribe</div>
       </div>
     </div>
-    <div class="layer-body">
-      <div class="layer-mockup-wrap">
-        <div class="mockup mk-scribe">
-          <div class="mk-header">
-            <div class="left"><span class="mk-dot red"></span> REC · Live Transcript</div>
-            <span>02:34</span>
-          </div>
-          <div class="mk-body">
-            <div class="scribe-split">
-              <div class="scribe-pane">
-                <div class="pane-label">Transcript</div>
-                <div class="scribe-bubble"><b>Dr:</b> ปวดศีรษะมากี่วันแล้วครับ</div>
-                <div class="scribe-bubble pt"><b>Pt:</b> ตื่นมาก็เป็นเลยค่ะ</div>
-                <div class="scribe-bubble"><b>Dr:</b> มือชาข้างไหน</div>
-                <div class="scribe-bubble pt"><b>Pt:</b> ซ้ายค่ะ</div>
-              </div>
-              <div class="scribe-pane">
-                <div class="pane-label">SOAP · Auto-generated</div>
-                <div class="soap-line"><b>S:</b> 42yo F, R-sided HA, L-arm paresthesia</div>
-                <div class="soap-line"><b>O:</b> BP 128/82 · vitals normal</div>
-                <div class="soap-line"><b>A:</b> Migraine vs TIA</div>
-                <div class="soap-line"><b>P:</b> Brain CT · neuro consult</div>
-              </div>
-            </div>
-            <div class="scribe-footer">
-              <span class="scribe-tmpl">Template: Neurology ▾</span>
-              <span class="scribe-sign">✓ Sign &amp; save</span>
-            </div>
-          </div>
-        </div>
+    <p class="lead">Ambient AI ฟังหมอคุยกับคนไข้ → เขียน SOAP + progress + discharge อัตโนมัติ · ภาษาไทย neuro-specialized</p>
+    <div class="setup-grid">
+      <div class="setup-side problem">
+        <div class="ls-label">ปัญหา</div>
+        <p>หมอใช้ <b>30%</b> ของ consultation เขียน chart · burnout 7.2/10 · บางคนทำงาน 12 ชม. เพราะเขียนเอกสารหลังเลิก</p>
       </div>
-      <div class="layer-side">
-        <div class="ls-block problem">
-          <div class="ls-label">ปัญหา</div>
-          <p>หมอใช้ <b>30%</b> ของ consultation เขียน chart · burnout 7.2/10 · บางคนทำงาน 12 ชม.</p>
-        </div>
-        <div class="ls-block solution">
-          <div class="ls-label">Solution</div>
-          <p>ไมค์ฟังหมอคุย → AI เขียน SOAP ใน <b>30 วินาที</b> · ภาษาไทย · template stroke · parkinson · epilepsy</p>
+      <div class="setup-side solution">
+        <div class="ls-label">Solution</div>
+        <p>ไมค์ฟังหมอคุย → AI เขียน SOAP ใน <b>30 วินาที</b> · ภาษาไทย · template stroke · parkinson · epilepsy</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12. LAYER 2 — UI SHOWCASE -->
+  <section class="slide ui-showcase">
+    <div class="ui-showcase-frame">
+      <div class="ui-tag"><span class="pill">UI · LAYER 2</span> GenAI Scribe · Live Consult</div>
+      <div class="ui-caption">หมอคุยกับคนไข้เป็นภาษาไทย — <b>AI ถอดเสียง</b> · เสนอ orders · เขียน SOAP สด</div>
+      <div class="ui-canvas">
+        <div class="mock-scribe">
+          <div class="top">
+            <div class="rec"><span class="rec-dot"></span> REC</div>
+            <div class="time-elapsed">00:02:34</div>
+            <div class="audio-level" aria-hidden="true">
+              <div class="audio-bar" style="height: 40%; opacity:.8"></div>
+              <div class="audio-bar" style="height: 60%; opacity:.9"></div>
+              <div class="audio-bar" style="height: 35%; opacity:.7"></div>
+              <div class="audio-bar" style="height: 80%; opacity:1"></div>
+              <div class="audio-bar" style="height: 55%; opacity:.85"></div>
+              <div class="audio-bar" style="height: 70%; opacity:.95"></div>
+              <div class="audio-bar" style="height: 45%; opacity:.75"></div>
+              <div class="audio-bar" style="height: 65%; opacity:.9"></div>
+            </div>
+            <div class="pt-info">Pt · <b>Surin K.</b> · 42 F · Migraine workup</div>
+          </div>
+          <div class="scribe-panes">
+            <!-- Transcript -->
+            <div class="scribe-pane">
+              <div class="scribe-pane-label">Live Transcript <span class="badge">TH</span></div>
+              <div class="transcript-line">
+                <span class="ts">02:12</span><span class="who dr">Dr</span><span class="txt">ปวดศีรษะมากี่วันแล้วครับ</span>
+              </div>
+              <div class="transcript-line">
+                <span class="ts">02:18</span><span class="who pt">Pt</span><span class="txt">ตื่นมาก็เป็นเลยค่ะ ปวดข้างขวา</span>
+              </div>
+              <div class="transcript-line">
+                <span class="ts">02:24</span><span class="who dr">Dr</span><span class="txt">ตามัวด้วยมั้ย มือชาข้างไหน</span>
+              </div>
+              <div class="transcript-line">
+                <span class="ts">02:31</span><span class="who pt">Pt</span><span class="txt">ตามัวข้างขวา มือซ้ายชาเล็กน้อย</span>
+              </div>
+              <div class="transcript-line live">
+                <span class="ts">02:34</span><span class="who dr">Dr</span><span class="txt">เคยเป็นมาก่อนมั้ยครับ คุณแม่</span>
+              </div>
+            </div>
+
+            <!-- AI Actions -->
+            <div class="scribe-pane">
+              <div class="scribe-pane-label">AI Suggestions</div>
+              <div class="ai-action">
+                <span class="ai-symbol">◆ ADD TO HX</span>
+                <span class="ai-text">HTN since 2019 (จากประวัติเดิม)</span>
+              </div>
+              <div class="ai-action">
+                <span class="ai-symbol">◆ ORDER</span>
+                <span class="ai-text">Brain <b>CT NCCT</b> + Lipid profile</span>
+              </div>
+              <div class="ai-action good">
+                <span class="ai-symbol">✓ DRUG CHECK</span>
+                <span class="ai-text">Sumatriptan · No MAOI interaction</span>
+              </div>
+              <div class="ai-action warn">
+                <span class="ai-symbol">⚠ RED FLAG</span>
+                <span class="ai-text">Thunderclap pattern — consider <b>SAH workup</b></span>
+              </div>
+              <div class="ai-action">
+                <span class="ai-symbol">◇ ICD-10</span>
+                <span class="ai-text"><b>G43.0</b> Migraine without aura · <b>R51</b> HA NOS</span>
+              </div>
+            </div>
+
+            <!-- SOAP -->
+            <div class="scribe-pane">
+              <div class="scribe-pane-label">SOAP · Auto-writing <span class="badge">draft</span></div>
+              <div class="soap-section">
+                <div class="soap-letter">S</div>
+                <div class="soap-text">42yo F c/o R-sided HA x 1 day, onset on awakening. <span class="ai-fill">L-arm paresthesia, R-eye blurring</span>. No N/V, no photophobia.</div>
+              </div>
+              <div class="soap-section">
+                <div class="soap-letter">O</div>
+                <div class="soap-text">BP 128/82, HR 78. <span class="ai-fill">Neuro exam: CN II–XII intact, motor 5/5, sensory normal</span></div>
+              </div>
+              <div class="soap-section">
+                <div class="soap-letter">A</div>
+                <div class="soap-text"><b>Migraine</b> w/o aura · R/O TIA · R/O SAH</div>
+              </div>
+              <div class="soap-section">
+                <div class="soap-letter">P</div>
+                <div class="soap-text">Brain CT NCCT · Sumatriptan 50mg PRN · neuro follow-up 1mo</div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom">
+            <span class="chip">Template: Neurology ▾</span>
+            <span class="chip icd">ICD-10: G43.0</span>
+            <span></span>
+            <span class="btn-ghost">Pause</span>
+            <span class="btn-sign">✓ Sign &amp; export to EMR</span>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 11. LAYER 2 — Impact -->
+  <!-- 13. LAYER 2 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--violet), var(--pink));">2</div>
@@ -1338,7 +2236,8 @@
     </div>
   </section>
 
-  <!-- 12. LAYER 3 — Setup + UI -->
+  <!-- =========== LAYER 3 =========== -->
+  <!-- 14. LAYER 3 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--coral));">3</div>
@@ -1347,62 +2246,151 @@
         <div class="layer-title">⌚ Brain Health Twin</div>
       </div>
     </div>
-    <div class="layer-body">
-      <div class="layer-mockup-wrap">
-        <div class="mockup mk-phone">
-          <div class="mk-header">
-            <div class="left"><span class="mk-dot"></span> NIT · Brain Health</div>
-            <span>Live</span>
-          </div>
-          <div class="mk-body">
-            <div class="phone-frame">
-              <div class="phone-screen-bh">
-                <div class="bh-header">
-                  <h4>คุณยายสมศรี</h4>
-                  <span>72y · Stroke survivor</span>
+    <p class="lead">Wearable + smartphone passive monitoring — AFib, voice biomarker, gait analysis · alert NIT ก่อนเกิด stroke</p>
+    <div class="setup-grid">
+      <div class="setup-side problem">
+        <div class="ls-label">ปัญหา</div>
+        <p><b>30%</b> ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี · คนไข้มา รพ. แค่ตอนป่วยหนัก</p>
+      </div>
+      <div class="setup-side solution">
+        <div class="ls-label">Solution</div>
+        <p>Apple Watch + NIT app · AFib + voice + gait monitoring · alert NIT ถ้าผิดปกติ <b>ก่อน</b> stroke เกิด</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 15. LAYER 3 — UI SHOWCASE -->
+  <section class="slide ui-showcase">
+    <div class="ui-showcase-frame">
+      <div class="ui-tag"><span class="pill">UI · LAYER 3</span> Brain Health Twin · 3-Device Ecosystem</div>
+      <div class="ui-caption">นาฬิกาตรวจ AFib · มือถือดู brain health · <b>หมอที่ NIT</b> เห็นภาพรวมประชากร 1,247 คน</div>
+      <div class="ui-canvas">
+        <div class="mock-bh">
+          <!-- Apple Watch -->
+          <div class="bh-col">
+            <div class="col-label">Patient · Apple Watch</div>
+            <div class="watch">
+              <div class="watch-screen">
+                <div class="watch-header">
+                  <span>● AFIB</span>
+                  <span class="watch-time">10:42</span>
                 </div>
-                <div class="bh-metric"><span class="ic">❤️</span><span class="k">Heart rate</span><span class="v">72</span><span class="dot"></span></div>
-                <div class="bh-metric"><span class="ic">⚡</span><span class="k">AFib today</span><span class="v">0</span><span class="dot"></span></div>
-                <div class="bh-metric"><span class="ic">🗣</span><span class="k">Voice score</span><span class="v">92</span><span class="dot"></span></div>
-                <div class="bh-metric"><span class="ic">🚶</span><span class="k">Gait</span><span class="v">↓5%</span><span class="dot warn"></span></div>
-                <div class="bh-chart">
-                  <div class="lab">14-DAY TREND</div>
-                  <div class="bh-bars">
-                    <div class="bh-bar" style="height: 30%"></div>
-                    <div class="bh-bar" style="height: 45%"></div>
-                    <div class="bh-bar" style="height: 40%"></div>
-                    <div class="bh-bar" style="height: 35%"></div>
-                    <div class="bh-bar" style="height: 50%"></div>
-                    <div class="bh-bar" style="height: 65%"></div>
-                    <div class="bh-bar" style="height: 60%"></div>
-                    <div class="bh-bar" style="height: 50%"></div>
-                    <div class="bh-bar" style="height: 55%"></div>
-                    <div class="bh-bar" style="height: 45%"></div>
-                    <div class="bh-bar" style="height: 50%"></div>
-                    <div class="bh-bar" style="height: 70%"></div>
-                    <div class="bh-bar" style="height: 80%"></div>
-                    <div class="bh-bar" style="height: 90%"></div>
+                <div class="watch-alert">Irregular heart rhythm detected</div>
+                <div class="watch-bpm">
+                  <div class="num">128</div>
+                  <div class="unit">BPM · IRREGULAR</div>
+                </div>
+                <div class="watch-ecg">
+                  <svg viewBox="0 0 100 20" preserveAspectRatio="none">
+                    <path d="M 0,10 L 12,10 L 14,5 L 16,15 L 18,10 L 28,10 L 30,3 L 32,17 L 34,10 L 45,10 L 48,4 L 50,16 L 52,10 L 62,10 L 65,2 L 67,18 L 69,10 L 80,10 L 82,5 L 84,15 L 86,10 L 100,10"
+                      fill="none" stroke="currentColor" stroke-width="0.8" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div class="watch-note">Conf 92% · Sent to NIT</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- iPhone -->
+          <div class="bh-col">
+            <div class="col-label">Patient · NIT Brain Health App</div>
+            <div class="phone-bh">
+              <div class="phone-bh-screen">
+                <div class="phone-greet">
+                  <h4>คุณยายสมศรี</h4>
+                  <div class="sub">72y · Post-stroke · Day 142</div>
+                </div>
+                <div class="bh-card">
+                  <span class="ic">❤️</span>
+                  <div class="lab"><b>Cardiac</b></div>
+                  <span class="num">128 bpm</span>
+                  <span class="dot alert"></span>
+                </div>
+                <div class="bh-card">
+                  <span class="ic">⚡</span>
+                  <div class="lab"><b>AFib episode</b></div>
+                  <span class="num">3 today</span>
+                  <span class="dot alert"></span>
+                </div>
+                <div class="bh-card">
+                  <span class="ic">🗣</span>
+                  <div class="lab"><b>Voice score</b></div>
+                  <span class="num">88 / 100</span>
+                  <span class="dot"></span>
+                </div>
+                <div class="bh-card">
+                  <span class="ic">🚶</span>
+                  <div class="lab"><b>Gait</b></div>
+                  <span class="num">↓ 5%</span>
+                  <span class="dot warn"></span>
+                </div>
+                <div class="bh-mini-chart">
+                  <div class="lab">14-DAY TREND · COMPOSITE</div>
+                  <div class="bh-mini-bars">
+                    <div class="bar" style="height: 35%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar" style="height: 45%"></div>
+                    <div class="bar" style="height: 40%"></div>
+                    <div class="bar" style="height: 55%"></div>
+                    <div class="bar" style="height: 65%"></div>
+                    <div class="bar" style="height: 60%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar" style="height: 55%"></div>
+                    <div class="bar" style="height: 50%"></div>
+                    <div class="bar" style="height: 60%"></div>
+                    <div class="bar" style="height: 75%"></div>
+                    <div class="bar" style="height: 85%"></div>
+                    <div class="bar" style="height: 95%"></div>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Clinician -->
+          <div class="bh-col">
+            <div class="col-label">Clinician · NIT Population View</div>
+            <div class="clinician">
+              <div class="clinician-header">
+                <h5>Monitored population</h5>
+                <div class="pop">1,247 patients</div>
+              </div>
+              <div class="clinician-stats">
+                <div class="cstat"><div class="n">14</div><div class="lab">Active<br>alerts</div></div>
+                <div class="cstat"><div class="n">3</div><div class="lab">Critical<br>today</div></div>
+                <div class="cstat"><div class="n">98%</div><div class="lab">Compliance<br>rate</div></div>
+              </div>
+              <div class="col-label" style="font-size: 0.65rem; margin-top: 0.4rem;">RECENT ALERTS</div>
+              <div class="alerts-feed">
+                <div class="alert-row crit">
+                  <div class="bar"></div>
+                  <div class="info"><b>สมศรี ตันติ</b> · AFib 128 bpm · 3rd episode</div>
+                  <div class="time">10:42</div>
+                </div>
+                <div class="alert-row">
+                  <div class="bar"></div>
+                  <div class="info"><b>สมชาย วงษา</b> · Voice score ↓ 12 pts</div>
+                  <div class="time">09:18</div>
+                </div>
+                <div class="alert-row">
+                  <div class="bar"></div>
+                  <div class="info"><b>เกษมศักดิ์ ภ.</b> · Gait variability ↑ 18%</div>
+                  <div class="time">08:34</div>
+                </div>
+                <div class="alert-row ok">
+                  <div class="bar"></div>
+                  <div class="info"><b>ปราณี กล้า</b> · Recovered baseline</div>
+                  <div class="time">07:55</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="layer-side">
-        <div class="ls-block problem">
-          <div class="ls-label">ปัญหา</div>
-          <p><b>30%</b> ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี</p>
-        </div>
-        <div class="ls-block solution">
-          <div class="ls-label">Solution</div>
-          <p>Apple Watch + NIT app · AFib + voice + gait monitoring · alert NIT ถ้าผิดปกติ <b>ก่อน</b> stroke เกิด</p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- 13. LAYER 3 — Impact -->
+  <!-- 16. LAYER 3 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--amber), var(--coral));">3</div>
@@ -1423,7 +2411,8 @@
     </div>
   </section>
 
-  <!-- 14. LAYER 4 — Setup + UI -->
+  <!-- =========== LAYER 4 =========== -->
+  <!-- 17. LAYER 4 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--coral), var(--amber));">4</div>
@@ -1432,55 +2421,161 @@
         <div class="layer-title">🧬 Outcome AI</div>
       </div>
     </div>
-    <div class="layer-body">
-      <div class="layer-mockup-wrap">
-        <div class="mockup mk-outcome">
-          <div class="mk-header">
-            <div class="left"><span class="mk-dot"></span> OUTCOME PREDICTION</div>
-            <span>Pt #4421</span>
-          </div>
-          <div class="mk-body">
-            <div class="out-inputs">
-              <div class="out-input"><div class="ic">🧠</div><div class="lab">CT</div><div class="check">✓</div></div>
-              <div class="out-input"><div class="ic">📊</div><div class="lab">NIHSS 14</div><div class="check">✓</div></div>
-              <div class="out-input"><div class="ic">👤</div><div class="lab">65y</div><div class="check">✓</div></div>
-              <div class="out-input"><div class="ic">📋</div><div class="lab">HX</div><div class="check">✓</div></div>
-            </div>
-            <div class="out-arrow">↓</div>
-            <div class="out-pred">
-              <span class="pl">mRS 0-2 (walks home)</span>
-              <div class="out-bar"><div class="fill" style="width: 78%"></div></div>
-              <span class="out-pct">78%</span>
-            </div>
-            <div class="out-pred">
-              <span class="pl">Hemorrhage from tPA</span>
-              <div class="out-bar danger"><div class="fill" style="width: 4%"></div></div>
-              <span class="out-pct danger">4%</span>
-            </div>
-            <div class="out-rec">
-              <div>
-                <div class="lab">▶ RECOMMENDED</div>
-                <div class="val">Give tPA</div>
-              </div>
-              <span class="conf">92%<br>confidence</span>
-            </div>
-          </div>
-        </div>
+    <p class="lead">AI predict 90-day modified Rankin Score (mRS) จาก baseline CT + clinical data → ตัดสินใจ tPA vs thrombectomy</p>
+    <div class="setup-grid">
+      <div class="setup-side problem">
+        <div class="ls-label">ปัญหา</div>
+        <p>หมอตัดสิน treatment โดยใช้ guideline + experience · บางเคสขัดแย้ง · <b>30%</b> ของเคสเปลี่ยน decision หลังเห็น outcome เคสคล้ายกัน</p>
       </div>
-      <div class="layer-side">
-        <div class="ls-block problem">
-          <div class="ls-label">ปัญหา</div>
-          <p>หมอตัดสิน treatment โดยใช้ guideline + experience · <b>30%</b> เคสเปลี่ยน decision หลังเห็น outcome เคสคล้ายกัน</p>
-        </div>
-        <div class="ls-block solution">
-          <div class="ls-label">Solution</div>
-          <p>Input: CT + age + NIHSS + HX → AI ทำนาย P(mRS 0-2) + P(hemorrhage) + recommended action · built กับ KMUTT</p>
+      <div class="setup-side solution">
+        <div class="ls-label">Solution</div>
+        <p>Input: CT + age + NIHSS + history → AI ทำนาย <b>3 scenarios</b> (conservative / tPA only / tPA + thrombectomy) + recommended action · built กับ KMUTT</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 18. LAYER 4 — UI SHOWCASE -->
+  <section class="slide ui-showcase">
+    <div class="ui-showcase-frame">
+      <div class="ui-tag"><span class="pill">UI · LAYER 4</span> Outcome AI · CDSS Workstation</div>
+      <div class="ui-caption">ใส่ inputs → AI ทำนาย <b>3 treatment scenarios</b> · พร้อม similar past cases + reasoning</div>
+      <div class="ui-canvas">
+        <div class="mock-outcome">
+          <div class="top">
+            <div class="title-row">
+              <span class="tool">🧬 Outcome AI · v2.4</span>
+              <span class="pt"><b>Pt #4421</b> <span>· M · 65y · NIHSS 14 · LVO M1 (right) · 2h 14m from onset</span></span>
+            </div>
+            <div class="right">⏱ time-sensitive</div>
+          </div>
+          <div class="outcome-body">
+            <!-- Inputs -->
+            <div class="col">
+              <div class="col-title">Inputs · auto-extracted</div>
+              <div class="input-block">
+                <span class="ic">🧠</span>
+                <div class="lab">CT NCCT<br><b>LVO M1 right · ASPECTS 8</b></div>
+                <span class="check">✓</span>
+              </div>
+              <div class="input-block">
+                <span class="ic">📊</span>
+                <div class="lab">CLINICAL<br><b>NIHSS 14 · BP 165/92</b></div>
+                <span class="check">✓</span>
+              </div>
+              <div class="input-block">
+                <span class="ic">👤</span>
+                <div class="lab">DEMOGRAPHICS<br><b>65y · Male · 78 kg</b></div>
+                <span class="check">✓</span>
+              </div>
+              <div class="input-block">
+                <span class="ic">📋</span>
+                <div class="lab">HISTORY<br><b>HTN · AF · prior TIA</b></div>
+                <span class="check">✓</span>
+              </div>
+              <div class="input-block">
+                <span class="ic">💊</span>
+                <div class="lab">MEDS<br><b>Aspirin · Atorvastatin</b></div>
+                <span class="check">✓</span>
+              </div>
+              <div class="input-block">
+                <span class="ic">⏱</span>
+                <div class="lab">TIME WINDOW<br><b>2h 14m from onset</b></div>
+                <span class="check">✓</span>
+              </div>
+            </div>
+
+            <!-- Scenarios -->
+            <div class="col">
+              <div class="col-title">3 Scenarios · Predicted</div>
+              <div class="scenario">
+                <div class="scn-name">Conservative</div>
+                <div class="scn-row">
+                  <span class="pl">mRS 0-2</span>
+                  <div class="scn-bar"><div class="fill" style="width: 12%"></div></div>
+                  <span class="scn-pct">12%</span>
+                </div>
+                <div class="scn-row">
+                  <span class="pl">Hemorrhage</span>
+                  <div class="scn-bar danger"><div class="fill" style="width: 1%"></div></div>
+                  <span class="scn-pct danger">1%</span>
+                </div>
+              </div>
+              <div class="scenario rec">
+                <div class="scn-name">tPA only <span class="rec-badge">RECOMMENDED</span></div>
+                <div class="scn-row">
+                  <span class="pl">mRS 0-2</span>
+                  <div class="scn-bar"><div class="fill" style="width: 62%"></div></div>
+                  <span class="scn-pct">62%</span>
+                </div>
+                <div class="scn-row">
+                  <span class="pl">Hemorrhage</span>
+                  <div class="scn-bar danger"><div class="fill" style="width: 4%"></div></div>
+                  <span class="scn-pct danger">4%</span>
+                </div>
+              </div>
+              <div class="scenario">
+                <div class="scn-name">tPA + Thrombectomy</div>
+                <div class="scn-row">
+                  <span class="pl">mRS 0-2</span>
+                  <div class="scn-bar"><div class="fill" style="width: 78%"></div></div>
+                  <span class="scn-pct">78%</span>
+                </div>
+                <div class="scn-row">
+                  <span class="pl">Hemorrhage</span>
+                  <div class="scn-bar danger"><div class="fill" style="width: 6%"></div></div>
+                  <span class="scn-pct danger">6%</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Reasoning + Cases + Final -->
+            <div class="col">
+              <div class="col-title">Reasoning &amp; Similar Cases <span class="badge">AI</span></div>
+              <div class="reasoning">
+                <span class="lab">▶ KEY FACTORS</span>
+                <b>LVO + young + ASPECTS 8</b> = strong thrombectomy candidate. But cath lab ETA 32m vs tPA window optimal now. <b>Start tPA en route</b>, prepare thrombectomy on arrival.
+              </div>
+              <div class="similar-cases">
+                <div class="lab">SIMILAR CASES (n=18)</div>
+                <div class="case-row">
+                  <span class="cid">#2104</span>
+                  <span>62y M · NIHSS 13 · LVO M1</span>
+                  <span class="out">mRS 1</span>
+                </div>
+                <div class="case-row">
+                  <span class="cid">#1987</span>
+                  <span>68y M · NIHSS 16 · LVO M1</span>
+                  <span class="out">mRS 2</span>
+                </div>
+                <div class="case-row">
+                  <span class="cid">#1822</span>
+                  <span>64y M · NIHSS 14 · LVO M2</span>
+                  <span class="out bad">mRS 4</span>
+                </div>
+                <div class="case-row">
+                  <span class="cid">#1455</span>
+                  <span>67y M · NIHSS 15 · LVO M1</span>
+                  <span class="out">mRS 1</span>
+                </div>
+              </div>
+              <div class="final-rec">
+                <div>
+                  <div class="lab">▶ RECOMMENDED</div>
+                  <div class="action">tPA → Thrombectomy</div>
+                </div>
+                <div class="conf">
+                  <div class="pct">92%</div>
+                  <div class="label">CONFIDENCE</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 15. LAYER 4 — Impact -->
+  <!-- 19. LAYER 4 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--coral), var(--amber));">4</div>
@@ -1501,7 +2596,8 @@
     </div>
   </section>
 
-  <!-- 16. LAYER 5 — Setup + UI -->
+  <!-- =========== LAYER 5 =========== -->
+  <!-- 20. LAYER 5 — Setup -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--teal), var(--cyan));">5</div>
@@ -1510,37 +2606,131 @@
         <div class="layer-title">🌐 DMS Neuro Network</div>
       </div>
     </div>
-    <div class="layer-body">
-      <div class="layer-mockup-wrap">
-        <div class="mockup mk-network">
-          <div class="mk-header">
-            <div class="left"><span class="mk-dot"></span> DMS FEDERATED NETWORK</div>
-            <span>30 nodes</span>
+    <p class="lead">Federated Learning ระดับชาติ · 30 รพ. ในกรมการแพทย์ train AI ร่วมกัน · data ไม่ออก รพ. · NIT เป็น hub</p>
+    <div class="setup-grid">
+      <div class="setup-side problem">
+        <div class="ls-label">ปัญหา</div>
+        <p>AI ของแต่ละ รพ. train จาก data ของตัวเอง — เล็ก, biased · ไม่มี privacy-preserving way ในการ share</p>
+      </div>
+      <div class="setup-side solution">
+        <div class="ls-label">Solution</div>
+        <p>Federated framework — รพ. train local · ส่ง weights ไม่ใช่ data · NIT รวม weights → AI ใหญ่ <b>10×</b> · PDPA compliant</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 21. LAYER 5 — UI SHOWCASE -->
+  <section class="slide ui-showcase">
+    <div class="ui-showcase-frame">
+      <div class="ui-tag"><span class="pill">UI · LAYER 5</span> DMS Federated Network · Live Console</div>
+      <div class="ui-caption">30 โรงพยาบาลใน DMS · train โมเดลร่วม · <b>data ไม่ออกเลย</b> · NIT เป็น hub กลาง</div>
+      <div class="ui-canvas">
+        <div class="mock-net">
+          <div class="top">
+            <div class="name">⊕ DMS NEURO NETWORK</div>
+            <div class="meta">30 nodes · 14 active training</div>
+            <div class="compliance">
+              <span>PDPA ✓</span>
+              <span>HIPAA ✓</span>
+              <span>ISO 27001 ✓</span>
+            </div>
+            <div class="round">ROUND 247 · SYNCED</div>
           </div>
-          <div class="mk-body">
-            <div class="network-diagram" id="netd"></div>
-            <div class="net-status">
-              <div class="row"><span class="check">✓</span><span>Encrypted weights only — no patient data leaves</span></div>
-              <div class="row"><span class="check">✓</span><span>NIT = central hub · PDPA compliant</span></div>
-              <div class="row"><span class="check">✓</span><span>Model improves continuously across all sites</span></div>
+          <div class="net-grid">
+            <!-- Map -->
+            <div class="net-panel">
+              <div class="col-title" style="color: #8d92a8;">NETWORK TOPOLOGY · LIVE</div>
+              <div class="net-map" id="net-map">
+                <div class="net-grid-bg"></div>
+                <div class="net-hub-big">NIT</div>
+                <!-- nodes will be positioned via inline JS below -->
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem;">
+                <div class="net-chart">
+                  <div class="label">ACCURACY <span class="val">+12.3%</span></div>
+                  <div class="chart-line">
+                    <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+                      <path d="M 0,40 L 20,38 L 40,33 L 60,28 L 80,24 L 100,18 L 120,14 L 140,12 L 160,9 L 180,7 L 200,5"
+                        fill="none" stroke="#00ffc6" stroke-width="2" stroke-linejoin="round"/>
+                      <path d="M 0,40 L 20,38 L 40,33 L 60,28 L 80,24 L 100,18 L 120,14 L 140,12 L 160,9 L 180,7 L 200,5 L 200,50 L 0,50 Z"
+                        fill="url(#g1)" opacity="0.3"/>
+                      <defs>
+                        <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+                          <stop offset="0%" stop-color="#00ffc6"/>
+                          <stop offset="100%" stop-color="transparent"/>
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </div>
+                </div>
+                <div class="net-chart">
+                  <div class="label">DATASET <span class="val">10.4×</span></div>
+                  <div class="chart-line">
+                    <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+                      <path d="M 0,45 L 25,43 L 50,38 L 75,32 L 100,24 L 125,17 L 150,11 L 175,7 L 200,3"
+                        fill="none" stroke="#00d4ff" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="net-chart">
+                  <div class="label">PARAMS <span class="val">1.2 B</span></div>
+                  <div class="chart-line">
+                    <svg viewBox="0 0 200 50" preserveAspectRatio="none">
+                      <path d="M 0,42 L 30,40 L 60,36 L 90,30 L 120,22 L 150,15 L 180,10 L 200,7"
+                        fill="none" stroke="#0070e8" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Side panel -->
+            <div class="net-panel">
+              <div class="net-section">
+                <div class="label">PRIVACY · ENCRYPTION</div>
+                <div class="privacy-row"><span class="k">Patient data leaving</span><span class="v">0 bytes</span></div>
+                <div class="privacy-row"><span class="k">Weight encryption</span><span class="v">AES-256</span></div>
+                <div class="privacy-row"><span class="k">Aggregation</span><span class="v">FedAvg + DP</span></div>
+                <div class="privacy-row"><span class="k">DP ε budget</span><span class="v">3.2 / 8.0</span></div>
+                <div class="privacy-row"><span class="k">Audit trail</span><span class="v">247 rounds</span></div>
+              </div>
+              <div class="net-section">
+                <div class="label">ACTIVE PROJECTS</div>
+                <div class="project-row">
+                  <span class="name">Stroke outcome</span>
+                  <span class="ver">v2.4</span>
+                  <span class="sites">12 sites</span>
+                </div>
+                <div class="project-row">
+                  <span class="name">Seizure onset zone</span>
+                  <span class="ver">v1.8</span>
+                  <span class="sites">8 sites</span>
+                </div>
+                <div class="project-row">
+                  <span class="name">Parkinson early Dx</span>
+                  <span class="ver">v0.9</span>
+                  <span class="sites">5 sites</span>
+                </div>
+                <div class="project-row">
+                  <span class="name">MRI denoising</span>
+                  <span class="ver">v3.1</span>
+                  <span class="sites">14 sites</span>
+                </div>
+              </div>
+              <div class="net-section">
+                <div class="label">RECENT FED ROUNDS</div>
+                <div class="privacy-row"><span class="k">#247 · just now</span><span class="v">+0.3% acc</span></div>
+                <div class="privacy-row"><span class="k">#246 · 4h ago</span><span class="v">+0.2% acc</span></div>
+                <div class="privacy-row"><span class="k">#245 · 8h ago</span><span class="v">+0.4% acc</span></div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="layer-side">
-        <div class="ls-block problem">
-          <div class="ls-label">ปัญหา</div>
-          <p>AI ของแต่ละ รพ. train จาก data ของตัวเอง — เล็ก, biased · ไม่มี privacy-preserving way ในการ share</p>
-        </div>
-        <div class="ls-block solution">
-          <div class="ls-label">Solution</div>
-          <p>Federated framework — รพ. train local · ส่ง weights ไม่ใช่ data · NIT รวม weights → AI ใหญ่ <b>10×</b></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 17. LAYER 5 — Impact -->
+  <!-- 22. LAYER 5 — Impact -->
   <section class="slide">
     <div class="layer-header">
       <div class="layer-num" style="background: linear-gradient(135deg, var(--teal), var(--cyan));">5</div>
@@ -1561,9 +2751,9 @@
     </div>
   </section>
 
-  <!-- 18. STACK -->
+  <!-- 23. STACK -->
   <section class="slide">
-    <div class="marker"><span class="num">18</span> <span class="em-dash">—</span> Integration</div>
+    <div class="marker"><span class="num">23</span> <span class="em-dash">—</span> Integration</div>
     <h1>เราไม่ <span class="coral">rebuild</span> — เรา <span class="teal">เสริม</span></h1>
     <p class="lead">5 Force Multipliers <b>นั่งบน foundation ที่ NIT มี</b> — ไม่ทับซ้อน ไม่ขัดแย้ง</p>
     <div class="stack">
@@ -1576,9 +2766,9 @@
     </div>
   </section>
 
-  <!-- 19. COMPETITIVE -->
+  <!-- 24. COMPETITIVE -->
   <section class="slide">
-    <div class="marker"><span class="num">19</span> <span class="em-dash">—</span> Competitive Position</div>
+    <div class="marker"><span class="num">24</span> <span class="em-dash">—</span> Competitive Position</div>
     <h1>เราไม่แข่งกับ <span class="amber">AN AN Bot</span><br>เราอยู่ <span class="cyan">คนละชั้น</span></h1>
     <div class="vs-matrix">
       <div class="vs-col">
@@ -1615,9 +2805,9 @@
     </div>
   </section>
 
-  <!-- 20. ROADMAP -->
+  <!-- 25. ROADMAP -->
   <section class="slide">
-    <div class="marker"><span class="num">20</span> <span class="em-dash">—</span> Roadmap · 2026–2028</div>
+    <div class="marker"><span class="num">25</span> <span class="em-dash">—</span> Roadmap · 2026–2028</div>
     <h1>เส้นทาง <span class="cyan">3 เฟส · 30 เดือน</span></h1>
     <div class="roadmap">
       <div class="roadphase p1">
@@ -1658,9 +2848,9 @@
     </div>
   </section>
 
-  <!-- 21. IMPACT -->
+  <!-- 26. IMPACT -->
   <section class="slide">
-    <div class="marker"><span class="num">21</span> <span class="em-dash">—</span> Impact</div>
+    <div class="marker"><span class="num">26</span> <span class="em-dash">—</span> Impact</div>
     <h1>ผลลัพธ์ที่ <span class="teal">วัดได้</span></h1>
     <div class="stat-grid">
       <div class="stat"><div class="v">5,000+</div><div class="k">ชีวิต stroke<br>ช่วยได้/ปี ทั่ว DMS</div></div>
@@ -1674,9 +2864,9 @@
     </div>
   </section>
 
-  <!-- 22. ASK -->
+  <!-- 27. ASK -->
   <section class="slide">
-    <div class="marker"><span class="num">22</span> <span class="em-dash">—</span> The Ask</div>
+    <div class="marker"><span class="num">27</span> <span class="em-dash">—</span> The Ask</div>
     <h1>เริ่มกัน <span class="cyan">วันนี้</span></h1>
     <p class="lead">NIT มี vision + foundation + MOU · Sala Daeng มี engineering + AI + DMS access · combine = world-class</p>
     <div class="ask-grid">
@@ -1703,7 +2893,7 @@
     </div>
   </section>
 
-  <!-- 23. VISION -->
+  <!-- 28. VISION -->
   <section class="slide end">
     <div class="vision-panel">
       <div class="year">Vision · 2030</div>
@@ -1714,7 +2904,7 @@
 </div>
 
 <div class="nav">
-  <span class="counter"><span id="cur">1</span> / <span id="total">23</span></span>
+  <span class="counter"><span id="cur">1</span> / <span id="total">28</span></span>
   <button id="prev" aria-label="previous">←</button>
   <button id="next" aria-label="next">→</button>
 </div>
@@ -1756,40 +2946,35 @@
   const h = parseInt(location.hash.replace('#',''))-1;
   if (!isNaN(h) && h>=0 && h<total) go(h); else go(0);
 
-  // Network diagram nodes
+  // Network map nodes
   (function() {
-    const d = document.getElementById('netd');
-    if (!d) return;
-    const N = 10;
-    const labels = ['ราชวิถี','เลิดสิน','มะเร็ง','เด็ก','ทรวงอก','เมตตา','สงฆ์','ภาษีอินทร์','ขอนแก่น','ยะลา'];
-    const cx = 50, cy = 50;
-    const hub = document.createElement('div');
-    hub.className = 'net-hub';
-    hub.textContent = 'NIT';
-    d.appendChild(hub);
+    const map = document.getElementById('net-map');
+    if (!map) return;
+    const labels = ['ราชวิถี','เลิดสิน','มะเร็ง','เด็ก','ทรวงอก','เมตตา','สงฆ์','ภาษีอินทร์','ขอนแก่น','ยะลา','พระนั่งเกล้า','เลิดสิน','ฯลฯ','รพ.','รพ.','รพ.'];
+    const N = 14;
     for (let k = 0; k < N; k++) {
       const ang = (k / N) * Math.PI * 2 - Math.PI / 2;
-      const rx = 42, ry = 38;
-      const x = cx + Math.cos(ang) * rx;
-      const y = cy + Math.sin(ang) * ry;
+      const rx = 36 + (k % 2) * 6;
+      const ry = 30 + (k % 3) * 4;
+      const x = 50 + Math.cos(ang) * rx;
+      const y = 50 + Math.sin(ang) * ry;
+
       const node = document.createElement('div');
-      node.className = 'net-node';
+      node.className = 'net-node-sm';
       node.style.left = x + '%';
       node.style.top = y + '%';
-      node.style.transform = 'translate(-50%, -50%)';
-      node.style.animationDelay = (k * 0.18) + 's';
-      const dot = document.createElement('span');
-      dot.textContent = '·';
-      node.appendChild(dot);
-      d.appendChild(node);
+      node.style.animationDelay = (k * 0.13) + 's';
+      node.textContent = (k % 3 === 0) ? '●' : '·';
+      map.appendChild(node);
+
       const line = document.createElement('div');
       line.className = 'net-line';
-      const dx = (x - cx), dy = (y - cy);
-      const dist = Math.sqrt(dx*dx + dy*dy);
-      const aDeg = Math.atan2(dy, dx) * 180 / Math.PI;
+      const dxx = (x - 50), dyy = (y - 50);
+      const dist = Math.sqrt(dxx*dxx + dyy*dyy);
+      const aDeg = Math.atan2(dyy, dxx) * 180 / Math.PI;
       line.style.width = dist + '%';
       line.style.transform = `rotate(${aDeg}deg)`;
-      d.appendChild(line);
+      map.appendChild(line);
     }
   })();
 </script>
