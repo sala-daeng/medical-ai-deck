@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sala Daeng × NIT — Medical AI Platform</title>
+<title>NIT × Sala Daeng — World-Class Brain Hospital</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg-0: #050814;
@@ -22,20 +22,16 @@
     --accent-pink: #ff5f9e;
     --accent-amber: #ffb547;
     --accent-red: #ff4d6d;
-    --accent-line: #06c755;
     --grid: rgba(255, 255, 255, 0.04);
     --line: rgba(255, 255, 255, 0.08);
     --line-strong: rgba(255, 255, 255, 0.16);
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
-    width: 100%; height: 100%;
-    overflow: hidden;
-    background: var(--bg-0);
-    color: var(--ink-0);
+    width: 100%; height: 100%; overflow: hidden;
+    background: var(--bg-0); color: var(--ink-0);
     font-family: 'IBM Plex Sans Thai', 'Space Grotesk', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
   }
   body::before {
     content: ''; position: fixed; inset: 0;
@@ -49,14 +45,14 @@
   body::after {
     content: ''; position: fixed; inset: 0;
     background:
-      radial-gradient(circle at 15% 10%, rgba(0, 212, 255, 0.10), transparent 35%),
-      radial-gradient(circle at 85% 90%, rgba(157, 107, 255, 0.08), transparent 40%);
+      radial-gradient(circle at 15% 10%, rgba(0, 212, 255, 0.12), transparent 35%),
+      radial-gradient(circle at 85% 90%, rgba(157, 107, 255, 0.10), transparent 40%);
     pointer-events: none; z-index: 0;
   }
   .deck { position: relative; width: 100vw; height: 100vh; z-index: 2; }
   .slide {
     position: absolute; inset: 0;
-    padding: 4vh 5vw;
+    padding: 4vh 6vw;
     flex-direction: column;
     justify-content: center;
     animation: fadeIn 0.5s cubic-bezier(.2,.7,.3,1);
@@ -71,49 +67,46 @@
   .num {
     font-family: 'JetBrains Mono', monospace;
     color: var(--ink-3); font-size: 0.76rem;
-    letter-spacing: 0.18em; margin-bottom: 0.9rem;
+    letter-spacing: 0.18em; margin-bottom: 1rem;
     display: flex; align-items: center; gap: 0.6rem;
   }
   .num::before { content: ''; width: 28px; height: 1px; background: var(--ink-3); }
   h1 {
-    font-size: clamp(2rem, 4.4vw, 3.8rem);
-    line-height: 1.05; font-weight: 600;
-    letter-spacing: -0.02em; margin-bottom: 0.9rem;
+    font-size: clamp(2.2rem, 4.6vw, 4rem);
+    line-height: 1.08; font-weight: 600;
+    letter-spacing: -0.025em; margin-bottom: 1rem;
   }
   h2 {
-    font-size: clamp(1.4rem, 2.6vw, 2.2rem);
+    font-size: clamp(1.5rem, 2.8vw, 2.3rem);
     line-height: 1.15; font-weight: 500;
-    letter-spacing: -0.015em; margin-bottom: 0.8rem;
+    letter-spacing: -0.015em; margin-bottom: 0.9rem;
   }
   h3 {
     font-size: clamp(1.05rem, 1.5vw, 1.35rem);
     font-weight: 600; color: var(--ink-0);
-    letter-spacing: -0.01em;
   }
-  p, li {
-    font-size: clamp(0.9rem, 1.1vw, 1.05rem);
-    line-height: 1.55; color: var(--ink-1);
-  }
+  p, li { font-size: clamp(0.92rem, 1.1vw, 1.1rem); line-height: 1.6; color: var(--ink-1); }
   .lead {
-    font-size: clamp(1rem, 1.3vw, 1.25rem);
-    line-height: 1.5; color: var(--ink-1);
-    max-width: 56ch;
+    font-size: clamp(1.05rem, 1.45vw, 1.35rem);
+    line-height: 1.55; color: var(--ink-1); max-width: 64ch;
   }
   .accent { color: var(--accent-cyan); }
   .teal { color: var(--accent-teal); }
   .violet { color: var(--accent-violet); }
   .amber { color: var(--accent-amber); }
   .red { color: var(--accent-red); }
-  .green { color: var(--accent-line); }
   .ink-2 { color: var(--ink-2); }
   .grad {
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
+  .grad-v {
+    background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
   .pulse {
     width: 10px; height: 10px; border-radius: 50%;
-    background: var(--accent-teal);
-    box-shadow: 0 0 12px var(--accent-teal);
+    background: var(--accent-teal); box-shadow: 0 0 12px var(--accent-teal);
     animation: pulse 2s ease-in-out infinite;
   }
   @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
@@ -130,611 +123,321 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase;
   }
-  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 1.8rem; }
+  .cover-main { display: flex; flex-direction: column; justify-content: center; gap: 1.6rem; }
   .cover-title {
-    font-size: clamp(2.4rem, 5.6vw, 4.8rem);
-    line-height: 1.1; font-weight: 600; letter-spacing: -0.03em;
+    font-size: clamp(2.4rem, 5.4vw, 4.8rem);
+    line-height: 1.08; font-weight: 600; letter-spacing: -0.03em;
   }
-  .cover-title > br + span,
-  .cover-title .grad { display: inline-block; margin-top: 0.2em; }
   .cover-sub {
-    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
-    color: var(--ink-1); max-width: 64ch; line-height: 1.6;
+    font-size: clamp(1.05rem, 1.4vw, 1.35rem);
+    color: var(--ink-1); max-width: 68ch; line-height: 1.55;
   }
   .cover-footer {
     display: flex; justify-content: space-between; align-items: end;
     color: var(--ink-3); font-family: 'JetBrains Mono', monospace; font-size: 0.78rem;
   }
 
-  /* ===== TWO-COL ===== */
-  .two-col {
-    display: flex; gap: 2.5rem;
-    align-items: center; justify-content: center;
-    flex-wrap: wrap;
+  /* ===== STATE LIST ===== */
+  .state-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.4rem;
   }
-  .two-col > .device,
-  .two-col > .phone,
-  .two-col > .kiosk,
-  .two-col > .doc-screen,
-  .two-col > .desk-screen,
-  .two-col > .staff-screen { flex: 0 0 auto; }
-  .two-col > .col {
-    flex: 1 1 360px;
-    min-width: 0;
-    max-width: 640px;
-  }
-
-  /* ===== SYSTEM HEADER ===== */
-  .sys-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 999px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 1rem;
-  }
-  .sys-tag.p1 { background: rgba(0, 255, 198, 0.12); color: var(--accent-teal); border: 1px solid rgba(0, 255, 198, 0.3); }
-  .sys-tag.p2 { background: rgba(157, 107, 255, 0.12); color: var(--accent-violet); border: 1px solid rgba(157, 107, 255, 0.3); }
-  .sys-tag.p3 { background: rgba(255, 77, 109, 0.12); color: var(--accent-red); border: 1px solid rgba(255, 77, 109, 0.3); }
-  .sys-tag .ic { font-size: 0.9rem; }
-
-  .sys-title {
-    font-size: clamp(1.6rem, 3vw, 2.5rem);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-  }
-  .sys-desc {
-    font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-    color: var(--ink-2);
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-
-  .sys-stakeholders {
-    display: flex; gap: 0.5rem;
-    margin-bottom: 1rem; flex-wrap: wrap;
-  }
-  .stake {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.3rem 0.7rem;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid var(--line);
-    font-size: 0.8rem;
-    color: var(--ink-1);
-  }
-
-  .sys-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    margin-top: 0.6rem;
-  }
-  .sys-step {
-    display: flex; gap: 0.8rem;
-    align-items: flex-start;
-    padding: 0.5rem 0;
-  }
-  .sys-step .n {
-    flex-shrink: 0;
-    width: 24px; height: 24px;
-    border-radius: 50%;
-    background: rgba(0, 212, 255, 0.15);
-    color: var(--accent-cyan);
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: 'JetBrains Mono', monospace;
-    margin-top: 1px;
-  }
-  .sys-step .t {
-    font-size: 0.92rem;
-    line-height: 1.5;
-    color: var(--ink-1);
-  }
-  .sys-step .t b { color: var(--ink-0); }
-
-  /* ===== KPI TABLE ===== */
-  .kpi-table {
-    margin-top: 1.2rem;
+  .state-card {
+    padding: 1.2rem 1.3rem;
     border: 1px solid var(--line);
     border-radius: 12px;
-    overflow: hidden;
-    background: rgba(255,255,255,0.015);
+    background: rgba(255,255,255,0.025);
   }
-  .kpi-row {
+  .state-card.have {
+    border-left: 3px solid var(--accent-teal);
+    background: linear-gradient(90deg, rgba(0, 255, 198, 0.06), rgba(255,255,255,0.02));
+  }
+  .state-card .ic { font-size: 1.6rem; margin-bottom: 0.5rem; }
+  .state-card .name { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--ink-0); }
+  .state-card .desc { font-size: 0.84rem; color: var(--ink-2); line-height: 1.45; }
+  .state-card .since {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem; color: var(--accent-teal);
+    letter-spacing: 0.1em; margin-top: 0.4rem;
+  }
+
+  /* ===== STATE OF WORLD ===== */
+  .world-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    padding: 0.7rem 1.2rem;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    gap: 0.8rem;
-    font-size: 0.88rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.5rem;
   }
-  .kpi-row > *:nth-child(2),
-  .kpi-row > *:nth-child(3),
-  .kpi-row > *:nth-child(4) {
-    text-align: right;
-  }
-  .kpi-row:last-child { border-bottom: 0; }
-  .kpi-row.header {
-    background: rgba(255,255,255,0.04);
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.66rem;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    color: var(--ink-3);
-  }
-  .kpi-row .metric { color: var(--ink-0); font-weight: 500; }
-  .kpi-row .base { color: var(--ink-3); font-family: 'JetBrains Mono', monospace; text-decoration: line-through; text-decoration-color: rgba(255, 77, 109, 0.4); }
-  .kpi-row .target { color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-  .kpi-row .target2 { color: var(--accent-teal); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-
-  .measured-by {
-    margin-top: 0.8rem;
-    padding: 0.7rem 1rem;
-    border-radius: 8px;
-    background: rgba(0, 212, 255, 0.04);
-    border-left: 3px solid var(--accent-cyan);
-    font-size: 0.82rem;
-    color: var(--ink-1);
-    line-height: 1.5;
-  }
-  .measured-by .lab {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--accent-cyan);
-    letter-spacing: 0.13em;
-    margin-bottom: 0.3rem;
-    display: block;
-  }
-
-  /* ===== PHONE MOCKUP ===== */
-  .phone {
-    width: 240px;
-    background: #0a0a0a;
-    border-radius: 32px;
-    padding: 8px;
-    box-shadow:
-      0 30px 80px rgba(0, 212, 255, 0.15),
-      0 0 0 1px rgba(255,255,255,0.06);
+  .world-card {
+    padding: 1.3rem;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
     position: relative;
   }
-  .phone::before {
-    content: '';
-    position: absolute;
-    top: 14px; left: 50%; transform: translateX(-50%);
-    width: 70px; height: 18px;
-    background: #0a0a0a;
-    border-radius: 12px;
-    z-index: 5;
+  .world-card .tech {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; color: var(--accent-cyan);
+    letter-spacing: 0.13em; margin-bottom: 0.4rem;
+    text-transform: uppercase;
   }
-  .phone-screen {
-    background: #f0f2f5;
-    border-radius: 26px;
-    overflow: hidden;
-    height: 460px;
-    display: flex;
-    flex-direction: column;
+  .world-card .what {
+    font-size: 1.05rem; font-weight: 600;
+    color: var(--ink-0); margin-bottom: 0.4rem; line-height: 1.3;
   }
-  .phone-statusbar {
-    background: #06c755;
-    color: white;
-    padding: 32px 14px 6px;
-    font-size: 0.6rem;
-    font-family: 'Space Grotesk', system-ui;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  .world-card .who {
+    font-size: 0.85rem; color: var(--ink-2);
+    margin-bottom: 0.6rem; line-height: 1.5;
   }
-  .phone-header {
-    background: #06c755;
-    color: white;
-    padding: 6px 12px 12px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.78rem;
+  .world-card .impact {
+    font-size: 0.95rem; color: var(--accent-teal);
+    font-weight: 500; line-height: 1.4;
   }
-  .phone-avatar {
-    width: 28px; height: 28px;
-    border-radius: 50%;
-    background: white;
-    color: #06c755;
-    display: inline-flex; align-items: center; justify-content: center;
-    font-weight: 700;
-    font-size: 0.7rem;
-  }
-  .phone-header .info { flex: 1; min-width: 0; }
-  .phone-header .info .name { font-weight: 600; font-size: 0.78rem; }
-  .phone-header .info .status { font-size: 0.6rem; opacity: 0.85; }
-  .phone-chat {
-    flex: 1;
-    background: #f5f6fa;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    overflow-y: auto;
-    font-size: 0.74rem;
-  }
-  .bubble {
-    max-width: 82%;
-    padding: 6px 10px;
-    border-radius: 14px;
-    line-height: 1.35;
-    color: #333;
-    word-wrap: break-word;
-  }
-  .bubble.ai {
-    background: white;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-    align-self: flex-start;
-  }
-  .bubble.user {
-    background: #06c755;
-    color: white;
-    border-bottom-right-radius: 4px;
-    align-self: flex-end;
-  }
-  .bubble.system {
-    background: rgba(0,0,0,0.05);
-    color: #666;
-    font-size: 0.62rem;
-    align-self: center;
-    border-radius: 10px;
-    padding: 3px 8px;
-  }
-  .bubble.option {
-    background: white;
-    border: 1px solid #06c755;
-    color: #06c755;
-    font-size: 0.72rem;
-    align-self: flex-start;
-  }
-  .bubble.card {
-    background: white;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    border-radius: 10px;
-    padding: 9px;
-    max-width: 92%;
-    font-size: 0.7rem;
-  }
-  .bubble.card .card-title { font-weight: 600; color: #333; margin-bottom: 4px; font-size: 0.78rem; }
-  .bubble.card .card-row { display: flex; gap: 5px; margin-bottom: 2px; color: #555; line-height: 1.3; }
-  .bubble.card .card-row .em { font-weight: 600; color: #06c755; }
 
-  /* ===== KIOSK ===== */
-  .kiosk {
-    width: 260px;
-    background: linear-gradient(135deg, #0a1024, #131a35);
-    border: 1px solid rgba(0, 212, 255, 0.3);
-    border-radius: 16px;
-    padding: 1.2rem;
-    box-shadow: 0 30px 80px rgba(0, 212, 255, 0.15);
+  /* ===== LAYER SLIDE ===== */
+  .layer-header {
+    display: flex; align-items: center; gap: 1.2rem;
+    margin-bottom: 1.2rem;
   }
-  .kiosk-header {
-    display: flex; align-items: center; gap: 8px;
+  .layer-num {
+    width: 64px; height: 64px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
+    display: inline-flex; align-items: center; justify-content: center;
+    color: white; font-weight: 700;
+    font-family: 'Space Grotesk', system-ui;
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    box-shadow: 0 12px 40px rgba(0, 212, 255, 0.25);
+  }
+  .layer-title-block { flex: 1; }
+  .layer-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
     color: var(--accent-cyan);
+    letter-spacing: 0.15em; margin-bottom: 0.25rem;
+  }
+  .layer-title {
+    font-size: clamp(1.4rem, 2.6vw, 2.1rem);
+    font-weight: 600; line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .layer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  @media (max-width: 900px) { .layer-grid { grid-template-columns: 1fr; } }
+
+  .layer-side {
+    padding: 1.3rem 1.4rem;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+  }
+  .layer-side .ls-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em; margin-bottom: 0.5rem;
+  }
+  .layer-side.problem { border-left: 3px solid var(--accent-red); }
+  .layer-side.problem .ls-label { color: var(--accent-red); }
+  .layer-side.solution { border-left: 3px solid var(--accent-teal); background: linear-gradient(90deg, rgba(0, 255, 198, 0.05), rgba(255,255,255,0.02)); }
+  .layer-side.solution .ls-label { color: var(--accent-teal); }
+  .layer-side p { font-size: 0.95rem; line-height: 1.55; }
+
+  .layer-impact {
+    margin-top: 1.2rem;
+    padding: 1.3rem 1.5rem;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(157, 107, 255, 0.06));
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+  .impact-stat .v {
+    font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    line-height: 1; font-family: 'Space Grotesk', system-ui;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.3rem;
+  }
+  .impact-stat .k { font-size: 0.82rem; color: var(--ink-2); line-height: 1.4; }
+
+  .layer-ref {
+    margin-top: 1rem;
+    padding: 0.7rem 1rem;
+    background: rgba(255,255,255,0.02);
+    border-left: 3px solid var(--ink-3);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.82rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+  .layer-ref .lab {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.8rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .kiosk-icon-big { font-size: 2.4rem; margin: 0.6rem 0; text-align: center; }
-  .kiosk-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.4rem; text-align: center; }
-  .kiosk-info {
-    background: rgba(0,212,255,0.05);
-    border-radius: 8px;
-    padding: 0.7rem;
-    margin-top: 0.7rem;
-    display: flex; flex-direction: column; gap: 0.35rem;
-  }
-  .kiosk-info-row {
-    display: flex; gap: 0.5rem; align-items: center;
-    font-size: 0.78rem; color: var(--ink-1);
-  }
-  .kiosk-queue { text-align: center; margin-top: 0.8rem; }
-  .kiosk-queue .num-big {
-    font-size: 2.4rem; font-weight: 700;
-    background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
-    -webkit-background-clip: text; background-clip: text; color: transparent;
-    line-height: 1;
-  }
-  .kiosk-queue .lab { font-size: 0.7rem; color: var(--ink-3); letter-spacing: 0.1em; }
-
-  /* ===== DOCTOR SCREEN ===== */
-  .doc-screen {
-    width: 280px;
-    background: #0d1228;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 1rem;
-    box-shadow: 0 30px 80px rgba(157, 107, 255, 0.12);
-  }
-  .doc-section {
-    margin-bottom: 0.6rem;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--line);
-  }
-  .doc-section:last-child { border-bottom: 0; margin-bottom: 0; padding-bottom: 0; }
-  .doc-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    color: var(--accent-violet);
+    color: var(--ink-3);
     letter-spacing: 0.13em;
     margin-bottom: 0.25rem;
+    display: block;
   }
-  .doc-text { font-size: 0.78rem; color: var(--ink-1); line-height: 1.4; }
-  .doc-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; margin-top: 0.3rem; }
-  .doc-list li {
-    font-size: 0.72rem; color: var(--ink-2);
-    display: flex; justify-content: space-between;
-  }
-  .doc-list li .pct { color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace; }
-  .doc-list li.high .pct { color: var(--accent-amber); }
+  .layer-ref b { color: var(--ink-0); }
 
-  /* ===== STAFF / ADMIN SCREEN ===== */
-  .desk-screen {
-    width: 380px;
-    background: linear-gradient(180deg, #0a1024, #050814);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 0.9rem;
-    box-shadow: 0 30px 80px rgba(157, 107, 255, 0.12);
-    font-family: 'Space Grotesk', system-ui;
+  /* ===== BIG STAT ===== */
+  .bigstat {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-top: 1.5rem;
   }
-  .desk-title {
-    font-size: 0.8rem; font-weight: 600;
-    color: var(--ink-0);
-    display: flex; justify-content: space-between; align-items: center;
-    padding-bottom: 0.6rem;
-    border-bottom: 1px solid var(--line);
-    margin-bottom: 0.8rem;
-  }
-  .desk-title .live {
-    font-size: 0.6rem;
-    color: var(--accent-teal);
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: 0.15em;
-  }
-  .desk-section { margin-bottom: 0.8rem; }
-  .desk-section .lab {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.6rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-3);
-    margin-bottom: 0.4rem;
-  }
-
-  .kpi-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.4rem;
-  }
-  .kpi-card {
-    padding: 0.5rem 0.6rem;
-    background: rgba(0, 212, 255, 0.06);
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    border-radius: 8px;
-  }
-  .kpi-card .v {
-    font-size: 1.1rem; font-weight: 700;
+  .bigstat .num-huge {
+    font-size: clamp(3.5rem, 9vw, 7rem);
+    font-weight: 700;
+    line-height: 1;
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    line-height: 1;
-    margin-bottom: 2px;
+    font-family: 'Space Grotesk', system-ui;
+    letter-spacing: -0.04em;
   }
-  .kpi-card .k {
-    font-size: 0.58rem;
-    color: var(--ink-2);
+  .bigstat .num-text {
+    font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+    color: var(--ink-1);
+    line-height: 1.4;
+    max-width: 40ch;
+  }
+  .bigstat .num-text b { color: var(--ink-0); }
+
+  /* ===== COMPETITIVE MATRIX ===== */
+  .vs-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.4rem;
+  }
+  .vs-col {
+    padding: 1.3rem;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+  }
+  .vs-col.us {
+    background: linear-gradient(180deg, rgba(0, 212, 255, 0.08), rgba(0, 255, 198, 0.03));
+    border-color: rgba(0, 212, 255, 0.3);
+  }
+  .vs-col .name {
+    font-size: 1.05rem; font-weight: 600;
+    margin-bottom: 0.3rem; color: var(--ink-0);
+  }
+  .vs-col .ko {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--ink-3);
+    letter-spacing: 0.13em; margin-bottom: 0.8rem;
+  }
+  .vs-col.us .ko { color: var(--accent-cyan); }
+  .vs-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .vs-col li {
+    font-size: 0.88rem;
+    line-height: 1.45;
+    padding-left: 1.2rem;
+    position: relative;
+    color: var(--ink-1);
+  }
+  .vs-col li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--ink-3);
+    font-weight: 700;
+  }
+  .vs-col.us li::before { content: '✦'; color: var(--accent-teal); font-size: 0.7rem; top: 2px; }
+
+  /* ===== STACK DIAGRAM ===== */
+  .stack {
+    margin-top: 1.5rem;
+    display: flex; flex-direction: column;
+    gap: 0.5rem;
+    max-width: 900px;
+  }
+  .stack-layer {
+    display: grid;
+    grid-template-columns: 80px 1fr 200px;
+    gap: 1rem;
+    padding: 1rem 1.3rem;
+    border-radius: 10px;
+    align-items: center;
+    border: 1px solid var(--line);
+    background: rgba(255,255,255,0.02);
+  }
+  .stack-layer.existing {
+    background: linear-gradient(90deg, rgba(0, 255, 198, 0.06), rgba(255,255,255,0.02));
+    border-color: rgba(0, 255, 198, 0.2);
+  }
+  .stack-layer.new {
+    background: linear-gradient(90deg, rgba(0, 212, 255, 0.06), rgba(157, 107, 255, 0.04));
+    border-color: rgba(0, 212, 255, 0.25);
+  }
+  .stack-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.13em;
+  }
+  .stack-layer.existing .stack-tag { color: var(--accent-teal); }
+  .stack-layer.new .stack-tag { color: var(--accent-cyan); }
+  .stack-name { font-size: 1rem; font-weight: 600; color: var(--ink-0); }
+  .stack-name small { display: block; font-size: 0.78rem; color: var(--ink-2); font-weight: 400; margin-top: 2px; }
+  .stack-owner {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem; color: var(--ink-3);
+    text-align: right;
     letter-spacing: 0.05em;
   }
 
-  /* Bed Grid */
-  .bed-grid {
-    display: grid;
-    grid-template-columns: 50px 1fr;
-    gap: 0.4rem;
-    font-size: 0.65rem;
-  }
-  .bed-row { display: contents; }
-  .bed-label { color: var(--ink-2); align-self: center; }
-  .bed-cells { display: flex; gap: 3px; }
-  .bed {
-    width: 16px; height: 16px;
-    border-radius: 3px;
-    background: rgba(0, 255, 198, 0.5);
-  }
-  .bed.occ { background: rgba(0, 212, 255, 0.6); }
-  .bed.full { background: rgba(255, 77, 109, 0.7); }
-  .bed.warn { background: rgba(255, 181, 71, 0.7); }
-  .bed.empty { background: rgba(255, 255, 255, 0.06); }
-
-  /* Sparkline */
-  .spark {
-    display: flex; align-items: flex-end;
-    gap: 2px;
-    height: 32px;
-  }
-  .spark .bar {
-    flex: 1;
-    background: linear-gradient(180deg, var(--accent-cyan), rgba(0, 212, 255, 0.3));
-    border-radius: 2px 2px 0 0;
-    min-height: 4px;
-  }
-
-  /* Queue list (staff) */
-  .queue-list {
-    display: flex; flex-direction: column; gap: 4px;
-  }
-  .queue-item {
-    display: grid;
-    grid-template-columns: 24px 1fr auto auto;
-    gap: 6px;
-    align-items: center;
-    padding: 4px 6px;
-    background: rgba(255,255,255,0.02);
-    border-radius: 6px;
-    font-size: 0.7rem;
-  }
-  .queue-item .pri {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: var(--accent-teal);
-  }
-  .queue-item.urgent .pri { background: var(--accent-amber); }
-  .queue-item.critical { background: rgba(255, 77, 109, 0.1); }
-  .queue-item.critical .pri { background: var(--accent-red); box-shadow: 0 0 6px var(--accent-red); }
-  .queue-item .name { color: var(--ink-1); }
-  .queue-item .badge {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.55rem;
-    padding: 2px 5px;
-    background: rgba(255, 77, 109, 0.15);
-    color: var(--accent-red);
-    border-radius: 3px;
-    letter-spacing: 0.1em;
-  }
-  .queue-item .time { color: var(--ink-3); font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; }
-
-  /* Alerts */
-  .alerts { display: flex; flex-direction: column; gap: 4px; }
-  .alert {
-    padding: 5px 8px;
-    border-radius: 6px;
-    background: rgba(255, 181, 71, 0.08);
-    border-left: 2px solid var(--accent-amber);
-    font-size: 0.7rem;
-    color: var(--ink-1);
-    line-height: 1.3;
-  }
-  .alert.critical {
-    background: rgba(255, 77, 109, 0.08);
-    border-left-color: var(--accent-red);
-  }
-
-  /* ===== PERSONA ===== */
-  .persona {
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 2.5rem;
-    align-items: center;
+  /* ===== ROADMAP ===== */
+  .roadmap {
     margin-top: 1.5rem;
-  }
-  .persona-photo {
-    width: 200px; height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent-violet), var(--accent-cyan));
-    display: inline-flex; align-items: center; justify-content: center;
-    font-size: 5.5rem;
-    box-shadow: 0 20px 60px rgba(157, 107, 255, 0.3);
-  }
-  .persona-info { display: flex; flex-direction: column; gap: 0.8rem; }
-  .persona-info .name { font-size: clamp(1.5rem, 2.6vw, 2.2rem); font-weight: 600; letter-spacing: -0.015em; }
-  .persona-info .meta { color: var(--ink-2); font-size: 0.95rem; }
-  .persona-quote {
-    padding: 1.1rem 1.3rem;
-    border-left: 3px solid var(--accent-cyan);
-    background: rgba(0, 212, 255, 0.05);
-    border-radius: 0 10px 10px 0;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--ink-0);
-    font-style: italic;
-  }
-  @media (max-width: 800px) {
-    .persona { grid-template-columns: 1fr; }
-  }
-
-  /* ===== TIMELINE ===== */
-  .timeline {
-    display: flex; flex-direction: column;
-    gap: 0.3rem; margin-top: 1.2rem;
-  }
-  .timeline-step {
     display: grid;
-    grid-template-columns: 90px 1fr;
-    gap: 1rem;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
   }
-  .timeline-step:last-child { border-bottom: 0; }
-  .timeline-time {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent-cyan);
-    font-size: 0.82rem;
-  }
-  .timeline-action { display: flex; align-items: center; gap: 0.6rem; }
-  .timeline-icon {
-    font-size: 1.1rem;
-    width: 30px; height: 30px;
-    border-radius: 8px;
-    background: rgba(0, 212, 255, 0.1);
-    display: inline-flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-  }
-  .timeline-text { font-size: 0.9rem; color: var(--ink-1); }
-  .timeline-text .em { color: var(--accent-teal); font-weight: 600; }
-
-  /* ===== COMPARE TABLE ===== */
-  .compare-table {
-    margin-top: 1.2rem;
+  @media (max-width: 900px) { .roadmap { grid-template-columns: 1fr; } }
+  .roadphase {
+    padding: 1.5rem 1.3rem;
+    border-radius: 14px;
     border: 1px solid var(--line);
-    border-radius: 12px;
-    overflow: hidden;
   }
-  .compare-row {
-    display: grid;
-    grid-template-columns: 1.5fr 2fr 2fr;
-    padding: 0.75rem 1.2rem;
-    border-bottom: 1px solid var(--line);
-    align-items: center;
-    gap: 1rem;
-  }
-  .compare-row:last-child { border-bottom: 0; }
-  .compare-row.header {
-    background: rgba(255,255,255,0.04);
+  .roadphase.p1 { background: linear-gradient(180deg, rgba(0, 255, 198, 0.06), transparent); border-color: rgba(0, 255, 198, 0.2); }
+  .roadphase.p2 { background: linear-gradient(180deg, rgba(0, 212, 255, 0.06), transparent); border-color: rgba(0, 212, 255, 0.2); }
+  .roadphase.p3 { background: linear-gradient(180deg, rgba(157, 107, 255, 0.06), transparent); border-color: rgba(157, 107, 255, 0.2); }
+  .roadphase .when {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em; margin-bottom: 0.7rem;
     color: var(--ink-3);
   }
-  .compare-row.total {
-    background: linear-gradient(90deg, rgba(0, 212, 255, 0.08), rgba(0, 255, 198, 0.04));
-    font-weight: 600;
-  }
-  .compare-row .col-step { color: var(--ink-2); font-size: 0.88rem; }
-  .compare-row .col-before {
-    color: var(--ink-2); font-size: 0.83rem;
-    text-decoration: line-through;
-    text-decoration-color: rgba(255, 77, 109, 0.4);
-  }
-  .compare-row .col-after { color: var(--accent-teal); font-size: 0.88rem; font-weight: 500; }
+  .roadphase h3 { margin-bottom: 0.6rem; font-size: 1.15rem; }
+  .roadphase .focus { font-size: 0.88rem; color: var(--ink-2); margin-bottom: 1rem; line-height: 1.45; }
+  .roadphase ul { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+  .roadphase li { font-size: 0.85rem; color: var(--ink-1); padding-left: 1rem; position: relative; line-height: 1.5; }
+  .roadphase li::before { content: '→'; position: absolute; left: 0; color: var(--ink-3); }
 
   /* ===== STAT GRID ===== */
   .stat-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.1rem;
-    margin-top: 1.4rem;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
   }
   .stat {
-    padding: 1.2rem 1.2rem;
+    padding: 1.4rem 1.3rem;
     border: 1px solid var(--line);
-    border-radius: 12px;
+    border-radius: 14px;
     background: linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.005));
     position: relative; overflow: hidden;
   }
@@ -751,118 +454,29 @@
     -webkit-background-clip: text; background-clip: text; color: transparent;
     margin-bottom: 0.4rem;
   }
-  .stat .k { font-size: 0.84rem; color: var(--ink-2); line-height: 1.4; }
+  .stat .k { font-size: 0.86rem; color: var(--ink-2); line-height: 1.4; }
   .stat.violet .v { background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
   .stat.amber .v { background: linear-gradient(135deg, var(--accent-amber), var(--accent-pink)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .stat.red .v { background: linear-gradient(135deg, var(--accent-red), var(--accent-amber)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-
-  /* ===== PHASE INTRO ===== */
-  .phase-badge {
-    align-self: flex-start;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.7rem;
-    padding: 0.75rem 1.3rem;
-    border-radius: 999px;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.85rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 1.5rem;
-  }
-  .phase-badge.p1 { background: rgba(0, 255, 198, 0.1); color: var(--accent-teal); border: 1px solid rgba(0, 255, 198, 0.3); }
-  .phase-badge.p2 { background: rgba(157, 107, 255, 0.1); color: var(--accent-violet); border: 1px solid rgba(157, 107, 255, 0.3); }
-  .phase-badge.p3 { background: rgba(255, 77, 109, 0.1); color: var(--accent-red); border: 1px solid rgba(255, 77, 109, 0.3); }
-
-  .phase-systems {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.2rem;
-    margin-top: 1.8rem;
-    width: 100%;
-  }
-  .phase-sys-card {
-    padding: 1.6rem 1.4rem;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-    transition: transform 0.2s, border-color 0.2s;
-  }
-  .phase-sys-card .ic { font-size: 2.2rem; margin-bottom: 0.8rem; }
-  .phase-sys-card .name { font-size: 1.15rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--ink-0); }
-  .phase-sys-card .desc { font-size: 0.92rem; color: var(--ink-2); line-height: 1.5; }
-
-  /* ===== SYSTEM MAP ===== */
-  .sysmap {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: 120px repeat(3, 1fr);
-    gap: 0.6rem;
-  }
-  .sysmap-header {
-    padding: 0.6rem;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
-    color: var(--ink-3);
-    text-align: center;
-    border-radius: 8px;
-    background: rgba(255,255,255,0.03);
-  }
-  .sysmap-row-label {
-    padding: 1rem 0.6rem;
-    font-size: 0.85rem;
-    color: var(--ink-2);
-    display: flex;
-    align-items: center;
-  }
-  .sysmap-cell {
-    padding: 1rem;
-    border-radius: 10px;
-    border: 1px solid var(--line);
-    background: rgba(255,255,255,0.02);
-    text-align: center;
-    transition: all 0.3s;
-  }
-  .sysmap-cell.active.p1 { background: linear-gradient(180deg, rgba(0, 255, 198, 0.1), rgba(0, 255, 198, 0.02)); border-color: rgba(0, 255, 198, 0.4); }
-  .sysmap-cell.active.p2 { background: linear-gradient(180deg, rgba(157, 107, 255, 0.1), rgba(157, 107, 255, 0.02)); border-color: rgba(157, 107, 255, 0.4); }
-  .sysmap-cell.active.p3 { background: linear-gradient(180deg, rgba(255, 77, 109, 0.1), rgba(255, 77, 109, 0.02)); border-color: rgba(255, 77, 109, 0.4); }
-  .sysmap-cell .ic { font-size: 1.5rem; margin-bottom: 0.3rem; }
-  .sysmap-cell .name { font-size: 0.8rem; font-weight: 600; color: var(--ink-0); }
-  .sysmap-cell.empty { background: transparent; border: 1px dashed var(--line); color: var(--ink-3); font-size: 0.7rem; padding-top: 1.5rem; }
 
   /* ===== HIGHLIGHT ===== */
   .highlight {
-    padding: 1.1rem 1.4rem;
+    padding: 1.2rem 1.5rem;
     border-left: 3px solid var(--accent-cyan);
     background: linear-gradient(90deg, rgba(0, 212, 255, 0.06), transparent);
     border-radius: 0 10px 10px 0;
-    margin-top: 1.1rem;
+    margin-top: 1.2rem;
   }
   .highlight .label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem; color: var(--accent-cyan);
-    letter-spacing: 0.15em; margin-bottom: 0.3rem;
+    letter-spacing: 0.15em; margin-bottom: 0.35rem;
   }
-  .highlight .text { font-size: 1rem; color: var(--ink-0); line-height: 1.5; }
-
-  /* ===== EMERGENCY ===== */
-  .emergency {
-    border: 1px solid rgba(255, 77, 109, 0.3);
-    background: linear-gradient(135deg, rgba(255, 77, 109, 0.06), rgba(255, 181, 71, 0.03));
-    border-radius: 14px;
-    padding: 1.5rem;
-    margin-top: 1.2rem;
-  }
-  .emergency h3 {
-    color: var(--accent-red); font-size: 1.1rem;
-    margin-bottom: 0.8rem;
-    display: flex; align-items: center; gap: 0.5rem;
-  }
+  .highlight .text { font-size: 1rem; color: var(--ink-0); line-height: 1.55; }
 
   /* ===== VISION ===== */
   .vision-panel {
     margin-top: 1.5rem;
-    padding: 2.2rem;
+    padding: 2.5rem;
     border: 1px solid rgba(0, 255, 198, 0.2);
     border-radius: 18px;
     background:
@@ -874,27 +488,22 @@
   .vision-panel .year {
     font-family: 'JetBrains Mono', monospace;
     color: var(--accent-teal);
-    font-size: 0.85rem;
-    letter-spacing: 0.2em;
-    margin-bottom: 0.8rem;
+    font-size: 0.9rem; letter-spacing: 0.2em;
+    margin-bottom: 1rem;
   }
   .vision-panel .quote {
-    font-size: clamp(1.2rem, 2vw, 1.8rem);
-    font-weight: 500;
-    line-height: 1.4;
-    max-width: 36ch;
-    margin: 0 auto;
+    font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+    font-weight: 500; line-height: 1.4;
+    max-width: 36ch; margin: 0 auto;
     letter-spacing: -0.015em;
   }
 
   /* ===== END ===== */
   .end { align-items: center; justify-content: center; text-align: center; }
   .end h1 {
-    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-size: clamp(2.2rem, 5vw, 4.4rem);
     font-weight: 600; letter-spacing: -0.03em; line-height: 1.15;
   }
-  .end h1 br + span,
-  .end h1 .grad { display: inline-block; }
 
   /* ===== NAVIGATION ===== */
   .nav {
@@ -902,32 +511,25 @@
     display: flex; align-items: center; gap: 0.8rem;
     z-index: 10;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 0.76rem; color: var(--ink-3);
+    font-size: 0.78rem; color: var(--ink-3);
   }
   .nav .counter { color: var(--ink-1); }
   .nav button {
     width: 34px; height: 34px;
-    border: 1px solid var(--line-strong);
-    border-radius: 8px;
-    background: rgba(255,255,255,0.03);
-    color: var(--ink-1);
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s;
+    border: 1px solid var(--line-strong); border-radius: 8px;
+    background: rgba(255,255,255,0.03); color: var(--ink-1);
+    cursor: pointer; font-size: 1rem; transition: all 0.2s;
     display: inline-flex; align-items: center; justify-content: center;
   }
   .nav button:hover {
     background: rgba(0, 212, 255, 0.12);
-    border-color: var(--accent-cyan);
-    color: var(--accent-cyan);
+    border-color: var(--accent-cyan); color: var(--accent-cyan);
   }
   .progress {
-    position: fixed; top: 0; left: 0;
-    height: 2px;
+    position: fixed; top: 0; left: 0; height: 2px;
     background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
     transition: width 0.4s cubic-bezier(.2,.7,.3,1);
-    z-index: 100;
-    box-shadow: 0 0 8px var(--accent-cyan);
+    z-index: 100; box-shadow: 0 0 8px var(--accent-cyan);
   }
   .brand {
     position: fixed; top: 1.3rem; left: 1.6rem;
@@ -937,836 +539,554 @@
   }
   .brand span { color: var(--accent-cyan); }
 
-  /* ===== PRINT ===== */
   @media print {
     body { overflow: visible; background: var(--bg-0); }
     .deck { width: 100%; height: auto; }
     .slide { display: flex !important; page-break-after: always; position: relative; width: 100vw; height: 100vh; }
     .nav, .progress, .brand { display: none; }
   }
-
   .slide::-webkit-scrollbar { width: 4px; }
   .slide::-webkit-scrollbar-track { background: transparent; }
   .slide::-webkit-scrollbar-thumb { background: var(--line-strong); border-radius: 2px; }
-
-  @media (max-width: 1000px) {
-    .kpi-row { grid-template-columns: 1.8fr 1fr 1fr 1fr; font-size: 0.78rem; padding: 0.55rem 0.85rem; gap: 0.5rem; }
-    .sysmap { grid-template-columns: 80px repeat(3, 1fr); }
-  }
 </style>
 </head>
 <body>
 
 <div class="progress" id="progress" style="width: 0%"></div>
-<div class="brand"><span>●</span> SALA DAENG / MEDICAL AI</div>
+<div class="brand"><span>●</span> NIT × SALA DAENG / FORCE MULTIPLIER</div>
 
 <div class="deck">
-
-  <!-- ============================================================== -->
-  <!-- ACT I: STORY (Slides 1-5)                                       -->
-  <!-- ============================================================== -->
 
   <!-- 1. COVER -->
   <section class="slide cover active">
     <div class="cover-header">
-      <span>SALA DAENG × NIT // PITCH DECK</span>
-      <span>v3.0 / 2026</span>
+      <span>FOR THE DIRECTOR / NIT</span>
+      <span>v3.0 · 2026</span>
     </div>
     <div class="cover-main">
       <div style="display: flex; align-items: center; gap: 1rem; color: var(--ink-2); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; letter-spacing: 0.18em;">
-        <span class="pulse"></span> 6 SYSTEMS · 3 PHASES · ONE PLATFORM
+        <span class="pulse"></span> NOT ANOTHER SMART HOSPITAL DECK
       </div>
       <h1 class="cover-title">
-        Medical AI Platform<br>
-        ที่<span class="grad">เปลี่ยนชีวิตคนไทย</span>
+        ทำให้ NIT เป็น<br>
+        <span class="grad">โรงพยาบาลสมองอันดับ 1 ของเอเชีย</span><br>
+        ในยุค AI
       </h1>
       <p class="cover-sub">
-        ระบบครบ 6 แกน — AI Triage · Smart Queue · Patient App · Follow-up Bot · Admin Dashboard · Doctor Co-pilot<br>
-        ออกแบบมาเพื่อ NIT แล้วขยายต่อทั่วประเทศไทย
+        NIT มี foundation ที่ดีกว่า 95% รพ. ไทยอยู่แล้ว — PNI Plus app, Telemed, Mobile Stroke Unit, AI 8 ตัว, MOU KMUTT<br>
+        เราไม่มาขายของพื้น ๆ ที่ใครก็ทำได้ — เรามาเสริมด้วย <b style="color: var(--ink-0);">5 Force Multipliers</b> ที่จะทำให้ NIT ติด WIRED, NEJM, WHO Innovation
       </p>
     </div>
     <div class="cover-footer">
-      <span>01 / 27</span>
+      <span>01 / 18</span>
       <span>↓ ↑ → ← TO NAVIGATE · F FOR FULLSCREEN</span>
     </div>
   </section>
 
-  <!-- 2. THE PROBLEM -->
+  <!-- 2. WHAT NIT HAS TODAY -->
   <section class="slide">
-    <div class="num">02 / THE PROBLEM</div>
-    <h1>วันนี้ — คนไทยใช้ <span class="red">9 ชั่วโมง</span><br>เพื่อพบหมอ <span class="amber">7 นาที</span></h1>
-    <div class="timeline" style="max-width: 800px; margin-top: 1.2rem;">
-      <div class="timeline-step"><div class="timeline-time">06:30</div><div class="timeline-action"><span class="timeline-icon">🚗</span><span class="timeline-text">ออกจากบ้าน กลัวคิวเต็ม</span></div></div>
-      <div class="timeline-step"><div class="timeline-time">08:00</div><div class="timeline-action"><span class="timeline-icon">📋</span><span class="timeline-text">ต่อแถวเวชระเบียน 30 นาที</span></div></div>
-      <div class="timeline-step"><div class="timeline-time">08:30</div><div class="timeline-action"><span class="timeline-icon">🪑</span><span class="timeline-text">นั่งจ้องป้ายไฟ <span style="color: var(--accent-red);">3 ชั่วโมง</span></span></div></div>
-      <div class="timeline-step"><div class="timeline-time">12:30</div><div class="timeline-action"><span class="timeline-icon">👨‍⚕️</span><span class="timeline-text">พบหมอ <span style="color: var(--accent-amber);">7 นาที</span></span></div></div>
-      <div class="timeline-step"><div class="timeline-time">13:00</div><div class="timeline-action"><span class="timeline-icon">🔬</span><span class="timeline-text">Lab + รอผล 2 ชั่วโมง</span></div></div>
-      <div class="timeline-step"><div class="timeline-time">16:00</div><div class="timeline-action"><span class="timeline-icon">🏠</span><span class="timeline-text">กลับบ้าน — เสียงาน 1 วันเต็ม</span></div></div>
+    <div class="num">02 / RESPECT — WHAT NIT ALREADY HAS</div>
+    <h1>NIT <span class="teal">ไม่ใช่</span>โรงพยาบาลธรรมดา</h1>
+    <p class="lead">ก่อนคุยเรื่องอนาคต — รู้จัก foundation ที่ NIT มีอยู่แล้ว ที่ทำให้ Sala Daeng เลือก NIT เป็น partner</p>
+    <div class="state-grid">
+      <div class="state-card have">
+        <div class="ic">📱</div>
+        <div class="name">PNI Plus App</div>
+        <div class="desc">คนไข้จองคิว ดูประวัติ บน iOS+Android · ลดเวลา 100 นาที/visit · partner KBank</div>
+        <div class="since">LIVE / ON APP STORE</div>
+      </div>
+      <div class="state-card have">
+        <div class="ic">📺</div>
+        <div class="name">NIT Telemed</div>
+        <div class="desc">Telemedicine app เปิดใช้ตั้งแต่ COVID · ลด congestion 20% · เชื่อมกับ DMS Telemed</div>
+        <div class="since">LIVE / SINCE COVID</div>
+      </div>
+      <div class="state-card have">
+        <div class="ic">🚑</div>
+        <div class="name">Mobile Stroke Unit</div>
+        <div class="desc">CT scanner + thrombolytics + telemed · partnership PTT OR 16 ปั๊ม · ครอบคลุม Ranong, Amnat Charoen</div>
+        <div class="since">SINCE 2021</div>
+      </div>
+      <div class="state-card have">
+        <div class="ic">🧠</div>
+        <div class="name">AI Pipeline 8 ตัว</div>
+        <div class="desc">CT Brain (non-contrast) · MRI noise reduction · Seizure-onset detection · Stroke recovery · Face rehab · Back pain exercise · etc.</div>
+        <div class="since">EC-APPROVED · IN TRAINING</div>
+      </div>
+      <div class="state-card have">
+        <div class="ic">🤝</div>
+        <div class="name">MOU KMUTT</div>
+        <div class="desc">พระจอมเกล้าธนบุรี — active joint AI development · academic credit</div>
+        <div class="since">ACTIVE</div>
+      </div>
+      <div class="state-card have">
+        <div class="ic">🤖</div>
+        <div class="name">FlashBot (PUDU)</div>
+        <div class="desc">หุ่นยนต์ส่งยา/ตัวอย่าง/เอกสารในตึก</div>
+        <div class="since">DEPLOYED</div>
+      </div>
     </div>
     <div class="highlight">
-      <div class="label">REALITY CHECK</div>
-      <div class="text">ไม่ใช่เพราะหมอไม่ดี — มันคือ <span class="accent">ระบบ</span> ที่ออกแบบในยุคไม่มี smartphone และไม่มี AI</div>
+      <div class="label">THE INSIGHT</div>
+      <div class="text">NIT มี base ที่ดีมาก — Sala Daeng จะ <b class="accent">ไม่ rebuild</b> สิ่งที่ทำงานอยู่แล้ว · เราจะมา <b class="teal">เสริม</b> สิ่งที่ NIT ยังไม่มี และไม่มีใครในไทยมี</div>
     </div>
   </section>
 
-  <!-- 3. MEET พี่หน่อย -->
+  <!-- 3. STATE OF THE WORLD -->
   <section class="slide">
-    <div class="num">03 / OUR PATIENT</div>
-    <h1>มารู้จัก "พี่หน่อย"</h1>
-    <p class="lead">เราจะใช้ journey ของพี่หน่อยอธิบายระบบทั้ง 6 แกนของ Sala Daeng</p>
-    <div class="persona">
-      <div class="persona-photo">👩‍💼</div>
-      <div class="persona-info">
-        <div class="name">พี่หน่อย — 42 ปี</div>
-        <div class="meta">📍 พนักงานออฟฟิศ · 👨‍👩‍👧‍👦 มีลูก 2 คน · 🏠 อยู่กรุงเทพ</div>
-        <div class="persona-quote">
-          "วันจันทร์เช้า ตื่นมาปวดหัวข้างเดียว ตามัว มือชา<br>ฉันต้องทำยังไงดี?"
-        </div>
+    <div class="num">03 / STATE OF THE WORLD · 2024–2025</div>
+    <h1>โลกไปถึงไหนแล้ว <span class="violet">ใน Neuro AI</span></h1>
+    <p class="lead">นวัตกรรมที่ Cleveland Clinic, Mayo, Mount Sinai ใช้แล้ว — แต่ <b>ยังไม่มาถึงไทย</b></p>
+    <div class="world-grid">
+      <div class="world-card">
+        <div class="tech">🚑 RAPIDAI / VIZ.AI</div>
+        <div class="what">AI อ่าน CT Brain ในรถพยาบาล</div>
+        <div class="who">Cleveland Clinic MSU, Mass General · FDA-cleared · 2,000+ รพ.</div>
+        <div class="impact">ลด door-to-needle 38 นาที · LVO detect ใน 8 นาที</div>
+      </div>
+      <div class="world-card">
+        <div class="tech">🎙️ MICROSOFT DAX / ABRIDGE</div>
+        <div class="what">GenAI ฟังหมอคุยกับคนไข้ → เขียน progress note</div>
+        <div class="who">Mayo Clinic, Stanford, HCA, UPMC · 200+ รพ. US · Abridge $1.2B valuation</div>
+        <div class="impact">หมอประหยัด 1 ชม./วัน · burnout -40%</div>
+      </div>
+      <div class="world-card">
+        <div class="tech">⌚ APPLE WATCH AFIB</div>
+        <div class="what">นาฬิกาจับ AFib (สาเหตุ 30% ของ stroke)</div>
+        <div class="who">FDA-cleared 2018 · 200M+ users · Apple Heart Study</div>
+        <div class="impact">ป้องกัน stroke ก่อนเกิด · early detection 84%</div>
+      </div>
+      <div class="world-card">
+        <div class="tech">🌐 OWKIN FEDERATED LEARNING</div>
+        <div class="what">หลาย รพ. train AI ร่วมกัน — data ไม่ออก รพ.</div>
+        <div class="who">NIH, NCRC, BrainXell, Lancet study · privacy-preserving</div>
+        <div class="impact">10× dataset · 10× AI accuracy · zero data leak</div>
+      </div>
+      <div class="world-card">
+        <div class="tech">🧬 BRAINOMIX E-STROKE</div>
+        <div class="what">AI predict 90-day mRS จาก baseline CT</div>
+        <div class="who">Oxford, NIHR trials · Lancet 2024</div>
+        <div class="impact">ตัดสิน tPA vs thrombectomy ก่อนรักษา</div>
+      </div>
+      <div class="world-card">
+        <div class="tech">📱 DIGITAL BIOMARKERS</div>
+        <div class="what">มือถือตรวจ Parkinson's, dementia จาก voice + typing</div>
+        <div class="who">Stanford, MIT, Apple Heart, Google DeepMind</div>
+        <div class="impact">screen ที่บ้าน · 5 นาที · 92% accuracy</div>
       </div>
     </div>
   </section>
 
-  <!-- 4. JOURNEY OVERVIEW -->
+  <!-- 4. THE GAP -->
   <section class="slide">
-    <div class="num">04 / JOURNEY OVERVIEW</div>
-    <h1>1 วันของพี่หน่อย ใน <span class="teal">2.5 ชั่วโมง</span></h1>
-    <div class="timeline" style="max-width: 900px; margin-top: 1.2rem;">
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">07:00</div><div class="timeline-action"><span class="timeline-icon">💬</span><span class="timeline-text">คุย AI ใน LINE → รู้ว่าควรพบหมอประสาท → จองคิว 10:30 (3 นาที)</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">09:00</div><div class="timeline-action"><span class="timeline-icon">🔔</span><span class="timeline-text">LINE เตือน — เวลาเดินทาง 45 นาที, จอดที่ไหน, BTS อะไร</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">10:15</div><div class="timeline-action"><span class="timeline-icon">📸</span><span class="timeline-text">มาถึง รพ. — Kiosk สแกนหน้า check-in <span class="em">30 วินาที</span></span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">10:30</div><div class="timeline-action"><span class="timeline-icon">💉</span><span class="timeline-text">พยาบาลคัดกรอง — รู้อาการแล้ว วัด vital 4 นาที (ไม่ต้องเล่าซ้ำ)</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">10:35</div><div class="timeline-action"><span class="timeline-icon">👨‍⚕️</span><span class="timeline-text">พบหมอ <span class="em">8 นาที</span> — หมอมีเวลา (AI ช่วยอ่าน chart ให้)</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">10:48</div><div class="timeline-action"><span class="timeline-icon">🔬</span><span class="timeline-text">เจาะเลือด + CT — LINE บอกไปไหน ไม่ต้องเข้าคิว</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">12:10</div><div class="timeline-action"><span class="timeline-icon">💊</span><span class="timeline-text">ฟังผล + รับยา <span class="em">10 นาที</span> (e-prescription ส่งล่วงหน้า)</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal)">D+1</div><div class="timeline-action"><span class="timeline-icon">🤖</span><span class="timeline-text">Bot ติดตาม — D+1, +7, +30 (ลด readmission 40%)</span></div></div>
+    <div class="num">04 / THE GAP</div>
+    <h1>NIT มี foundation แล้ว — <span class="amber">ขาด force multipliers</span></h1>
+    <div class="bigstat">
+      <div class="num-huge">5</div>
+      <div class="num-text">
+        Force multipliers ที่จะทำให้ <b>NIT × Sala Daeng</b> ติดอันดับโลก<br>
+        ไม่ใช่ระบบทั่วไป — แต่เป็นนวัตกรรมที่ทั่วประเทศไทยยังไม่มีใครทำเต็มรูป
+      </div>
+    </div>
+    <div class="state-grid" style="margin-top: 1.5rem;">
+      <div class="state-card"><div class="ic">🚑</div><div class="name">Layer 1 · MSU Co-pilot</div><div class="desc">AI on-board ในรถพยาบาล Mobile Stroke Unit</div></div>
+      <div class="state-card"><div class="ic">🎙️</div><div class="name">Layer 2 · GenAI Scribe</div><div class="desc">หมอคุยกับคนไข้ → AI เขียน note ให้</div></div>
+      <div class="state-card"><div class="ic">⌚</div><div class="name">Layer 3 · Brain Health Twin</div><div class="desc">Wearable + smartphone → ตรวจ stroke risk ที่บ้าน</div></div>
+      <div class="state-card"><div class="ic">🧬</div><div class="name">Layer 4 · Outcome AI</div><div class="desc">AI predict recovery → decide treatment</div></div>
+      <div class="state-card"><div class="ic">🌐</div><div class="name">Layer 5 · DMS Network</div><div class="desc">NIT เป็น hub · 30 รพ. ในกรม train AI ร่วมกัน</div></div>
     </div>
   </section>
 
-  <!-- 5. COMPARE -->
+  <!-- 5. LAYER 1 -->
   <section class="slide">
-    <div class="num">05 / TOTAL COMPARISON</div>
-    <h1>เปรียบเทียบเวลาแต่ละ step</h1>
-    <div class="compare-table">
-      <div class="compare-row header"><span>STEP</span><span>ระบบเดิม</span><span>ระบบ SALA DAENG</span></div>
-      <div class="compare-row"><span class="col-step">ก่อนถึง รพ.</span><span class="col-before">ไม่รู้เป็นอะไร</span><span class="col-after">✓ คุย AI ที่บ้าน</span></div>
-      <div class="compare-row"><span class="col-step">Check-in</span><span class="col-before">30 นาที กรอกข้อมูล</span><span class="col-after">✓ 30 วินาที สแกน QR</span></div>
-      <div class="compare-row"><span class="col-step">รอ</span><span class="col-before">2-3 ชั่วโมง</span><span class="col-after">✓ LINE แจ้งเตือนก่อนคิว</span></div>
-      <div class="compare-row"><span class="col-step">พยาบาล</span><span class="col-before">เล่าซ้ำ 10 นาที</span><span class="col-after">✓ พยาบาลรู้แล้ว 4 นาที</span></div>
-      <div class="compare-row"><span class="col-step">พบหมอ</span><span class="col-before">7 นาที + อ่าน chart</span><span class="col-after">✓ 8 นาทีคุยจริง</span></div>
-      <div class="compare-row"><span class="col-step">รับยา</span><span class="col-before">30-60 นาที</span><span class="col-after">✓ 10 นาที</span></div>
-      <div class="compare-row"><span class="col-step">Follow-up</span><span class="col-before">ไม่มี</span><span class="col-after">✓ Bot D+1, +7, +30</span></div>
-      <div class="compare-row total"><span class="col-step"><strong>รวมเวลา</strong></span><span class="col-before" style="font-size: 1rem;">9 ชั่วโมง</span><span class="col-after" style="font-size: 1.05rem;"><strong>2.5 ชั่วโมง 🎉</strong></span></div>
+    <div class="layer-header">
+      <div class="layer-num">1</div>
+      <div class="layer-title-block">
+        <div class="layer-tag">FORCE MULTIPLIER · STROKE</div>
+        <div class="layer-title">🚑 MSU Co-pilot — AI ในรถพยาบาล</div>
+      </div>
+    </div>
+    <p class="lead">AI on-board ใน Mobile Stroke Unit ของ NIT — อ่าน CT ในรถ, voice triage, sync NIT base ก่อนถึง รพ.</p>
+    <div class="layer-grid">
+      <div class="layer-side problem">
+        <div class="ls-label">ปัญหาวันนี้</div>
+        <p>MSU มี CT scanner แต่ภาพต้องส่งให้ neurologist อ่าน · ใช้เวลา 20-30 นาที · บางครั้งเลย Golden Hour</p>
+      </div>
+      <div class="layer-side solution">
+        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <p>AI on-board read NCCT ใน 3 นาที · ตรวจ LVO + hemorrhage · เสนอ tPA candidacy · ส่งผลพร้อม case briefing ให้ stroke team NIT ขณะรถยังวิ่งอยู่</p>
+      </div>
+    </div>
+    <div class="layer-impact">
+      <div class="impact-stat"><div class="v">-35 min</div><div class="k">Time-to-tPA<br>เดิม 90 min → 55 min</div></div>
+      <div class="impact-stat"><div class="v">+40%</div><div class="k">Patients<br>eligible for tPA</div></div>
+      <div class="impact-stat"><div class="v">1st</div><div class="k">MSU ใน SE Asia<br>ที่มี on-board AI</div></div>
+      <div class="impact-stat"><div class="v">15+ %</div><div class="k">เพิ่ม mRS 0-2<br>(เดินกลับบ้านได้)</div></div>
+    </div>
+    <div class="layer-ref">
+      <span class="lab">REFERENCE</span>
+      Cleveland Clinic MSU + <b>RapidAI</b> ลด door-to-needle 38 min (Stroke journal 2022) · Berlin MSU trial showed mortality reduction · <b>Viz.ai</b> LVO detection ใน 8 min vs standard 60 min
     </div>
   </section>
 
-  <!-- ============================================================== -->
-  <!-- ACT II: THE 6 SYSTEMS                                            -->
-  <!-- ============================================================== -->
-
-  <!-- 6. SYSTEM MAP -->
+  <!-- 6. LAYER 2 -->
   <section class="slide">
-    <div class="num">06 / SYSTEM MAP</div>
-    <h1>6 ระบบ <span class="accent">แมพกับ 3 Phase</span></h1>
-    <p class="lead">ทุกระบบเชื่อมกันเป็น Platform เดียว — แต่เราจะ ship เป็นเฟส เพื่อเก็บ data + ขยายโดยไม่ตาย</p>
-    <div class="sysmap">
-      <div class="sysmap-header"></div>
-      <div class="sysmap-header" style="color: var(--accent-teal);">PHASE 1 · 2026</div>
-      <div class="sysmap-header" style="color: var(--accent-violet);">PHASE 2 · 2027</div>
-      <div class="sysmap-header" style="color: var(--accent-red);">PHASE 3 · 2027+</div>
-
-      <div class="sysmap-row-label">PATIENT-FACING</div>
-      <div class="sysmap-cell active p1"><div class="ic">💬</div><div class="name">AI Chat Triage</div></div>
-      <div class="sysmap-cell active p2"><div class="ic">📱</div><div class="name">App+ (multi-clinic)</div></div>
-      <div class="sysmap-cell empty">—</div>
-
-      <div class="sysmap-row-label">OPERATIONS</div>
-      <div class="sysmap-cell active p1"><div class="ic">🎯</div><div class="name">Smart Queue</div></div>
-      <div class="sysmap-cell active p1"><div class="ic">📲</div><div class="name">Patient Journey App</div></div>
-      <div class="sysmap-cell empty">—</div>
-
-      <div class="sysmap-row-label">CONTINUITY</div>
-      <div class="sysmap-cell active p1"><div class="ic">🤖</div><div class="name">Follow-up Bot</div></div>
-      <div class="sysmap-cell empty">—</div>
-      <div class="sysmap-cell empty">—</div>
-
-      <div class="sysmap-row-label">MANAGEMENT</div>
-      <div class="sysmap-cell empty">—</div>
-      <div class="sysmap-cell active p2"><div class="ic">📊</div><div class="name">Admin Dashboard</div></div>
-      <div class="sysmap-cell empty">—</div>
-
-      <div class="sysmap-row-label">CLINICAL</div>
-      <div class="sysmap-cell empty">—</div>
-      <div class="sysmap-cell empty">—</div>
-      <div class="sysmap-cell active p3"><div class="ic">🧠</div><div class="name">Doctor's Co-pilot</div></div>
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--accent-violet), var(--accent-pink));">2</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--accent-violet);">FORCE MULTIPLIER · DOCTOR</div>
+        <div class="layer-title">🎙️ GenAI Scribe — หมอเลิกพิมพ์ chart</div>
+      </div>
+    </div>
+    <p class="lead">Ambient AI ฟังหมอคุยกับคนไข้ → เขียน SOAP note + progress note + discharge summary อัตโนมัติ · หมอเซ็น approve · ภาษาไทย + neuro-specialized</p>
+    <div class="layer-grid">
+      <div class="layer-side problem">
+        <div class="ls-label">ปัญหาวันนี้</div>
+        <p>หมอใช้เวลา 30% ของ consultation เขียน chart · burnout score 7.2/10 · ใช้ EMR ที่เก่า · doctor shortage · บางคนทำงาน 12 ชม.</p>
+      </div>
+      <div class="layer-side solution">
+        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <p>ไมโครโฟนในห้องตรวจ → AI ถอดเสียง + แยก speaker + เขียน SOAP/progress ใน 30 วินาที · template เฉพาะ neuro (stroke, parkinson, epilepsy) · ไม่มีใครในไทยทำในภาษาไทยเต็มรูป</p>
+      </div>
+    </div>
+    <div class="layer-impact">
+      <div class="impact-stat"><div class="v">-1 hr/day</div><div class="k">เวลาเขียน chart<br>ต่อหมอ 1 คน</div></div>
+      <div class="impact-stat"><div class="v">+40%</div><div class="k">เวลาตา-ต่อ-ตา<br>หมอกับคนไข้</div></div>
+      <div class="impact-stat"><div class="v">-40%</div><div class="k">Burnout score<br>(Maslach)</div></div>
+      <div class="impact-stat"><div class="v">1st</div><div class="k">Thai-language<br>neuro scribe</div></div>
+    </div>
+    <div class="layer-ref">
+      <span class="lab">REFERENCE</span>
+      <b>Microsoft DAX Copilot</b> + <b>Abridge</b> ($1.2B valuation) ใช้แล้วใน Mayo, Stanford, HCA, UPMC · saving 1 hr/doctor/day (JAMA 2024) · กลุ่ม Anthropic + Memorial Sloan Kettering pilot
     </div>
   </section>
 
-  <!-- 7. PHASE 1 INTRO -->
-  <section class="slide phase-intro">
-    <div class="num">07 / PHASE 1 · Q3-Q4 2026</div>
-    <div class="phase-badge p1"><span class="pulse" style="background: var(--accent-teal);"></span> PHASE 1 · QUICK WIN · 12 WEEKS</div>
-    <h1>4 ระบบที่ <span class="teal">ship ก่อน</span></h1>
-    <p class="lead">ทำได้เลย ไม่ติด อย. · ROI วัดง่าย · Reusable ขายต่อ รพ. อื่นได้ทันที</p>
-    <div class="phase-systems">
-      <div class="phase-sys-card">
-        <div class="ic">💬</div>
-        <div class="name">AI Chat Triage</div>
-        <div class="desc">LINE OA คุยกับผู้ป่วยที่บ้าน · ประเมินอาการ จองคิว</div>
-      </div>
-      <div class="phase-sys-card">
-        <div class="ic">🎯</div>
-        <div class="name">Smart Queue</div>
-        <div class="desc">ML จัดคิว · no-show prediction · ลดเวลารอ 60%</div>
-      </div>
-      <div class="phase-sys-card">
-        <div class="ic">📲</div>
-        <div class="name">Patient Journey App</div>
-        <div class="desc">Check-in · in-building nav · order tracking · e-prescription</div>
-      </div>
-      <div class="phase-sys-card">
-        <div class="ic">🤖</div>
-        <div class="name">Follow-up Bot</div>
-        <div class="desc">D+1, +7, +30 ติดตามอัตโนมัติ · ลด readmission 40%</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- SYSTEM 1: AI Chat Triage                                          -->
-  <!-- ============================================================== -->
-
-  <!-- 8. SYSTEM 1 OVERVIEW -->
+  <!-- 7. LAYER 3 -->
   <section class="slide">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="phone-statusbar"><span>07:02</span><span>●●●● 100%</span></div>
-          <div class="phone-header">
-            <div class="phone-avatar">N</div>
-            <div class="info"><div class="name">NIT — AI Triage</div><div class="status">● พร้อมคุย 24 ชม.</div></div>
-          </div>
-          <div class="phone-chat">
-            <div class="bubble ai">สวัสดีค่ะพี่หน่อย! 😊</div>
-            <div class="bubble user">ตื่นมาปวดหัวข้างเดียว ตามัว มือชา</div>
-            <div class="bubble ai">เข้าใจค่ะ ขอถาม 4 ข้อสั้น ๆ</div>
-            <div class="bubble ai">1) อาการเริ่มเมื่อไหร่?</div>
-            <div class="bubble user">ตื่นมาก็เป็น</div>
-            <div class="bubble ai">2) มือชาข้างไหน?</div>
-            <div class="bubble user">ซ้ายค่ะ</div>
-            <div class="bubble ai">3) พูดคำว่า "สวัสดี" ให้ฟังหน่อยค่ะ 🎤</div>
-            <div class="bubble ai">4) ยิ้มให้กล้องค่ะ 📸</div>
-            <div class="bubble system">วิเคราะห์: voice 98% · face symmetry 99%</div>
-            <div class="bubble ai">ไม่ใช่ฉุกเฉิน — ควรพบหมอประสาท วันนี้ค่ะ</div>
-          </div>
-        </div>
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--accent-amber), var(--accent-pink));">3</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--accent-amber);">FORCE MULTIPLIER · PREVENTION</div>
+        <div class="layer-title">⌚ Brain Health Twin — ตรวจสมองที่บ้าน</div>
       </div>
-      <div class="col">
-        <div class="sys-tag p1"><span class="ic">💬</span> SYSTEM 1 · PHASE 1</div>
-        <div class="sys-title">AI Chat Triage</div>
-        <div class="sys-desc">ผู้ช่วย AI ใน LINE OA ที่คุยกับคนไข้<strong style="color: var(--ink-0)">ที่บ้าน</strong> — ประเมินอาการ ตรวจสัญญาณ stroke จากเสียง/ใบหน้า แล้วแนะนำว่าควรไปแผนกไหน เมื่อไหร่</div>
-        <div class="sys-stakeholders">
-          <span class="stake">👤 คนไข้ + ครอบครัว</span>
-          <span class="stake">👩‍⚕️ พยาบาลคัดกรอง</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t">เปิด LINE → ค้นหา <b>"NIT"</b> → เพิ่มเพื่อน</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t">พิมพ์อาการในแชท เหมือนคุยกับเพื่อน</div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t">AI ถามต่อ 4-5 ข้อ + ขอให้พูด + ถ่ายเซลฟี่ (วิเคราะห์ <b>stroke signs</b>)</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t">รับผลประเมิน + slot นัดที่เหมาะ + คำเตือนถ้าฉุกเฉิน</div></div>
-        </div>
+    </div>
+    <p class="lead">Wearable + smartphone passive monitoring — ตรวจ AFib, stroke risk, Parkinson's, dementia จาก typing, voice, gait · alert ก่อนเกิด stroke</p>
+    <div class="layer-grid">
+      <div class="layer-side problem">
+        <div class="ls-label">ปัญหาวันนี้</div>
+        <p>30% ของ stroke มาจาก AFib ที่ไม่รู้ตัว · Parkinson's, Alzheimer's มักวินิจฉัยช้า 2-5 ปี · คนไข้มา รพ. แค่ตอนป่วยหนัก</p>
       </div>
+      <div class="layer-side solution">
+        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <p>Apple Watch / Galaxy Watch + NIT companion app — passive monitoring:<br>· AFib detection (FDA cleared method)<br>· Voice patterns → dementia screening<br>· Typing rhythm → Parkinson's early signs<br>· Gait analysis → fall risk · alert NIT ถ้าผิดปกติ</p>
+      </div>
+    </div>
+    <div class="layer-impact">
+      <div class="impact-stat"><div class="v">50K</div><div class="k">คนไข้ติดตาม<br>ภายในปี 2</div></div>
+      <div class="impact-stat"><div class="v">1,000+</div><div class="k">Stroke ป้องกันได้/ปี<br>(AFib detection)</div></div>
+      <div class="impact-stat"><div class="v">-2 yr</div><div class="k">ลดเวลาวินิจฉัย<br>Parkinson's</div></div>
+      <div class="impact-stat"><div class="v">24/7</div><div class="k">Brain monitoring<br>at home</div></div>
+    </div>
+    <div class="layer-ref">
+      <span class="lab">REFERENCE</span>
+      <b>Apple Heart Study</b> 400K participants — AFib detection 84% sensitivity · <b>Stanford / MIT</b> voice biomarker for dementia · <b>Google DeepMind</b> gait analysis for Parkinson's · <b>icometrix</b> volumetric brain analysis
     </div>
   </section>
 
-  <!-- 9. SYSTEM 1 KPI -->
+  <!-- 8. LAYER 4 -->
   <section class="slide">
-    <div class="num">SYSTEM 1 / METRICS</div>
-    <h2>AI Chat Triage — <span class="accent">วัดผลยังไง</span></h2>
-    <p class="lead">KPI ที่ส่ง dashboard ทุกวัน · เปรียบเทียบกับ baseline + เป้าหมาย</p>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">Triage accuracy (เทียบกับหมอ)</span><span class="base">N/A</span><span class="target">≥85%</span><span class="target2">≥92%</span></div>
-      <div class="kpi-row"><span class="metric">Time to triage decision</span><span class="base">N/A</span><span class="target">&lt;3 min</span><span class="target2">&lt;2 min</span></div>
-      <div class="kpi-row"><span class="metric">Stroke detection sensitivity</span><span class="base">N/A</span><span class="target">≥90%</span><span class="target2">≥95%</span></div>
-      <div class="kpi-row"><span class="metric">Wrong-department visits</span><span class="base">25%</span><span class="target">10%</span><span class="target2">5%</span></div>
-      <div class="kpi-row"><span class="metric">Daily active users (NIT)</span><span class="base">0</span><span class="target">200/วัน</span><span class="target2">500/วัน</span></div>
-      <div class="kpi-row"><span class="metric">Conversation completion rate</span><span class="base">N/A</span><span class="target">≥70%</span><span class="target2">≥85%</span></div>
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--accent-red), var(--accent-amber));">4</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--accent-red);">FORCE MULTIPLIER · TREATMENT</div>
+        <div class="layer-title">🧬 Outcome AI — ทำนายผลก่อนรักษา</div>
+      </div>
     </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      เปรียบเทียบ AI suggestion vs. final doctor diagnosis (chart audit รายสัปดาห์) · LINE OA analytics · stroke registry audit · cross-reference patient destination data
+    <p class="lead">AI ทำนาย 90-day modified Rankin Score (mRS) จาก baseline CT + clinical data → หมอตัดสินใจ tPA vs. thrombectomy vs. conservative</p>
+    <div class="layer-grid">
+      <div class="layer-side problem">
+        <div class="ls-label">ปัญหาวันนี้</div>
+        <p>หมอตัดสิน treatment โดยใช้ guideline + experience · บางเคส ขัดแย้งกัน (เช่น tPA risk vs benefit ใน elderly) · ไม่มีตัวเลข personalized prediction · 30% เคสเปลี่ยน decision หลังเห็น outcome ของเคสเดียวกัน</p>
+      </div>
+      <div class="layer-side solution">
+        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <p>Input: CT + age + NIHSS + medical history → Output:<br>· P(mRS 0-2 at 90 days) — เดินกลับบ้าน<br>· P(hemorrhage from tPA)<br>· Recommended action with confidence interval<br>Built with KMUTT MOU + NIT historical data (5+ years)</p>
+      </div>
+    </div>
+    <div class="layer-impact">
+      <div class="impact-stat"><div class="v">+30%</div><div class="k">Treatment<br>accuracy</div></div>
+      <div class="impact-stat"><div class="v">-20%</div><div class="k">Unnecessary<br>thrombectomy</div></div>
+      <div class="impact-stat"><div class="v">+15%</div><div class="k">tPA candidacy<br>(elderly)</div></div>
+      <div class="impact-stat"><div class="v">1st</div><div class="k">Thai-specific<br>outcome model</div></div>
+    </div>
+    <div class="layer-ref">
+      <span class="lab">REFERENCE</span>
+      <b>Brainomix e-Stroke</b> — Oxford, NIHR trials · mRS prediction in Lancet Neurology 2024 · <b>RapidAI Outcome</b> in clinical use US · <b>Heuron</b> Korea has neuro outcome models · Thailand: ไม่มีโมเดลเฉพาะคนไทย — ทำได้คือ MOAT
     </div>
   </section>
 
-  <!-- ============================================================== -->
-  <!-- SYSTEM 2: Smart Queue                                             -->
-  <!-- ============================================================== -->
-
-  <!-- 10. SYSTEM 2 OVERVIEW -->
+  <!-- 9. LAYER 5 -->
   <section class="slide">
-    <div class="two-col">
-      <div class="desk-screen">
-        <div class="desk-title">
-          <span>🎯 Queue Manager · OPD Neurology</span>
-          <span class="live">● LIVE</span>
-        </div>
-        <div class="desk-section">
-          <div class="lab">CURRENT METRICS</div>
-          <div class="kpi-cards">
-            <div class="kpi-card"><div class="v">38min</div><div class="k">AVG WAIT</div></div>
-            <div class="kpi-card"><div class="v">7%</div><div class="k">NO-SHOW</div></div>
-            <div class="kpi-card"><div class="v">92%</div><div class="k">UTIL</div></div>
-          </div>
-        </div>
-        <div class="desk-section">
-          <div class="lab">LIVE QUEUE (12)</div>
-          <div class="queue-list">
-            <div class="queue-item critical"><div class="pri"></div><div class="name">ลุงสม 65</div><div class="badge">STROKE</div><div class="time">10:00</div></div>
-            <div class="queue-item"><div class="pri"></div><div class="name">พี่หน่อย 42</div><div class="time">10:30</div></div>
-            <div class="queue-item urgent"><div class="pri"></div><div class="name">คุณป้า 70</div><div class="badge" style="background: rgba(255,181,71,0.15); color: var(--accent-amber);">URGENT</div><div class="time">10:45</div></div>
-            <div class="queue-item"><div class="pri"></div><div class="name">คุณวิทย์ 38</div><div class="time">11:00</div></div>
-          </div>
-        </div>
-        <div class="desk-section">
-          <div class="lab">PREDICTIVE</div>
-          <div class="alerts">
-            <div class="alert">Slot 11:30 — no-show prob 78% · suggest fill from waitlist</div>
-            <div class="alert">Bottleneck forecast 13:00 — add 1 nurse</div>
-          </div>
-        </div>
+    <div class="layer-header">
+      <div class="layer-num" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));">5</div>
+      <div class="layer-title-block">
+        <div class="layer-tag" style="color: var(--accent-violet);">FORCE MULTIPLIER · NATIONAL</div>
+        <div class="layer-title">🌐 DMS Neuro Network — NIT เป็นแกนกลาง</div>
       </div>
-      <div class="col">
-        <div class="sys-tag p1"><span class="ic">🎯</span> SYSTEM 2 · PHASE 1</div>
-        <div class="sys-title">Smart Queue &amp; Scheduling</div>
-        <div class="sys-desc">ML model ทำนาย <b style="color: var(--ink-0)">no-show</b>, จัดคิว optimal, แจ้ง real-time ทั้งคนไข้และ staff · ลด wait time 60% โดยไม่เพิ่มหมอ</div>
-        <div class="sys-stakeholders">
-          <span class="stake">👤 คนไข้</span>
-          <span class="stake">👩‍💻 พยาบาลจัดคิว</span>
-          <span class="stake">👔 ผอ. OPD</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t"><b>คนไข้:</b> AI Triage จองคิวให้ หรือเลือก slot ที่ระบบแนะนำ</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t"><b>Kiosk check-in:</b> สแกน QR/หน้า — ระบบรู้ทันทีว่ามาแล้ว</div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t"><b>คนไข้:</b> รับ real-time update ใน LINE · เดินไปทำธุระระหว่างรอได้</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t"><b>Staff:</b> เห็น dashboard live · ปรับ priority ได้ · ระบบเตือนถ้าจะมี bottleneck</div></div>
-        </div>
+    </div>
+    <p class="lead">Federated Learning ระดับชาติ — รพ. ในกรมการแพทย์ 30 แห่ง train AI ร่วมกัน · data ไม่ออก รพ. · NIT เป็น hub กำหนด protocol</p>
+    <div class="layer-grid">
+      <div class="layer-side problem">
+        <div class="ls-label">ปัญหาวันนี้</div>
+        <p>AI ของแต่ละ รพ. train จาก data ของตัวเอง — เล็ก, biased · ไม่มี privacy-preserving way ในการ share · NIT ทำคนเดียวจะติด data scarcity</p>
       </div>
+      <div class="layer-side solution">
+        <div class="ls-label">SALA DAENG SOLUTION</div>
+        <p>Federated learning framework:<br>· รพ. แต่ละแห่ง train local · ส่งแค่ model weights<br>· NIT รวม weights (ไม่ใช่ data)<br>· ได้ AI ใหญ่ขึ้น 10× · เคารพ PDPA<br>· NIT เป็น "knowledge hub" — มี IP + brand</p>
+      </div>
+    </div>
+    <div class="layer-impact">
+      <div class="impact-stat"><div class="v">30 รพ.</div><div class="k">ในกรมการแพทย์<br>ใน network</div></div>
+      <div class="impact-stat"><div class="v">10×</div><div class="k">Dataset size<br>vs NIT alone</div></div>
+      <div class="impact-stat"><div class="v">0</div><div class="k">Data leaving<br>each hospital</div></div>
+      <div class="impact-stat"><div class="v">1st</div><div class="k">Federated neuro<br>network ใน SE Asia</div></div>
+    </div>
+    <div class="layer-ref">
+      <span class="lab">REFERENCE</span>
+      <b>Owkin</b> ($300M) federated learning ใน Mount Sinai, Memorial Sloan Kettering · <b>BrainXell</b> consortium 30+ hospitals · <b>NIH NCRC</b> federated cancer network · Nature Medicine 2024 multi-site brain MRI · นี่คือ moat ระดับชาติ
     </div>
   </section>
 
-  <!-- 11. SYSTEM 2 KPI -->
+  <!-- 10. THE STACK -->
   <section class="slide">
-    <div class="num">SYSTEM 2 / METRICS</div>
-    <h2>Smart Queue — <span class="accent">วัดผลยังไง</span></h2>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">Avg OPD wait time</span><span class="base">120 min</span><span class="target">&lt;45 min</span><span class="target2">&lt;30 min</span></div>
-      <div class="kpi-row"><span class="metric">No-show rate</span><span class="base">15%</span><span class="target">&lt;8%</span><span class="target2">&lt;5%</span></div>
-      <div class="kpi-row"><span class="metric">Slot utilization</span><span class="base">75%</span><span class="target">88%</span><span class="target2">92%</span></div>
-      <div class="kpi-row"><span class="metric">Patient NPS (satisfaction)</span><span class="base">-10</span><span class="target">+30</span><span class="target2">+50</span></div>
-      <div class="kpi-row"><span class="metric">Walk-away rate (ก่อนพบหมอ)</span><span class="base">12%</span><span class="target">&lt;5%</span><span class="target2">&lt;3%</span></div>
-      <div class="kpi-row"><span class="metric">Time-saved per patient/day</span><span class="base">0</span><span class="target">75 min</span><span class="target2">90 min</span></div>
-    </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      Kiosk check-in timestamp → consultation start timestamp · LINE OA notification analytics · NPS post-visit survey · staff dashboard logs · HOSxP slot data
+    <div class="num">10 / THE INTEGRATION</div>
+    <h1>เราไม่ <span class="red">rebuild</span> — เรา <span class="teal">เสริม</span></h1>
+    <p class="lead">5 Force Multipliers ของ Sala Daeng <b>นั่งบน foundation ที่ NIT มีอยู่</b> — ไม่ขัดแย้ง ไม่ทับซ้อน</p>
+    <div class="stack">
+      <div class="stack-layer new"><span class="stack-tag">LAYER 5</span><span class="stack-name">DMS Federated Neuro Network<small>NIT เป็น hub · 30 รพ. ในกรมการแพทย์</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">LAYER 4</span><span class="stack-name">Outcome Prediction AI<small>90-day mRS · treatment decision support</small></span><span class="stack-owner">SALA DAENG + KMUTT</span></div>
+      <div class="stack-layer new"><span class="stack-tag">LAYER 3</span><span class="stack-name">Brain Health Twin<small>Wearable + smartphone passive monitoring</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">LAYER 2</span><span class="stack-name">GenAI Ambient Scribe<small>Thai-language neuro-specialized</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer new"><span class="stack-tag">LAYER 1</span><span class="stack-name">MSU Co-pilot AI<small>On-board CT analysis + voice triage</small></span><span class="stack-owner">SALA DAENG</span></div>
+      <div class="stack-layer existing"><span class="stack-tag">FOUNDATION</span><span class="stack-name">PNI Plus App · NIT Telemed · MSU · 8 AI projects · MOU KMUTT · FlashBot<small>สิ่งที่ NIT มีและทำงานอยู่ — เราเชื่อมต่อ ไม่ทับซ้อน</small></span><span class="stack-owner">NIT TODAY</span></div>
     </div>
   </section>
 
-  <!-- ============================================================== -->
-  <!-- SYSTEM 3: Patient Journey App                                     -->
-  <!-- ============================================================== -->
-
-  <!-- 12. SYSTEM 3 OVERVIEW -->
+  <!-- 11. COMPETITIVE -->
   <section class="slide">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="phone-statusbar"><span>10:48</span><span>●●●● 80%</span></div>
-          <div class="phone-header">
-            <div class="phone-avatar">N</div>
-            <div class="info"><div class="name">NIT — Order Tracking</div><div class="status">● 2 orders active</div></div>
-          </div>
-          <div class="phone-chat">
-            <div class="bubble card" style="border-left: 3px solid #06c755;">
-              <div class="card-title">💉 เจาะเลือด</div>
-              <div class="card-row"><span>📍</span><span>ห้อง <span class="em">109 · ชั้น 1</span></span></div>
-              <div class="card-row"><span>🚀</span><span><span class="em">ไม่ต้องเข้าคิว</span></span></div>
-              <div style="margin-top: 6px; padding: 6px; background: #e8f5e9; border-radius: 6px; font-size: 0.62rem; color: #2e7d32;">→ เดิน 3 นาที</div>
-            </div>
-            <div class="bubble card" style="border-left: 3px solid #2196f3;">
-              <div class="card-title">🧠 CT Brain</div>
-              <div class="card-row"><span>📍</span><span>CT-2 · ชั้น B1</span></div>
-              <div class="card-row"><span>🕐</span><span><span class="em">11:15 น.</span></span></div>
-            </div>
-            <div class="bubble card" style="border-left: 3px solid #ff9800;">
-              <div class="card-title">💊 e-Prescription</div>
-              <div class="card-row"><span>📍</span><span>ห้องยา · คิว <span class="em">#3</span></span></div>
-            </div>
-            <div class="bubble ai" style="font-size: 0.68rem;">📚 หลังกลับบ้าน — ดูสรุปวันนี้ + วิดีโอวิธีกินยาในแอป</div>
-          </div>
-        </div>
+    <div class="num">11 / COMPETITIVE POSITION</div>
+    <h1>เราไม่แข่งกับ <span class="amber">AN AN Bot</span> — เราอยู่คนละชั้น</h1>
+    <p class="lead">Agnos AN AN Bot คือ <b>chatbot triage ทั่วไป</b> — เราคือ <b>specialized neuro intelligence stack</b> ตั้งแต่ ambulance ถึง home</p>
+    <div class="vs-matrix">
+      <div class="vs-col">
+        <div class="name">Agnos AN AN Bot</div>
+        <div class="ko">CHATBOT TRIAGE LAYER</div>
+        <ul>
+          <li>Generic LLM chatbot</li>
+          <li>Triage ก่อนเข้า รพ.</li>
+          <li>LINE + FB Messenger</li>
+          <li>Multi-disease, not specialized</li>
+          <li>Pruksa-funded · early 2025 launch</li>
+          <li>Pre-visit only</li>
+        </ul>
       </div>
-      <div class="col">
-        <div class="sys-tag p1"><span class="ic">📲</span> SYSTEM 3 · PHASE 1</div>
-        <div class="sys-title">Patient Journey App</div>
-        <div class="sys-desc">แอปในมือคนไข้ตลอดการเยี่ยมโรงพยาบาล — <b style="color: var(--ink-0)">check-in, in-building nav, order tracking, e-prescription, visit summary</b> · ไม่ต้องถือใบกระดาษอีก</div>
-        <div class="sys-stakeholders">
-          <span class="stake">👤 คนไข้</span>
-          <span class="stake">👨‍👩‍👧 ครอบครัว</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t"><b>Check-in</b> ที่ Kiosk หรือสแกน QR ในมือถือ → ระบบรู้ที่ตั้ง</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t">หมอกดสั่ง Lab/X-ray → <b>คนไข้ได้ noti</b> ทันที พร้อม nav map</div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t">ผลออก → AI สรุปง่าย ๆ + ส่งสรุปทั้งหมดเก็บไว้ใน app</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t">รับยา · เรียนรู้วิธีกิน · นัดติดตาม — <b>ทุกอย่างใน chat เดียว</b></div></div>
-        </div>
+      <div class="vs-col">
+        <div class="name">Hospital Vendors ทั่วไป</div>
+        <div class="ko">HIS / EMR / WORKFLOW</div>
+        <ul>
+          <li>HOSxP, SSB, JHCIS</li>
+          <li>Records + scheduling</li>
+          <li>ไม่มี AI native</li>
+          <li>ของเก่า, ต่อยอด AI ยาก</li>
+          <li>เราจะ integrate, ไม่แข่ง</li>
+        </ul>
       </div>
+      <div class="vs-col us">
+        <div class="name">Sala Daeng × NIT</div>
+        <div class="ko">SPECIALIZED NEURO AI STACK</div>
+        <ul>
+          <li>5 force multipliers ครบเส้นทาง</li>
+          <li>MSU ambulance → ward → home</li>
+          <li>Thai-language neuro-specialized</li>
+          <li>Federated learning network</li>
+          <li>KMUTT research depth</li>
+          <li>NIT brand + กรมการแพทย์ scale</li>
+        </ul>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top: 1.2rem;">
+      <div class="label">STRATEGIC INSIGHT</div>
+      <div class="text">AN AN Bot คือ <b>การแข่ง horizontal</b> (ทุกโรค) · เราคือ <b>การแข่ง vertical</b> (เฉพาะ neuro แต่ลึก) · ในตลาด healthcare AI ที่ specialty-first winning — vertical ชนะ horizontal เสมอ</div>
     </div>
   </section>
 
-  <!-- 13. SYSTEM 3 KPI -->
+  <!-- 12. WHY NIT WORLD-KNOWN -->
   <section class="slide">
-    <div class="num">SYSTEM 3 / METRICS</div>
-    <h2>Patient Journey App — <span class="accent">วัดผลยังไง</span></h2>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">Lost paper orders</span><span class="base">3%</span><span class="target">0%</span><span class="target2">0%</span></div>
-      <div class="kpi-row"><span class="metric">Time-to-pickup medication</span><span class="base">30 min</span><span class="target">10 min</span><span class="target2">5 min</span></div>
-      <div class="kpi-row"><span class="metric">Wrong room visits</span><span class="base">8%</span><span class="target">&lt;2%</span><span class="target2">&lt;1%</span></div>
-      <div class="kpi-row"><span class="metric">Repeat questions to nurse</span><span class="base">8/visit</span><span class="target">3/visit</span><span class="target2">1/visit</span></div>
-      <div class="kpi-row"><span class="metric">App engagement rate</span><span class="base">0%</span><span class="target">80%</span><span class="target2">90%</span></div>
-      <div class="kpi-row"><span class="metric">Visit summary access rate</span><span class="base">0%</span><span class="target">95%</span><span class="target2">99%</span></div>
-    </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      Order tracking timestamps (created → completed) · in-app analytics (page views, time spent) · nurse station ticket volume · patient survey · pharmacy queue logs
+    <div class="num">12 / WHY NIT BECOMES WORLD-FAMOUS</div>
+    <h1>NIT ติด <span class="grad">WIRED, NEJM, WHO</span> ได้ยังไง</h1>
+    <p class="lead">ไม่ใช่แค่ผู้ใช้ — เราจะสร้าง story ที่ทำให้ NIT เป็น case study ระดับโลก</p>
+    <div class="state-grid">
+      <div class="state-card">
+        <div class="ic">📰</div>
+        <div class="name">Publications</div>
+        <div class="desc">Co-author paper ใน <b>NEJM</b>, <b>Lancet Neurology</b>, <b>Nature Digital Medicine</b> · ใช้ MOU KMUTT เป็น academic backing · Sala Daeng จัดการ engineering</div>
+      </div>
+      <div class="state-card">
+        <div class="ic">🏆</div>
+        <div class="name">Awards Target</div>
+        <div class="desc"><b>HIMSS Davies Award</b> (clinical AI excellence) · <b>JCI Quality Award</b> · <b>WHO Digital Health Innovation</b> · <b>Asia Hospital Management Award</b></div>
+      </div>
+      <div class="state-card">
+        <div class="ic">📺</div>
+        <div class="name">Media Stories</div>
+        <div class="desc"><b>"How Thailand Reinvented Stroke Care"</b> — pitch ไป WIRED, TIME, MIT Tech Review · Thai PBS documentary · Bloomberg feature</div>
+      </div>
+      <div class="state-card">
+        <div class="ic">🌍</div>
+        <div class="name">Conference Keynotes</div>
+        <div class="desc"><b>European Stroke Organization (ESO)</b> · <b>World Stroke Congress (WSC)</b> · <b>AAN</b> · <b>HIMSS APAC</b> · ผอ. NIT เป็น keynote — invite ทั่วโลก</div>
+      </div>
+      <div class="state-card">
+        <div class="ic">🏥</div>
+        <div class="name">Reference Center</div>
+        <div class="desc"><b>WHO Collaborating Centre</b> for AI Neurology in SE Asia · NIT รับ delegate มาดูงาน · เป็น regional hub</div>
+      </div>
+      <div class="state-card">
+        <div class="ic">🎓</div>
+        <div class="name">Academic Programs</div>
+        <div class="desc">Fellowship program ใน AI Neurology · co-degree กับ KMUTT/Mahidol · NIT เป็น training ground ของ neuro AI specialist รุ่นใหม่</div>
+      </div>
     </div>
   </section>
 
-  <!-- ============================================================== -->
-  <!-- SYSTEM 4: Follow-up Bot                                           -->
-  <!-- ============================================================== -->
-
-  <!-- 14. SYSTEM 4 OVERVIEW -->
+  <!-- 13. ROADMAP -->
   <section class="slide">
-    <div class="two-col">
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="phone-statusbar"><span>10:00 D+1</span><span>●●●● 100%</span></div>
-          <div class="phone-header">
-            <div class="phone-avatar">N</div>
-            <div class="info"><div class="name">NIT — Follow-up</div><div class="status">● ติดตามดูแล</div></div>
-          </div>
-          <div class="phone-chat">
-            <div class="bubble system">D+1 หลัง discharge</div>
-            <div class="bubble ai">สวัสดีค่ะพี่หน่อย ❤️ วันนี้อาการเป็นยังไง?</div>
-            <div class="bubble option">1️⃣ ดีขึ้นมาก</div>
-            <div class="bubble option">2️⃣ ดีขึ้นเล็กน้อย</div>
-            <div class="bubble option">3️⃣ เหมือนเดิม</div>
-            <div class="bubble option" style="background: #fff5f5; border-color: #ff5252; color: #c62828;">4️⃣ แย่ลง</div>
-            <div class="bubble option" style="background: #ffe0e0; border-color: #f44336; color: #b71c1c;">5️⃣ แย่ลงมาก</div>
-            <div class="bubble user">2 ค่ะ</div>
-            <div class="bubble ai">ดีค่ะ ขอถามเพิ่ม:</div>
-            <div class="bubble ai">• ปวดหัวระดับ (1-10)?</div>
-            <div class="bubble ai">• กินยาครบไหม?</div>
-            <div class="bubble system">📚 บทเรียน Migraine วันนี้ →</div>
-          </div>
-        </div>
+    <div class="num">13 / ROADMAP · 2026–2028</div>
+    <h1>เส้นทาง <span class="accent">3 เฟส · 30 เดือน</span></h1>
+    <div class="roadmap">
+      <div class="roadphase p1">
+        <div class="when">PHASE 1 · Q3-Q4 2026</div>
+        <h3>Quick Win</h3>
+        <p class="focus">ปล่อย Layer 2 + 3 ก่อน · ไม่ติด อย. · ROI ชัด</p>
+        <ul>
+          <li>GenAI Ambient Scribe MVP — pilot 5 doctors</li>
+          <li>Brain Health Twin — Apple Watch AFib + NIT app</li>
+          <li>Publish 1 paper ที่ Thai-MED Journal</li>
+          <li>เปิด NIT–KMUTT Joint AI Lab</li>
+        </ul>
       </div>
-      <div class="col">
-        <div class="sys-tag p1"><span class="ic">🤖</span> SYSTEM 4 · PHASE 1</div>
-        <div class="sys-title">Follow-up Bot</div>
-        <div class="sys-desc">Bot ติดตามคนไข้หลัง discharge อัตโนมัติ — D+1, +3, +7, +14, +30 · <b style="color: var(--ink-0)">ถ้าตอบว่าแย่ลง → แจ้งพยาบาลทันที</b> · ลด readmission 40%</div>
-        <div class="sys-stakeholders">
-          <span class="stake">👤 คนไข้ (post-discharge)</span>
-          <span class="stake">👩‍⚕️ พยาบาลติดตาม</span>
-          <span class="stake">👨‍⚕️ หมอเจ้าของไข้</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t"><b>Auto-enroll</b> ตอน discharge · ระบบรู้ diagnosis → กำหนด schedule</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t">Bot ส่งข้อความตามตาราง · คนไข้ตอบใช้เวลา <b>30 วินาที</b></div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t">ถ้าตอบ 4-5 → <b>แจ้งพยาบาล</b> · โทรหาภายใน 1 ชม.</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t">เห็น progress trend · ใช้ในการนัดติดตามครั้งถัดไป</div></div>
-        </div>
+      <div class="roadphase p2">
+        <div class="when">PHASE 2 · 2027</div>
+        <h3>Stroke Stack</h3>
+        <p class="focus">ลงลึกที่ stroke — MSU + outcome AI</p>
+        <ul>
+          <li>Layer 1 MSU Co-pilot — deploy in ambulance</li>
+          <li>Layer 4 Outcome AI — clinical validation</li>
+          <li>เริ่ม federated learning กับ รพ. ในเครือ 5 แห่ง</li>
+          <li>Submit Lancet Neurology paper</li>
+          <li>HIMSS APAC keynote</li>
+        </ul>
+      </div>
+      <div class="roadphase p3">
+        <div class="when">PHASE 3 · 2028</div>
+        <h3>National Hub</h3>
+        <p class="focus">NIT เป็นแกนกลาง · scale ทั่วประเทศ</p>
+        <ul>
+          <li>Layer 5 Federated Network — 30 รพ. ในกรมการแพทย์</li>
+          <li>WHO Collaborating Centre application</li>
+          <li>Expansion ไป CLMV</li>
+          <li>NEJM publication</li>
+          <li>WIRED / MIT Tech Review feature</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- 15. SYSTEM 4 KPI -->
+  <!-- 14. IMPACT -->
   <section class="slide">
-    <div class="num">SYSTEM 4 / METRICS</div>
-    <h2>Follow-up Bot — <span class="accent">วัดผลยังไง</span></h2>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">30-day readmission rate</span><span class="base">12%</span><span class="target">7%</span><span class="target2">5%</span></div>
-      <div class="kpi-row"><span class="metric">Bot engagement rate</span><span class="base">0%</span><span class="target">&gt;70%</span><span class="target2">&gt;85%</span></div>
-      <div class="kpi-row"><span class="metric">Time-to-detect deterioration</span><span class="base">5 days</span><span class="target">&lt;1 day</span><span class="target2">&lt;6 hr</span></div>
-      <div class="kpi-row"><span class="metric">Unplanned ER visits (post-discharge)</span><span class="base">8%</span><span class="target">4%</span><span class="target2">2%</span></div>
-      <div class="kpi-row"><span class="metric">Patient retention (next appt)</span><span class="base">60%</span><span class="target">85%</span><span class="target2">92%</span></div>
-      <div class="kpi-row"><span class="metric">Nurse alert response time</span><span class="base">N/A</span><span class="target">&lt;1 hr</span><span class="target2">&lt;30 min</span></div>
-    </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      Hospital readmission registry · LINE OA conversation logs · nurse alert system response time · appointment kept rate from HOSxP · cross-reference ER admission data
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- PHASE 2                                                           -->
-  <!-- ============================================================== -->
-
-  <!-- 16. PHASE 2 INTRO -->
-  <section class="slide phase-intro">
-    <div class="num">16 / PHASE 2 · Q1-Q2 2027</div>
-    <div class="phase-badge p2"><span class="pulse" style="background: var(--accent-violet);"></span> PHASE 2 · EXPANSION · 24 WEEKS</div>
-    <h1>เพิ่มมุม <span class="violet">การบริหารโรงพยาบาล</span></h1>
-    <p class="lead">ใช้ data ที่เก็บจาก Phase 1 มาสร้างระบบ analytics + dashboard ให้ผู้บริหาร · ทำให้ NIT เป็น "Smart Hospital" ของจริง</p>
-    <div class="phase-systems">
-      <div class="phase-sys-card">
-        <div class="ic">📊</div>
-        <div class="name">Admin Dashboard</div>
-        <div class="desc">Real-time KPI + predictive analytics + 43 แฟ้ม HDC auto-export + fraud detection</div>
-      </div>
-      <div class="phase-sys-card">
-        <div class="ic">📱</div>
-        <div class="name">App+ (Multi-clinic)</div>
-        <div class="desc">ขยาย Patient App ให้รองรับนัดข้าม รพ. ในเครือ DMS</div>
-      </div>
-    </div>
-    <div class="highlight" style="margin-top: 1.5rem;">
-      <div class="label">WHY PHASE 2 NOT PHASE 1?</div>
-      <div class="text">Admin Dashboard ต้องการ data history → ทำหลังเก็บ data 6 เดือนแรกได้ผล · ระบบจะแม่นยำขึ้น 10 เท่า</div>
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- SYSTEM 5: Admin Dashboard                                         -->
-  <!-- ============================================================== -->
-
-  <!-- 17. SYSTEM 5 OVERVIEW -->
-  <section class="slide">
-    <div class="two-col">
-      <div class="desk-screen">
-        <div class="desk-title">
-          <span>📊 NIT Operations Dashboard</span>
-          <span class="live">● LIVE</span>
-        </div>
-        <div class="desk-section">
-          <div class="lab">TODAY · KEY METRICS</div>
-          <div class="kpi-cards">
-            <div class="kpi-card"><div class="v">88%</div><div class="k">BED OCC</div></div>
-            <div class="kpi-card"><div class="v">4.4d</div><div class="k">AVG LOS</div></div>
-            <div class="kpi-card"><div class="v">38m</div><div class="k">ER WAIT</div></div>
-          </div>
-        </div>
-        <div class="desk-section">
-          <div class="lab">BED HEATMAP · STROKE UNIT</div>
-          <div class="bed-grid">
-            <div class="bed-label">W1</div>
-            <div class="bed-cells"><div class="bed"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed full"></div><div class="bed warn"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed empty"></div></div>
-            <div class="bed-label">W2</div>
-            <div class="bed-cells"><div class="bed occ"></div><div class="bed full"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed warn"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed full"></div></div>
-            <div class="bed-label">W3</div>
-            <div class="bed-cells"><div class="bed occ"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed occ"></div><div class="bed full"></div><div class="bed warn"></div><div class="bed empty"></div></div>
-          </div>
-        </div>
-        <div class="desk-section">
-          <div class="lab">ER FORECAST · NEXT 24H</div>
-          <div class="spark">
-            <div class="bar" style="height: 20%"></div>
-            <div class="bar" style="height: 30%"></div>
-            <div class="bar" style="height: 45%"></div>
-            <div class="bar" style="height: 65%"></div>
-            <div class="bar" style="height: 80%"></div>
-            <div class="bar" style="height: 85%"></div>
-            <div class="bar" style="height: 70%"></div>
-            <div class="bar" style="height: 50%"></div>
-            <div class="bar" style="height: 35%"></div>
-            <div class="bar" style="height: 25%"></div>
-            <div class="bar" style="height: 20%"></div>
-            <div class="bar" style="height: 18%"></div>
-          </div>
-        </div>
-        <div class="desk-section">
-          <div class="lab">ALERTS</div>
-          <div class="alerts">
-            <div class="alert critical">⚠ Bed shortage forecast 14:00 (W3)</div>
-            <div class="alert">⚠ Drug discrepancy — Pt #4421</div>
-            <div class="alert">📋 43 แฟ้ม HDC ready to submit</div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="sys-tag p2"><span class="ic">📊</span> SYSTEM 5 · PHASE 2</div>
-        <div class="sys-title">Admin Dashboard &amp; Analytics</div>
-        <div class="sys-desc">Dashboard ผู้บริหาร — ดู bed occupancy heatmap, ทำนาย ER traffic ล่วงหน้า 24 ชม., เห็น LOS prediction ทุกคน, <b style="color: var(--ink-0)">43 แฟ้ม HDC export อัตโนมัติ</b>, fraud detection</div>
-        <div class="sys-stakeholders">
-          <span class="stake">👔 ผอ. รพ.</span>
-          <span class="stake">👨‍⚕️ หัวหน้าฝ่าย</span>
-          <span class="stake">👩‍💻 Quality Manager</span>
-          <span class="stake">💻 IT</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t"><b>Login</b> ทุกเช้า → เห็นภาพรวม รพ. ทั้งหมดในหน้าเดียว</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t">คลิก <b>bed heatmap</b> เห็น bed ที่ใกล้เต็ม → จัดสรรย้ายผู้ป่วย</div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t">ดู ER forecast → <b>เพิ่มเวร</b> ก่อนจะ overflow</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t">กดส่ง 43 แฟ้ม HDC อัตโนมัติทุกเดือน · ตรวจ DRG coding</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 18. SYSTEM 5 KPI -->
-  <section class="slide">
-    <div class="num">SYSTEM 5 / METRICS</div>
-    <h2>Admin Dashboard — <span class="violet">วัดผลยังไง</span></h2>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">Bed occupancy</span><span class="base">72%</span><span class="target">88%</span><span class="target2">92%</span></div>
-      <div class="kpi-row"><span class="metric">Average Length of Stay (LOS)</span><span class="base">5.2 days</span><span class="target">4.4 days</span><span class="target2">4.0 days</span></div>
-      <div class="kpi-row"><span class="metric">ER overflow events</span><span class="base">12/mo</span><span class="target">4/mo</span><span class="target2">1/mo</span></div>
-      <div class="kpi-row"><span class="metric">43 แฟ้ม HDC submission time</span><span class="base">8 hr/mo</span><span class="target">&lt;30 min</span><span class="target2">auto</span></div>
-      <div class="kpi-row"><span class="metric">DRG coding accuracy</span><span class="base">82%</span><span class="target">95%</span><span class="target2">98%</span></div>
-      <div class="kpi-row"><span class="metric">Fraud detection rate</span><span class="base">unknown</span><span class="target">&gt;90%</span><span class="target2">&gt;95%</span></div>
-      <div class="kpi-row"><span class="metric">Forecast accuracy (ER 24h)</span><span class="base">N/A</span><span class="target">≥80%</span><span class="target2">≥90%</span></div>
-    </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      HIS bed status logs · admission/discharge timestamps · ER census · 43 แฟ้ม HDC submission portal · DRG audit reports · fraud case investigation logs · forecast vs. actual comparison
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- PHASE 3                                                           -->
-  <!-- ============================================================== -->
-
-  <!-- 19. PHASE 3 INTRO -->
-  <section class="slide phase-intro">
-    <div class="num">19 / PHASE 3 · Q3 2027+</div>
-    <div class="phase-badge p3"><span class="pulse" style="background: var(--accent-red);"></span> PHASE 3 · HIGH VALUE · 12+ MONTHS</div>
-    <h1>ระบบช่วย<span class="red">หมอ</span>วินิจฉัย</h1>
-    <p class="lead">เฟสสุดท้าย — ต้อง MOU มหา'ลัยแพทย์ + อาจต้องผ่าน อย. · แต่ value สูงสุด · ราคา premium</p>
-    <div class="phase-systems">
-      <div class="phase-sys-card">
-        <div class="ic">🧠</div>
-        <div class="name">Doctor's Co-pilot (CDSS)</div>
-        <div class="desc">AI ช่วยหมอ — เสนอ DDx, ICD-10, ตรวจยาตีกัน, แจ้ง critical signs</div>
-      </div>
-      <div class="phase-sys-card">
-        <div class="ic">⚡</div>
-        <div class="name">Real-time Critical Alert</div>
-        <div class="desc">Vital monitoring + lab result → ai สังเกตเห็น sepsis/stroke ก่อนหมอ</div>
-      </div>
-    </div>
-    <div class="highlight" style="margin-top: 1.5rem; border-color: rgba(255, 77, 109, 0.3); background: linear-gradient(90deg, rgba(255, 77, 109, 0.06), transparent);">
-      <div class="label" style="color: var(--accent-red);">REGULATORY NOTE</div>
-      <div class="text">ระบบนี้คือ "Software as Medical Device" — ต้องผ่าน อย. ใช้เวลา 1-2 ปี · กลยุทธ์: <b>frame เป็น Reference Tool ไม่ใช่ Diagnosis</b> + partner กับ vendor ที่ certify แล้ว (เช่น Annalise.ai)</div>
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- SYSTEM 6: Doctor's Co-pilot                                       -->
-  <!-- ============================================================== -->
-
-  <!-- 20. SYSTEM 6 OVERVIEW -->
-  <section class="slide">
-    <div class="two-col">
-      <div class="doc-screen">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.62rem; color: var(--accent-violet); letter-spacing: 0.15em; margin-bottom: 0.8rem;">🧠 DOCTOR'S CO-PILOT · CDSS</div>
-        <div class="doc-section">
-          <div class="doc-label">PATIENT</div>
-          <div class="doc-text">พี่หน่อย · 42 ปี · หญิง</div>
-        </div>
-        <div class="doc-section">
-          <div class="doc-label">AI SUMMARY (Pre-visit)</div>
-          <div class="doc-text">หญิง 42 ปี ปวดศีรษะข้างขวาเฉียบพลัน ตามัว มือซ้ายชา — vital normal · voice/face symmetric · no red flag</div>
-        </div>
-        <div class="doc-section">
-          <div class="doc-label">SUGGESTED DDX</div>
-          <ul class="doc-list">
-            <li class="high">Migraine <span class="pct">65%</span></li>
-            <li>TIA <span class="pct">20%</span></li>
-            <li>Tension HA <span class="pct">10%</span></li>
-            <li>Other <span class="pct">5%</span></li>
-          </ul>
-        </div>
-        <div class="doc-section">
-          <div class="doc-label">SUGGESTED TESTS</div>
-          <div class="doc-text">✓ Brain CT (rule out hemorrhage)<br>✓ CBC<br>✓ Lipid profile</div>
-        </div>
-        <div class="doc-section">
-          <div class="doc-label">⚠ DRUG SAFETY</div>
-          <div class="doc-text" style="color: var(--accent-teal);">✓ No allergies · ✓ No interactions</div>
-        </div>
-        <div style="padding: 0.6rem; background: rgba(157, 107, 255, 0.1); border-radius: 6px; font-size: 0.68rem; color: var(--ink-2); text-align: center;">
-          AI suggests — doctor decides
-        </div>
-      </div>
-      <div class="col">
-        <div class="sys-tag p3"><span class="ic">🧠</span> SYSTEM 6 · PHASE 3</div>
-        <div class="sys-title">Doctor's Co-pilot (CDSS)</div>
-        <div class="sys-desc">AI ผู้ช่วยข้างเก้าอี้หมอ — โหลด context คนไข้อัตโนมัติ, สรุปอาการ 1 paragraph, เสนอ <b style="color: var(--ink-0)">differential diagnosis</b>, แนะนำ test, ตรวจยาตีกัน · <b style="color: var(--ink-0)">หมอตัดสินใจสุดท้ายเสมอ</b></div>
-        <div class="sys-stakeholders">
-          <span class="stake">👨‍⚕️ แพทย์ทุกแผนก</span>
-          <span class="stake">👩‍🎓 แพทย์ฝึกหัด</span>
-          <span class="stake">📋 Quality Audit</span>
-        </div>
-        <h3>วิธีใช้งาน</h3>
-        <div class="sys-steps">
-          <div class="sys-step"><div class="n">1</div><div class="t">คนไข้เข้าห้อง → <b>หน้าจอ AI Co-pilot แสดงทันที</b> · สรุป + DDx + tests</div></div>
-          <div class="sys-step"><div class="n">2</div><div class="t">หมออ่าน 30 วินาที → <b>ได้เวลามองตาคนไข้</b> 8 นาทีเต็ม</div></div>
-          <div class="sys-step"><div class="n">3</div><div class="t">หมอกดสั่ง test → AI ตรวจสอบ + flag ถ้าผิดปกติ</div></div>
-          <div class="sys-step"><div class="n">4</div><div class="t">กดสั่งยา → <b>AI เช็คแพ้ยา + drug interaction</b> · ถ้ามีปัญหา — เตือนก่อน</div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 21. SYSTEM 6 KPI -->
-  <section class="slide">
-    <div class="num">SYSTEM 6 / METRICS</div>
-    <h2>Doctor's Co-pilot — <span class="red">วัดผลยังไง</span></h2>
-    <div class="kpi-table">
-      <div class="kpi-row header"><span>METRIC</span><span>BASELINE</span><span>YEAR 1</span><span>YEAR 2</span></div>
-      <div class="kpi-row"><span class="metric">Diagnostic accuracy (chart audit)</span><span class="base">78%</span><span class="target">87%</span><span class="target2">92%</span></div>
-      <div class="kpi-row"><span class="metric">Time per consultation</span><span class="base">7 min</span><span class="target">8 min*</span><span class="target2">8 min*</span></div>
-      <div class="kpi-row"><span class="metric">Drug interaction errors</span><span class="base">0.8%</span><span class="target">&lt;0.1%</span><span class="target2">&lt;0.05%</span></div>
-      <div class="kpi-row"><span class="metric">Doctor chart-reading time</span><span class="base">30% visit</span><span class="target">12% visit</span><span class="target2">8% visit</span></div>
-      <div class="kpi-row"><span class="metric">Red flag missed rate</span><span class="base">unknown</span><span class="target">&lt;1%</span><span class="target2">&lt;0.3%</span></div>
-      <div class="kpi-row"><span class="metric">Doctor burnout score</span><span class="base">7.2/10</span><span class="target">5.5/10</span><span class="target2">4/10</span></div>
-    </div>
-    <div class="measured-by">
-      <span class="lab">วัดจาก</span>
-      Chart audit team (Quality Dept) เปรียบเทียบ AI suggestion vs final diagnosis รายสัปดาห์ · timer in EMR · drug error reporting · doctor satisfaction survey · Maslach Burnout Inventory · pharmacy intercept logs<br>
-      <span style="color: var(--ink-3); font-size: 0.75rem;">* เวลาเท่าเดิมแต่คุณภาพการคุยสูงขึ้นมาก (เพราะลดเวลาอ่าน chart)</span>
-    </div>
-  </section>
-
-  <!-- ============================================================== -->
-  <!-- ACT III: IMPACT                                                   -->
-  <!-- ============================================================== -->
-
-  <!-- 22. STROKE EMERGENCY -->
-  <section class="slide">
-    <div class="num">22 / EMERGENCY CASE STUDY</div>
-    <h1>ระบบทั้ง 6 ทำงานพร้อมกัน <span class="red">— เรื่องของลุงสม</span></h1>
-    <p class="lead">เพื่อให้เห็นพลังของระบบเมื่อทุกแกนเชื่อมกัน · case จริงที่ระบบช่วยชีวิตคน</p>
-    <div class="timeline" style="max-width: 900px; margin-top: 1rem;">
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-red);">07:00</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(255,77,109,0.2);">📱</span><span class="timeline-text">ลุงสม 65 ปี ตื่นแขนชา · พิมพ์ใน LINE NIT</span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 1</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-red);">07:02</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(255,77,109,0.2);">⚡</span><span class="timeline-text">AI Triage → ตรวจจับ face/voice asymmetry → <span style="color: var(--accent-red); font-weight: 600;">STROKE ALERT</span></span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 1</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-amber);">07:03</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(255,181,71,0.2);">📞</span><span class="timeline-text">ระบบโทรลูก + แจ้ง 1669 + push <b>Stroke Team standby</b></span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 1+5</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-amber);">07:18</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(255,181,71,0.2);">🚑</span><span class="timeline-text">รถพยาบาล · vital signs ส่ง real-time ไป NIT</span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 5</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal);">07:35</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(0,255,198,0.2);">🏥</span><span class="timeline-text">ถึง NIT · <b>skip check-in</b> เข้า CT scan ทันที</span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 2+3</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal);">07:50</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(0,255,198,0.2);">🧠</span><span class="timeline-text">หมอเปิด Co-pilot · AI confirm <b>ischemic stroke</b> · เสนอ tPA</span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 6</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal); font-weight: 700;">08:00</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(0,255,198,0.3);">💉</span><span class="timeline-text"><strong style="color: var(--accent-teal);">ฉีด tPA · Golden Hour ทันเวลา · ลุงสมรอด</strong></span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal);">D+1</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(0,255,198,0.2);">🤖</span><span class="timeline-text">Rehab tracker bot ดูแลทุกวัน · ลูกได้ progress report</span><span style="margin-left: auto; font-size: 0.7rem; color: var(--accent-cyan); font-family: 'JetBrains Mono', monospace;">SYS 4</span></div></div>
-      <div class="timeline-step"><div class="timeline-time" style="color: var(--accent-teal);">3 mo</div><div class="timeline-action"><span class="timeline-icon" style="background: rgba(0,255,198,0.2);">🚶</span><span class="timeline-text">ลุงสม<b>เดินได้เอง</b> · กลับมาทำกิจวัตรปกติ</span></div></div>
-    </div>
-  </section>
-
-  <!-- 23. IMPACT -->
-  <section class="slide">
-    <div class="num">23 / IMPACT</div>
-    <h1>ถ้าทำได้ <span class="teal">30 รพ.</span> ใน 3 ปี</h1>
+    <div class="num">14 / IMPACT</div>
+    <h1>ผลลัพธ์ที่ <span class="teal">วัดได้</span></h1>
     <div class="stat-grid">
-      <div class="stat"><div class="v">฿1B+</div><div class="k">ประหยัดต้นทุนระบบสาธารณสุข<br>ต่อปี (จาก readmission ลด)</div></div>
-      <div class="stat violet"><div class="v">50M hr</div><div class="k">ชั่วโมงคนไทยที่ประหยัด<br>ต่อปี (เวลารอ -60%)</div></div>
-      <div class="stat amber"><div class="v">1,000+</div><div class="k">ชีวิต stroke patient<br>ที่ช่วยได้ต่อปี</div></div>
-      <div class="stat red"><div class="v">10×</div><div class="k">ความสามารถดูแลคนไข้<br>ของหมอผู้เชี่ยวชาญ 1 คน</div></div>
+      <div class="stat"><div class="v">5,000+</div><div class="k">ชีวิต stroke<br>ที่ช่วยได้/ปี (ทั่ว DMS)</div></div>
+      <div class="stat"><div class="v">฿2B</div><div class="k">ประหยัด healthcare cost<br>ระบบสาธารณสุข/ปี</div></div>
+      <div class="stat violet"><div class="v">200+</div><div class="k">แพทย์ที่ใช้<br>GenAI Scribe</div></div>
+      <div class="stat amber"><div class="v">3,000+</div><div class="k">AFib detected<br>ก่อนเกิด stroke/ปี</div></div>
     </div>
     <div class="highlight" style="margin-top: 1.5rem; border-color: rgba(0, 255, 198, 0.3); background: linear-gradient(90deg, rgba(0, 255, 198, 0.08), transparent);">
-      <div class="label" style="color: var(--accent-teal);">SOCIAL IMPACT</div>
-      <div class="text">เด็กไม่ต้องสูญเสียพ่อแม่จาก stroke ที่รักษาไม่ทัน · พนักงานออฟฟิศไม่เสียวันทำงานเพื่อพบหมอ 7 นาที · หมอได้กลับบ้านทันเย็น</div>
+      <div class="label" style="color: var(--accent-teal);">RECOGNITION TARGETS</div>
+      <div class="text">📰 1 NEJM + 2 Lancet papers · 🏆 HIMSS Davies + WHO Innovation · 📺 WIRED/TIME feature · 🎙️ ESO/WSC keynote · 🏥 WHO Collaborating Centre status · 🌏 First Thai hospital cited in MIT Tech Review</div>
     </div>
   </section>
 
-  <!-- 24. REVENUE -->
+  <!-- 15. THE ASK -->
   <section class="slide">
-    <div class="num">24 / REVENUE</div>
-    <h1>ตัวเลขที่ <span class="teal">นายทุนรัก</span></h1>
-    <div class="stat-grid">
-      <div class="stat"><div class="v">฿5-12M</div><div class="k">Year 1 — NIT pilot + 2-3 รพ. + ทุนรัฐ</div></div>
-      <div class="stat violet"><div class="v">฿20-40M</div><div class="k">Year 2 — Phase 2 + 5-8 รพ. ในเครือ</div></div>
-      <div class="stat amber"><div class="v">฿50-100M</div><div class="k">Year 3 — Phase 3 CDSS + CLMV</div></div>
-      <div class="stat red"><div class="v">฿210M</div><div class="k">TAM ในไทย 5% ของ 1,400 รพ.</div></div>
+    <div class="num">15 / THE ASK</div>
+    <h1>เริ่มกัน <span class="accent">วันนี้</span></h1>
+    <p class="lead">NIT มี vision, มี foundation, มี MOU · Sala Daeng มี engineering, มี AI capability, มี CEO ที่รู้จัก DMS · combine กัน = unlock world-class</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 1.5rem;">
+      <div style="padding: 1.5rem; border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 14px; background: rgba(0, 212, 255, 0.04);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-cyan); margin-bottom: 0.8rem;">📋 NIT</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li style="font-size: 0.95rem;">✓ Access ให้กับ historical data (PDPA-compliant)</li>
+          <li style="font-size: 0.95rem;">✓ Clinical champion — แพทย์ที่เป็น point person 2-3 คน</li>
+          <li style="font-size: 0.95rem;">✓ Pilot ward สำหรับ GenAI Scribe (5 หมอ)</li>
+          <li style="font-size: 0.95rem;">✓ MSU access สำหรับ Layer 1 testing</li>
+          <li style="font-size: 0.95rem;">✓ Co-author commitment ใน papers</li>
+        </ul>
+      </div>
+      <div style="padding: 1.5rem; border: 1px solid rgba(0, 255, 198, 0.3); border-radius: 14px; background: rgba(0, 255, 198, 0.04);">
+        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-teal); margin-bottom: 0.8rem;">🚀 SALA DAENG</div>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
+          <li style="font-size: 0.95rem;">✓ Dedicated team 4-5 dev (Claude Code-powered)</li>
+          <li style="font-size: 0.95rem;">✓ MD advisor part-time + Engineering lead</li>
+          <li style="font-size: 0.95rem;">✓ Phase 1 MVP ใน 12 สัปดาห์</li>
+          <li style="font-size: 0.95rem;">✓ ไม่คิด project fee Phase 1 — แลก co-IP</li>
+          <li style="font-size: 0.95rem;">✓ Pursue ทุน depa/NIA ร่วมกัน</li>
+        </ul>
+      </div>
     </div>
-    <div class="highlight">
-      <div class="label">3-YEAR TRAJECTORY</div>
-      <div class="text">Year 1-3 รวม <span class="grad" style="font-size: 1.3rem; font-weight: 700;">฿75-152M</span> · ROI 10-20× · Exit: strategic acquire</div>
+    <div class="highlight" style="margin-top: 1.3rem;">
+      <div class="label">FIRST STEP</div>
+      <div class="text"><b>Meeting 90 นาที</b> กับผู้บริหาร NIT — review proposal นี้ · ตัดสินใจ pilot scope · sign LOI · เริ่ม Week 1 ภายในเดือนหน้า</div>
     </div>
   </section>
 
-  <!-- 25. THE ASK -->
+  <!-- 16. VISION -->
   <section class="slide">
-    <div class="num">25 / THE ASK</div>
-    <h1>สิ่งที่ต้องการ <span class="accent">วันนี้</span></h1>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem;">
-      <div style="padding: 1.2rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(0,212,255,0.04);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-cyan); margin-bottom: 0.7rem;">📊 FOR CEO / BOARD</div>
-        <p style="font-size: 0.9rem; line-height: 1.55;">1. Allocate dev 4-5 คน core team<br>2. Budget ~100K infrastructure<br>3. Intro NIT ผ่าน contact DMS<br>4. Approve MD advisor part-time</p>
-      </div>
-      <div style="padding: 1.2rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(157,107,255,0.04);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-violet); margin-bottom: 0.7rem;">💻 FOR DEV TEAM</div>
-        <p style="font-size: 0.9rem; line-height: 1.55;">1. Audit DMS Dashboard reusable<br>2. R&D HOSxP API + 43 แฟ้ม<br>3. Build LINE OA prototype<br>4. Setup dev environment</p>
-      </div>
-      <div style="padding: 1.2rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(255,181,71,0.04);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-amber); margin-bottom: 0.7rem;">💰 FOR INVESTOR</div>
-        <p style="font-size: 0.9rem; line-height: 1.55;">1. Seed 3-5M to accelerate<br>2. ROI Year 3 = 10-20×<br>3. Impact วัดได้ business+social<br>4. Exit = strategic acquire</p>
-      </div>
-      <div style="padding: 1.2rem; border: 1px solid var(--line); border-radius: 12px; background: rgba(0,255,198,0.04);">
-        <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.13em; color: var(--accent-teal); margin-bottom: 0.7rem;">🌍 FOR EVERYONE</div>
-        <p style="font-size: 0.9rem; line-height: 1.55;">1. เชื่อใน vision เปลี่ยน healthcare ไทย<br>2. Share ให้คนที่ unblock ได้<br>3. เริ่ม Week 1 พรุ่งนี้<br>4. ทำให้คนไทยมี รพ. ที่ดีขึ้น</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 26. VISION 2030 -->
-  <section class="slide">
-    <div class="num">26 / VISION 2030</div>
-    <h1>เป้าหมายที่ <span class="teal">สูงกว่านี้</span></h1>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.2rem;">
-      <div>
-        <h3>🇹🇭 ในประเทศไทย</h3>
-        <p style="margin-top: 0.6rem;">ทุก รพ. ในกรมการแพทย์ใช้ระบบ Sala Daeng · ขยายไป รพ. มหา'ลัย · เป็น default vendor สำหรับ Smart Hospital ระดับชาติ</p>
-      </div>
-      <div>
-        <h3>🌏 ในภูมิภาค</h3>
-        <p style="margin-top: 0.6rem;">ขยายไป CLMV (ลาว, กัมพูชา, เมียนมาร์, เวียดนาม) · AI ทำให้หมอ 1 คน ดูแลคนไข้ได้ 10 เท่า</p>
-      </div>
-    </div>
+    <div class="num">16 / VISION 2030</div>
+    <h1>NIT ในปี 2030 — <span class="grad">"The Brain Hospital of Asia"</span></h1>
     <div class="vision-panel">
       <div class="year">VISION · 2030</div>
-      <div class="quote">"บริษัทคนไทยที่ทำให้<br><span class="grad">การแพทย์ในประเทศกำลังพัฒนา</span><br>เปลี่ยนไปตลอดกาล"</div>
+      <div class="quote">"เมื่อ neurologist ในเอเชียคิดถึง<br>AI ในวงการประสาท —<br><span class="grad">เขาคิดถึง NIT"</span></div>
     </div>
+    <p class="lead" style="text-align: center; margin: 1.5rem auto 0;">
+      ไม่ใช่เพราะเราขายของถูก ไม่ใช่เพราะเราใหญ่ — แต่เพราะเรา <b>ทำสิ่งที่คนอื่นไม่กล้าทำ</b> และทำสำเร็จ
+    </p>
   </section>
 
-  <!-- 27. END -->
+  <!-- 17. CLOSING -->
   <section class="slide end">
     <div style="font-family: 'JetBrains Mono', monospace; color: var(--ink-3); letter-spacing: 0.2em; margin-bottom: 2rem;">
-      <span class="pulse" style="display: inline-block;"></span> &nbsp; START WEEK 1 · TOMORROW
+      <span class="pulse" style="display: inline-block;"></span> &nbsp; READY WHEN YOU ARE
     </div>
     <h1>
-      <span class="grad">6 ระบบ</span> · 3 เฟส · 1 platform<br>
-      ที่เปลี่ยนชีวิตคนไทย
+      <span class="grad">5 Force Multipliers</span><br>
+      ที่จะเปลี่ยน NIT<br>
+      จาก<span style="color: var(--ink-2);"> "Smart Hospital"</span><br>
+      เป็น<span class="teal"> "World-Class Brain Hospital"</span>
     </h1>
     <p class="lead" style="margin-top: 2rem; max-width: 60ch;">
-      ไม่ใช่แค่ software · มันคือชีวิตที่ดีขึ้นของคนหลายล้าน
+      ไม่ใช่ slide deck — แต่คือ partnership ที่จะ define ตำแหน่งของ NIT 10 ปีข้างหน้า
     </p>
     <div style="margin-top: 3rem; font-family: 'JetBrains Mono', monospace; color: var(--ink-3); font-size: 0.9rem; letter-spacing: 0.15em;">
-      SALA DAENG &nbsp;·&nbsp; MEDICAL AI &nbsp;·&nbsp; 2026
+      NIT × SALA DAENG &nbsp;·&nbsp; FORCE MULTIPLIER &nbsp;·&nbsp; 2026
     </div>
   </section>
 
 </div>
 
 <div class="nav">
-  <span class="counter"><span id="cur">1</span> / <span id="total">27</span></span>
+  <span class="counter"><span id="cur">1</span> / <span id="total">17</span></span>
   <button id="prev" aria-label="previous">←</button>
   <button id="next" aria-label="next">→</button>
 </div>
@@ -1778,7 +1098,6 @@
   const totalEl = document.getElementById('total');
   const progress = document.getElementById('progress');
   totalEl.textContent = total;
-
   let i = 0;
   function go(n) {
     i = Math.max(0, Math.min(total - 1, n));
@@ -1786,15 +1105,11 @@
     cur.textContent = i + 1;
     progress.style.width = `${((i + 1) / total) * 100}%`;
     history.replaceState(null, '', `#${i + 1}`);
-    const active = slides[i];
-    if (active) active.scrollTop = 0;
+    if (slides[i]) slides[i].scrollTop = 0;
   }
-
   document.getElementById('prev').onclick = () => go(i - 1);
   document.getElementById('next').onclick = () => go(i + 1);
-
   document.addEventListener('keydown', (e) => {
-    if (e.target.closest('.phone-chat')) return;
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') { e.preventDefault(); go(i + 1); }
     if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(i - 1); }
     if (e.key === 'Home') go(0);
@@ -1804,21 +1119,14 @@
       else document.documentElement.requestFullscreen();
     }
   });
-
-  let touchStartX = 0, touchStartY = 0;
-  document.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-  });
+  let tx=0,ty=0;
+  document.addEventListener('touchstart', e => { tx=e.touches[0].clientX; ty=e.touches[0].clientY; });
   document.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(dx < 0 ? i + 1 : i - 1);
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if (Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)) go(dx<0?i+1:i-1);
   });
-
-  const hash = parseInt(location.hash.replace('#', '')) - 1;
-  if (!isNaN(hash) && hash >= 0 && hash < total) go(hash);
-  else go(0);
+  const h = parseInt(location.hash.replace('#',''))-1;
+  if (!isNaN(h) && h>=0 && h<total) go(h); else go(0);
 </script>
 </body>
 </html>
